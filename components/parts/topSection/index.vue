@@ -1,11 +1,11 @@
 <template>
   <div id="top">
-    <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" :style="{height: height + 'px'}">
+    <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" style="height: 100vh;">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
           <h1 class="display-1 font-weight-thin mb-4">Bugs</h1>
           <h4 class="subheading">Best unique Gather</h4>
-          <a class="arrow" href="#">Scroll</a>
+          <a class="arrow" v-scroll-to="'#about'">Scroll</a>
         </v-col>
       </v-row>
     </v-parallax>
@@ -16,7 +16,7 @@
 export default {
   data () {
     return {
-      height: 0 
+      height: 0
     }
   },
   created () {
@@ -38,14 +38,16 @@ export default {
 }
 </script>
 
+
+
 <style lang="scss" scoped>
 .arrow {
   display: inline-block;
   position: absolute;
   right: 40px;
-  bottom: 5;
+  bottom: 20px;
   z-index: 2;
-  padding: 10px 10px 110px;
+  padding: 10px 10px 220px;
   overflow: hidden;
   color: #fff;
   font-size: 14px;
@@ -61,7 +63,7 @@ export default {
     bottom: 0%;
     left: 50%;
     width: 1px;
-    height: 100px;
+    height: 200px;
     background: #fff;
     animation: sdl 2s cubic-bezier(1, 0, 0, 1) infinite;
   }
