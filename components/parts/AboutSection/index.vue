@@ -4,7 +4,7 @@
     <v-container>
       <div class="relative">
         <div class="absolute">
-          <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
+          <v-parallax class="about01" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
         </div>
         <div class="absolute">
           <v-card class="mx-auto" max-width="344" outlined>
@@ -28,13 +28,23 @@
 </template>
 
 <style lang="scss" scoped>
+  #about {
+    height: 100vh;
+  }
+
   .text-center {
     color: red;
   }
   .relative {
     position: relative;
+    width: 100%;
   }
   .absolute {
     position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .about01 {
+    width: 10%;
   }
 </style>
