@@ -1,20 +1,42 @@
 <template>
-  <v-parallax
-    dark
-    src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
-  >
-    <v-row
-      align="center"
-      justify="center"
-    >
-      <v-col class="text-center" cols="12">
-        <h1 class="display-1 font-weight-thin mb-4">Bugs</h1>
-        <h4 class="subheading">Best unique Gather</h4>
-        <a class="arrow" href="#">Scroll</a>
-      </v-col>
-    </v-row>
-  </v-parallax>
+  <div id="top">
+    <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" :style="{height: height + 'px'}">
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12">
+          <h1 class="display-1 font-weight-thin mb-4">Bugs</h1>
+          <h4 class="subheading">Best unique Gather</h4>
+          <a class="arrow" href="#">Scroll</a>
+        </v-col>
+      </v-row>
+    </v-parallax>
+  </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      height: 0
+    }
+  },
+  created () {
+    if (process.client) {
+      window.addEventListener('resize', this.handleResize)
+      this.handleResize()
+    }
+  },
+  destroyed () {
+    if (process.client) {
+      window.removeEventListener('resize', this.handleResize)
+    }
+  },
+  methods: {
+    handleResize () {
+      this.height = window.innerHeight
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .arrow {
@@ -36,7 +58,7 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 0%;
     left: 50%;
     width: 1px;
     height: 100px;
