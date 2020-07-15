@@ -1,23 +1,40 @@
 <template>
   <div id="about">
-    aboutooooo
-  <v-parallax
-    dark
-    src="~/assets/imgs/about01.jpg"
-  >
-    <v-row
-      align="center"
-      justify="center"
-    >
-      <v-col class="text-center" cols="12">
-        <h1 class="display-1 font-weight-thin mb-4">Vuetify.js</h1>
-        <h4 class="subheading">Build your application today!</h4>
-      </v-col>
-    </v-row>
-  </v-parallax>
-</div>
+    about
+    <v-container>
+      <div class="relative">
+        <div class="absolute">
+          <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
+        </div>
+        <div class="absolute">
+          <v-card class="mx-auto" max-width="344" outlined>
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="overline mb-4">OVERLINE</div>
+                <v-list-item-title class="headline mb-1">Headline 5</v-list-item-title>
+                <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+              </v-list-item-content>
+
+            </v-list-item>
+
+            <v-card-actions>
+              <v-btn text>Button</v-btn>
+            </v-card-actions>
+          </v-card>
+        </div>
+      </div>
+    </v-container>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-
+  .text-center {
+    color: red;
+  }
+  .relative {
+    position: relative;
+  }
+  .absolute {
+    position: absolute;
+  }
 </style>
