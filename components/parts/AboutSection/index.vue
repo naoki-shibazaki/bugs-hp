@@ -32,19 +32,25 @@
     height: 100vh;
   }
 
-  .text-center {
-    color: red;
-  }
   .relative {
     position: relative;
-    width: 100%;
   }
   .absolute {
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: 100px;
+    left: -50px;
+    padding-left: 250px;
   }
   .about01 {
     width: 10%;
+    top: -50px;
+    left: -10px;
+    padding: 200px;
+  }
+  .mx-auto {
+    width: 100%;
+    top: 200px;
+    left: 300px;
+    padding: 50px;
   }
 </style>
