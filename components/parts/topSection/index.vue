@@ -1,6 +1,6 @@
 <template>
   <div id="top">
-    <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" style="height: 100vh;">
+    <v-parallax :src="require('@/assets/imgs/top.jpg')">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
           <h1 class="display-1 font-weight-thin mb-4">Bugs</h1>
