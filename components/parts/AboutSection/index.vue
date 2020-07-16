@@ -1,56 +1,95 @@
 <template>
   <div id="about">
-    about
-    <v-container>
-      <div class="relative">
-        <div class="absolute">
-          <v-parallax class="about01" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
-        </div>
-        <div class="absolute">
-          <v-card class="mx-auto" max-width="344" outlined>
-            <v-list-item three-line>
-              <v-list-item-content>
-                <div class="overline mb-4">OVERLINE</div>
-                <v-list-item-title class="headline mb-1">Headline 5</v-list-item-title>
-                <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
-              </v-list-item-content>
-
-            </v-list-item>
-
-            <v-card-actions>
-              <v-btn text>Button</v-btn>
-            </v-card-actions>
-          </v-card>
-        </div>
+    <div class="relative">
+      <div class="absolute ab1">
+        <div class="absolute ab0">ABOUT</div>
+        <img src="https://picsum.photos/300/300?random" class="photo imageTest"/>
       </div>
-    </v-container>
+      <div class="absolute ab2">ab2</div>
+      <div class="absolute ab3">
+        <div class="text-Scroll">
+          <p>Please press F12</p>
+      </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  #about {
-    height: 100vh;
-  }
+#about{
+  width: 100vw;
+  height: 100vh;
+  background: rgb(163, 143, 143);
+}
+.relative{
+  width: 100vw;
+  height: 150vh;
 
-  .relative {
-    position: relative;
-  }
-  .absolute {
-    position: absolute;
-    top: 100px;
-    left: -50px;
-    padding-left: 250px;
-  }
-  .about01 {
-    width: 10%;
-    top: -50px;
-    left: -10px;
-    padding: 200px;
-  }
-  .mx-auto {
-    width: 100%;
-    top: 200px;
-    left: 300px;
-    padding: 50px;
-  }
+  background: rgb(162, 233, 168);
+  position: relative;
+}
+
+.absolute{
+  position: absolute;
+}
+.ab0{
+  top: 0;
+  left: 0;
+  transform: translateY(-50%) translateX(0em);
+  font-size: 5em;
+  z-index: 3;
+  display: inline-block;
+  background: linear-gradient(#222 50%, #fff 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.ab1{
+  top: 2rem;
+}
+.ab1, .photo{
+  width: 65vw;
+  height: 100vh;
+  background: rgb(255, 156, 156);
+  z-index: 1;
+}
+.ab2{
+  width: 50vw;
+  height: 90vh;
+  background: rgb(232, 156, 255);
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.ab3{
+  width: 100%;
+  height: 40vh;
+  background: rgb(255, 226, 133);
+  bottom: 0;
+}
+
+.imageTest{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.text-Scroll {
+  width : 50%;
+  font-size : 15rem;
+  text-align : center;
+  overflow : hidden;
+}
+.text-Scroll p{
+  margin:0;
+  display : inline-block;
+  padding-left: 100%;
+  white-space : nowrap;
+  line-height : 1em;
+  animation : textScroll 60s linear infinite;
+}
+@keyframes textScroll{
+  0% { transform: translateX(0)}
+  100% { transform: translateX(-100%)}
+}
 </style>
