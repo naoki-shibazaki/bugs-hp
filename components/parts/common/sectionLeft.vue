@@ -8,7 +8,7 @@
     }
     #{{sectionName}} .bugs-relative{
       width: 100vw;
-      height: 150vh;
+      height: 130vh;
       position: relative;
     }
 
@@ -31,13 +31,13 @@
       top: 2rem;
     }
     #{{sectionName}} .bugs-section1, .bugs-photo{
-      width: 65vw;
+      width: 75vw;
       height: 100vh;
       z-index: 1;
     }
     #{{sectionName}} .bugs-section2{
-      width: 50vw;
-      height: 90vh;
+      width: 55vw;
+      height: 100vh;
       background: rgba(0, 0, 0, 0.8);
       right: 0;
       bottom: 0;
@@ -49,7 +49,7 @@
     #{{sectionName}} .bugs-section3{
       width: 100%;
       height: 40vh;
-      bottom: 0;
+      bottom: -43px;
     }
 
     #{{sectionName}} .bugs-title-image{
@@ -59,7 +59,7 @@
     }
 
     #{{sectionName}} .bugs-text-scroll {
-      width : 50%;
+      width : 45%;
       font-size : 15rem;
       text-align : center;
       overflow : hidden;
