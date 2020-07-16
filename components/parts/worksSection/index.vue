@@ -6,7 +6,6 @@
 
 <style lang="scss" scoped>
 #works{
-  background: rgb(250, 180, 180);
   height: 100vh;
 }
 </style>
@@ -24,7 +23,7 @@ export default {
       param3: require("~/assets/imgs/about.jpg"),
       param4:'人生は挑戦の連続家族の様に助け合い、友人の様に認め合い ライバルの様に高め合うそんな会社を目指しています。'
             + '遊びも仕事も楽しんだもん勝ち一人でも生きていける力を身につけよう',
-      param5:'ながれちゃうー★彡'
+      param5:'WeiweiWeiweiWeiwei★彡'
     }
   }
 }

@@ -5,13 +5,10 @@
     #{{sectionName}}{
       width: 100vw;
       height: 100vh;
-      background: rgb(163, 143, 143);
     }
     #{{sectionName}} .bugs-relative{
       width: 100vw;
       height: 150vh;
-
-      background: rgb(162, 233, 168);
       position: relative;
     }
 
@@ -36,21 +33,22 @@
     #{{sectionName}} .bugs-section1, .bugs-photo{
       width: 65vw;
       height: 100vh;
-      background: rgb(255, 156, 156);
       z-index: 1;
     }
     #{{sectionName}} .bugs-section2{
       width: 50vw;
       height: 90vh;
-      background: rgb(232, 156, 255);
+      background: rgba(0, 0, 0, 0.8);
       right: 0;
       bottom: 0;
       z-index: 2;
     }
+    #{{sectionName}} .bugs-section2 p{
+      color:#fff;
+    }
     #{{sectionName}} .bugs-section3{
       width: 100%;
       height: 40vh;
-      background: rgb(255, 226, 133);
       bottom: 0;
     }
 
@@ -72,7 +70,7 @@
       padding-left: 100%;
       white-space : nowrap;
       line-height : 1em;
-      animation : {{sectionName}}textScroll 60s linear infinite;
+      animation : {{sectionName}}textScroll 250s linear infinite;
     }
     @keyframes {{sectionName}}textScroll{
       0% { transform: translateX(0)}
@@ -84,7 +82,9 @@
         <div class="bugs-absolute bugs-ab-title">{{ title }}</div>
         <img v-bind:src="photoUrl" class="bugs-title-photo bugs-title-image"/>
       </div>
-      <div class="bugs-absolute bugs-section2">{{ content }}</div>
+      <div class="bugs-absolute bugs-section2">
+        <p>{{ content }}</p>
+      </div>
       <div class="bugs-absolute bugs-section3">
         <div class="bugs-text-scroll">
           <p>{{ scrollText }}</p>
