@@ -3,7 +3,7 @@
     <div class="relative">
       <div class="absolute ab1">
         <div class="absolute ab0">ABOUT</div>
-        <img src="https://picsum.photos/300/300?random" class="photo imageTest"/>
+        <img src="~assets/imgs/about.jpg" class="photo imageTest"/>
       </div>
       <div class="absolute ab2">ab2</div>
       <div class="absolute ab3">
