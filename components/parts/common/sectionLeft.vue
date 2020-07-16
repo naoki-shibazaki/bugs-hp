@@ -44,7 +44,8 @@
       z-index: 2;
     }
     #{{sectionName}} .bugs-section2 p{
-      color:#fff;
+      color:rgb(230,230,230);
+      font-size:1.7em;
     }
     #{{sectionName}} .bugs-section3{
       width: 100%;
