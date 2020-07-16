@@ -1,6 +1,6 @@
 <template>
   <div id="top">
-    <v-parallax :src="require('@/assets/imgs/top.jpg')" :style="{height: height + 'px'}">
+    <v-parallax :src="require('@/assets/imgs/works-black.jpg')" :style="{height: height + 'px'}">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
           <h1 class="display-1 font-weight-thin mb-4">Bugs</h1>
