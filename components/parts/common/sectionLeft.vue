@@ -3,6 +3,7 @@
 
     <style>
     #{{sectionName}}{
+      padding-top:10rem;
       width: 100vw;
       height: 100vh;
     }
@@ -16,10 +17,12 @@
       position: absolute;
     }
     #{{sectionName}} .bugs-ab-title{
-      top: 0;
-      left: 0;
-      transform: translateY(-50%) translateX(0em);
-      font-size: 5em;
+      top: 1rem;
+      left: 1rem;
+      transform: translateY(-58%) translateX(0em);
+      font-family: 'bugs-font01';
+      font-weight:200;
+      font-size: 8em;
       z-index: 3;
       display: inline-block;
       background: linear-gradient(#222 50%, #fff 50%);
@@ -59,19 +62,21 @@
       height: 100%;
     }
 
-    #{{sectionName}} .bugs-text-scroll {
+    #{{sectionName}} .bugs-text-scroll-section {
       width : 45%;
       font-size : 15rem;
       text-align : center;
       overflow : hidden;
     }
-    #{{sectionName}} .bugs-text-scroll p{
+    #{{sectionName}} .bugs-text-scroll-section p{
       margin:0;
       display : inline-block;
       padding-left: 100%;
       white-space : nowrap;
       line-height : 1em;
-      animation : {{sectionName}}textScroll 250s linear infinite;
+      font-family: 'bugs-font01';
+      font-weight:400;
+      animation : {{sectionName}}textScroll 180s linear infinite;
     }
     @keyframes {{sectionName}}textScroll{
       0% { transform: translateX(0)}
@@ -87,7 +92,7 @@
         <p>{{ content }}</p>
       </div>
       <div class="bugs-absolute bugs-section3">
-        <div class="bugs-text-scroll">
+        <div class="bugs-text-scroll-section">
           <p>{{ scrollText }}</p>
       </div>
       </div>

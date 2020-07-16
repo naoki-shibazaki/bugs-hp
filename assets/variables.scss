@@ -2,3 +2,8 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+@font-face {
+    font-family: 'bugs-font01';
+    font-weight: 200 900;
+    src: url("~assets/fonts/LeagueSpartanVariable.woff2") format('woff2-variations');
+}
