@@ -4,6 +4,8 @@
 // $font-size-root: 20px;
 @font-face {
     font-family: 'bugs-font01';
-    font-weight: 200 900;
-    src: url("~assets/fonts/LeagueSpartanVariable.woff2") format('woff2-variations');
+    src: url("~assets/fonts/Butler.woff2") format('woff2'),
+           url("~assets/fonts/Butler.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
