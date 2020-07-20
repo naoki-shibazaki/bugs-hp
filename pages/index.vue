@@ -4,7 +4,7 @@
         <AboutSection />
         <BenefitsSection />
         <WorksSection />
-        <UniqueSection />
+        <!--UniqueSection /-->
       </div>
 </template>
 
