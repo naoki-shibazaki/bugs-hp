@@ -148,17 +148,17 @@
       <div class="contentBlock">
         <v-carousel v-if="isCarousel" cycle height="500" hide-delimiter-background show-arrows-on-hover>
           <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-sheet height="100%">
-            <v-row class="fill-height" align="center" justify="center">
-              <div class="makiSection">
-                <p class="makiTitle">{{ slide.title }}</p>
-                <p class="makiContent">{{ slide.content }}</p>
-              </div>  
-            </v-row>
-          </v-sheet>
-        </v-carousel-item>
-      </v-carousel>
-      <p v-if="!isCarousel">{{ content }}</p>
+            <v-sheet height="100%">
+              <v-row class="fill-height" align="center" justify="center">
+                <div class="makiSection">
+                  <p class="makiTitle">{{ slide.title }}</p>
+                  <p class="makiContent">{{ slide.content }}</p>
+                </div>  
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
+        <p v-if="!isCarousel">{{ content }}</p>
       </div>
       <div class="scrollBlock">
         <div class="textScrollBlock">

@@ -56,6 +56,23 @@
         font-size: calc(1em + 1vw);
         text-align: left;
       }
+
+      #{{sectionName}} .makiBlock{
+        grid-area: {{sectionName}}contentBlock;
+        width: 55vw;
+        height: 65vh;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+      }
+      #{{sectionName}} .makiSection {
+        width:80%;
+      }
+      #{{sectionName}} .makiTitle, #{{sectionName}} .makiContent {
+        font-size : 1.5em !important;
+      }
+
       #{{sectionName}} .scrollBlock{
         grid-area: {{sectionName}}scrollBlock;
         width: 100%;
@@ -117,12 +134,23 @@
           width : 100%;
           position: static;
         }
+
+        #{{sectionName}} .makiBlock{
+          width : 100%;
+          position: static;
+        }
         #{{sectionName}} .scrollBlock {
           height: 30vh;
         }
         #{{sectionName}} .textScrollBlock {
           width : 100%;
           font-size: 6rem;
+        }
+        #{{sectionName}} .makiSection {
+          width:60%;
+        }
+        #{{sectionName}} .makiTitle, #{{sectionName}} .makiContent {
+          font-size : 1.3em !important;
         }
       }
     </style>
@@ -131,7 +159,21 @@
         <div class="titleBlock">{{ title }}</div>
         <img v-bind:src="photoUrl" class="titleImg"/>
       </div>
-      <div class="contentBlock">
+      <div class="makiBlock" v-if="isCarousel">
+      <v-carousel v-if="isCarousel" cycle height="500" hide-delimiter-background show-arrows-on-hover>
+          <v-carousel-item v-for="(slide, i) in slides" :key="i">
+            <v-sheet height="100%">
+              <v-row class="fill-height" align="center" justify="center">
+                <div class="makiSection">
+                  <p class="makiTitle">{{ slide.title }}</p>
+                  <p class="makiContent">{{ slide.content }}</p>
+                </div>  
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
+      </div>
+      <div class="contentBlock" v-if="!isCarousel">
         <p>{{ content }}</p>
       </div>
       <div class="scrollBlock">
@@ -145,6 +187,15 @@
 
 <script>
 export default {
-    props: ['sectionName', 'title','photoUrl', 'content', 'scrollText', 'scrollTextColor']
+    props: [
+      'sectionName',
+      'title',
+      'photoUrl',
+      'content',
+      'scrollText',
+      'scrollTextColor',
+      'isCarousel',
+      'slides'
+    ]
 }
 </script>
