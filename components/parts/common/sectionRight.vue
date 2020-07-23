@@ -142,6 +142,7 @@
     <div class="mainBlock">
       <div class="imgBlock">
         <div class="titleBlock">{{ title }}</div>
+        <div class="titleBlock">{{ title }}</div>
         <img v-bind:src="photoUrl" class="titleImg"/>
       </div>
       <div class="contentBlock">

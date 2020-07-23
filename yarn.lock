@@ -1766,11 +1766,6 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-bezier-easing@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
-  integrity sha1-wE3+i5JtbsrKGBPWn/F5t8ICXYY=
-
 bfj@^6.1.1:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/bfj/-/bfj-6.1.2.tgz#325c861a822bcb358a41c78a33b8e6e2086dde7f"
@@ -7497,17 +7492,15 @@ vue-no-ssr@^1.1.1:
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
 
+vue-parallax-js@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vue-parallax-js/-/vue-parallax-js-0.2.3.tgz#83918c717794173ad243fcab39a2754b31c2a77c"
+  integrity sha512-SV2GJ6aJ0vrLfRkpSlbvvULsUeQQw5OyVReAEWxiZ/b9BSUWGO9o1a7GXn4Tu6oeUwj4TBJwzO21iKDl/MuLuw==
+
 vue-router@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.3.4.tgz#4e38abc34a11c41b6c3d8244449a2e363ba6250b"
   integrity sha512-SdKRBeoXUjaZ9R/8AyxsdTqkOfMcI5tWxPZOUX5Ie1BTL5rPSZ0O++pbiZCeYeythiZIdLEfkDiQPKIaWk5hDg==
-
-vue-scrollto@^2.18.1:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/vue-scrollto/-/vue-scrollto-2.18.1.tgz#e23620489583f0b3f21410f149b6585a730672f2"
-  integrity sha512-JojeVOP1Z50Jt0OCOd61jRRRF8TrNvPAzF4LAKwkTEZnt30mpDd48aDZZOEPD3l6z2PybOyUGFT/FNWfTtFv9w==
-  dependencies:
-    bezier-easing "2.1.0"
 
 vue-server-renderer@^2.6.11:
   version "2.6.11"

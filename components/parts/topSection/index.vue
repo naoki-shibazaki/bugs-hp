@@ -1,14 +1,17 @@
 <template>
   <div id="top">
-    <v-parallax :src="require('@/assets/imgs/works-black.jpg')" :style="{height: height + 'px'}">
-      <v-row align="center" justify="center">
-        <v-col class="text-center" cols="12">
-          <h1 class="display-1 font-weight-thin mb-4">Bugs</h1>
-          <h4 class="subheading">Best unique Gather</h4>
-          <a class="arrow" v-scroll-to="'#about'">Scroll</a>
+    <div class="parallax" :style="{height: height + 'px'}">
+      <img :src="require('@/assets/imgs/works-black.jpg')" class="parallaxImg">
+      <v-row>
+        <v-col cols="12">
+          <div class="companytitle">
+            <h1 class="font-weight-thin mb-4">Bugs</h1>
+            <h4 class="subheading">Best unique Gather</h4>
+          </div>        
+          <span class="arrow" >Scroll</span>
         </v-col>
       </v-row>
-    </v-parallax>
+    </div>
   </div>
 </template>
 
@@ -41,6 +44,22 @@ export default {
 
 
 <style lang="scss" scoped>
+.parallax{
+  width: 100%;
+  position: relative;
+}
+.parallaxImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.companytitle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
 .arrow {
   display: inline-block;
   position: absolute;

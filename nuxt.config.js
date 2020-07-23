@@ -37,7 +37,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~plugins/vue-scrollto'
+    { src :'~/plugins/vue-parallax-js', ssr: false },
   ],
   /*
   ** Auto import components
