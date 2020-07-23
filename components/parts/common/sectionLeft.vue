@@ -66,6 +66,11 @@
         bottom: 0;
         z-index: 2;
       }
+      #{{sectionName}} .makiBlock p{
+        color:rgb(230,230,230);
+        font-size: calc(1em + 1vw);
+        text-align: left;
+      }
       #{{sectionName}} .makiSection {
         width:80%;
       }
