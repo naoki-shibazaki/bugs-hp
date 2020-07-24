@@ -4,9 +4,9 @@
       <img :src="require('@/assets/imgs/works-black.jpg')" class="parallaxImg">
       <v-row>
         <v-col cols="12">
-          <div class="companytitle">
-            <h1 class="font-weight-thin mb-4">Bugs</h1>
-            <h4 class="subheading">Best unique Gather</h4>
+          <div class="companyTitleBox">
+            <h1 class="title">Bugs</h1>
+            <h4 class="subTitle">Best unique Gather</h4>
           </div>        
           <span class="arrow" >Scroll</span>
         </v-col>
@@ -53,12 +53,32 @@ export default {
   height: 100%;
   object-fit: cover;
 }
-.companytitle{
+.companyTitleBox{
+  background: rgba(34, 34, 34, 0.9);
   position: absolute;
+  width: 100%;
+  height: 20vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
+  .title{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'bugs-font01' !important;
+    font-size: calc(5em + 6vw) !important;
+    margin-bottom: 5rem;
+  }
+  .subTitle{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'bugs-font01' !important;
+    font-size: calc(.3em + 1vw) !important;
+    letter-spacing: 1rem;
+  }
 }
 .arrow {
   display: inline-block;
