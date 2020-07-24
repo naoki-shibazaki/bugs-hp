@@ -5,8 +5,8 @@
       <v-row>
         <v-col cols="12">
           <div class="companyTitleBox">
-            <h1 class="title">Bugs</h1>
-            <h4 class="subTitle">Best unique Gather</h4>
+            <h1 class="title">Bug.s</h1>
+            <h4 class="subTitle">Best Unique Gather</h4>
           </div>        
           <span class="arrow" >Scroll</span>
         </v-col>
@@ -67,7 +67,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'bugs-font01' !important;
-    font-size: calc(5em + 6vw) !important;
+    font-size: calc(4em + 4vw) !important;
     margin-bottom: 5rem;
   }
   .subTitle{
