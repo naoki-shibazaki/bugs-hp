@@ -21,8 +21,10 @@ export default {
       param1:'about',
       param2:'ABOUT',
       param3: require("~/assets/imgs/about-black.jpg"),
-      param4:'人生は挑戦の連続家族の様に助け合い、友人の様に認め合い ライバルの様に高め合うそんな会社を目指しています。'
-            + '遊びも仕事も楽しんだもん勝ち一人でも生きていける力を身につけよう',
+      param4:'挑戦することが人生の醍醐味だ！'
+            + '連続家族の様に助け合い'
+            + '友人の様に認め合い'
+            + 'ライバルの様に高め合う',
       param5:'Best Unique Gather',
       param6:'#222',
       param7:false,
