@@ -16,7 +16,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: '株式会社Bug.s',
+    titleTemplate: '株式会社Bug.s　',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
