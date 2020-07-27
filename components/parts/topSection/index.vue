@@ -1,7 +1,7 @@
 <template>
   <div id="top">
     <div class="parallax" :style="{height: height + 'px'}">
-      <img :src="require('@/assets/imgs/works-black.jpg')" class="parallaxImg">
+      <img :src="require('~/assets/imgs/works-black.jpg')" class="parallaxImg">
       <v-row>
         <v-col cols="12">
           <div class="companyTitleBox">
