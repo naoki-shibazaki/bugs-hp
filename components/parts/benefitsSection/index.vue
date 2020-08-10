@@ -22,7 +22,7 @@ export default {
       param2:'BENEFITS',
       param3: require("~/assets/imgs/top-black.jpg"),
       param4:'Hello!',
-      param5:'Foooooooooooo!',
+      param5:'',
       param6:'#222',
       param7:true,
       param8:[

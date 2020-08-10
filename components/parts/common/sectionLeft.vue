@@ -72,7 +72,8 @@
         text-align: left;
       }
       #{{sectionName}} .makiSection {
-        width:80%;
+        width:70%;
+        margin-top: 25%;
       }
       #{{sectionName}} .makiTitle, #{{sectionName}} .makiContent {
         font-size : 1.5em !important;
