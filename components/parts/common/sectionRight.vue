@@ -55,6 +55,7 @@
         color:rgb(230,230,230);
         font-size: calc(1em + 1vw);
         text-align: left;
+        white-space:pre-line;
       }
       #{{sectionName}} .scrollBlock{
         grid-area: {{sectionName}}scrollBlock;

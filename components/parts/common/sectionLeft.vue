@@ -60,6 +60,7 @@
         left: 50%;
         transform: translateY(-50%) translateX(-50%);
         width: 85%;
+        white-space:pre-line;
       }
 
       #{{sectionName}} .makiBlock{
