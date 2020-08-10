@@ -1,6 +1,6 @@
 <template>
   <div id="top">
-    <div class="parallax" :style="{height: height + 'px'}">
+    <div class="parallax" :style="{height: '100vh'}">
       <img :src="require('~/assets/imgs/works-black.jpg')" class="parallaxImg">
       <v-row>
         <v-col cols="12">
