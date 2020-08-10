@@ -55,6 +55,11 @@
         color:rgb(230,230,230);
         font-size: calc(1em + 1vw);
         text-align: left;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        width: 85%;
       }
 
       #{{sectionName}} .makiBlock{
@@ -73,7 +78,10 @@
       }
       #{{sectionName}} .makiSection {
         width:70%;
-        margin-top: 25%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translateY(-50%) translateX(-50%);
       }
       #{{sectionName}} .makiTitle, #{{sectionName}} .makiContent {
         font-size : 1.5em !important;
@@ -117,12 +125,12 @@
       
       @media screen and (max-width:600px){
         #{{sectionName}} .mainBlock{
-        display: grid;
-        grid-template:
-          "{{sectionName}}scrollBlock "
-          "{{sectionName}}imgBlock    "
-          "{{sectionName}}contentBlock";
-      }
+          display: grid;
+          grid-template:
+            "{{sectionName}}scrollBlock "
+            "{{sectionName}}imgBlock    "
+            "{{sectionName}}contentBlock";
+        }
         #{{sectionName}} .imgBlock{
           width : 100%;
           height: 60vh;
@@ -139,6 +147,12 @@
         #{{sectionName}} .contentBlock{
           width : 100%;
           position: static;
+        }
+
+        #{{sectionName}} .contentBlock p{
+          position: static;
+          transform: translateY(0) translateX(0);
+          width:100%;
         }
 
         #{{sectionName}} .makiBlock{

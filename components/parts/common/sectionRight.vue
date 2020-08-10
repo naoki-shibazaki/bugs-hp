@@ -94,7 +94,10 @@
 
     #{{sectionName}} .makiSection {
       width:70%;
-      margin-top: 25%;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translateY(-50%) translateX(-50%);
     }
     #{{sectionName}} .makiTitle, #{{sectionName}} .makiContent {
       font-size : 1.5em !important;
