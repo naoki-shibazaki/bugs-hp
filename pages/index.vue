@@ -1,5 +1,5 @@
 <template>
-      <div class="text-center">
+      <div class="text-center main-container">
         <TopSection />
         <AboutSection />
         <BenefitsSection />
@@ -25,3 +25,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  .main-container{
+    overflow: hidden;
+  }
+</style>
