@@ -44,6 +44,9 @@ export default {
 
 
 <style lang="scss" scoped>
+#top{
+  margin-bottom: 10em;
+}
 .parallax{
   width: 100%;
   position: relative;

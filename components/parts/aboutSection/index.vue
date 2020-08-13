@@ -6,7 +6,12 @@
 
 <style lang="scss" scoped>
 #about{
-  height: 150vh;
+  margin-bottom: 15em;
+}
+@media screen and (max-width:600px){
+  #about{
+    margin-bottom: 6.9em;
+  }
 }
 </style>
 

@@ -3,9 +3,7 @@
 
     <style>
       #{{sectionName}}{
-        padding-top:10rem;
         width: 100vw;
-        height: 100vh;
       }
       #{{sectionName}} .mainBlock{
         width: 100vw;
@@ -104,7 +102,7 @@
 
       #{{sectionName}} .textScrollBlock {
         width : 45%;
-        font-size : 12rem;
+        font-size : calc(8em + 1vw);
         text-align : center;
         overflow : hidden;
         color:{{scrollTextColor}};

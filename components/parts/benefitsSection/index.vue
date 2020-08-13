@@ -6,7 +6,13 @@
 
 <style lang="scss" scoped>
 #benefits{
-  height: 150vh;
+  height: auto;
+  margin-bottom: 18em;
+}
+@media screen and (max-width:600px){
+  #benefits{
+    margin-bottom: 6.9em;
+  }
 }
 </style>
 

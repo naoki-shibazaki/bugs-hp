@@ -3,7 +3,6 @@
 
     <style>
     #{{sectionName}}{
-        padding-top:10rem;
         width: 100vw;
         height: 100vh;
       }
