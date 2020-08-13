@@ -90,7 +90,7 @@
         grid-area: {{sectionName}}scrollBlock;
         width: 100%;
         height: 40vh;
-        bottom: -70px;
+        bottom: calc(-5rem - 1vh);
         position: absolute;
       }
 
