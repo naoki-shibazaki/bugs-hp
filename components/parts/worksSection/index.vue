@@ -11,7 +11,7 @@
 }
 @media screen and (max-width:600px){
   #works{
-    margin-bottom: 0;
+    margin-bottom: 2em;
   }
 }
 </style>
