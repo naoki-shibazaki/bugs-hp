@@ -9,11 +9,7 @@
   height: auto;
   margin-bottom: 7.5em;
 }
-@media screen and (max-width:600px){
-  #works{
-    margin-bottom: 6.9em;
-  }
-}
+
 </style>
 
 <script>
