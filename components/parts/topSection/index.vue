@@ -57,7 +57,7 @@ export default {
   object-fit: cover;
 }
 .companyTitleBox{
-  background: rgba(34, 34, 34, 0.9);
+  /*background: rgba(34, 34, 34, 0.9);*/
   position: absolute;
   width: 100%;
   height: 20vh;
