@@ -1,3 +1,6 @@
+
+
+
 <div class="modal close">
     <div class="modal-inner">
         <img class="modal_window_bg" src="./image/img_sample_640_480.png" alt="海の写真" title="空と海">
@@ -5,15 +8,14 @@
             <ul class="c-abouts-items">
                 <li class="c-abouts-item">
                     <div class="c-abouts-item-choices">
-                        <p>
-                            プログラミング言語は？
-                        </p>
+						<span class="balloon1" id="makeImg"></span>
+                        <p>プログラミング言語は？</p>
                         <ul>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value="選択肢1">rain</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value="選択肢2">cube script</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value="選択肢3">Zava</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value="選択肢4">ruby</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value="選択肢5">Pasta</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>rain</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>cube script</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Zava</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=1>ruby</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Pasta</li>
                             <li><button type="button" class="modal_btn" name="answer">答えを送信！</button></li>
                         </ul>
                     </div>
@@ -22,6 +24,154 @@
         </div>
     </div>
 </div>
+
+
+
+
+<script>
+
+
+$(function() {
+
+	});
+
+/*
+$(function() {
+
+//console.log('aaa');
+
+$('.modal_btn').on('click', function() {		
+	const answer = $('input:radio[name^="amswer"]:checked').val();
+
+	if (typeof answer === 'undefined') {
+		//console.log("未定義です。")
+		showBalloon();
+	}else{
+
+
+	}
+
+
+
+  });
+
+});
+
+*/
+
+
+
+// https://webparts.cman.jp/balloon/click/
+
+$('.modal_btn').on('click', function() {
+	const answer = $('input:radio[name^="amswer"]:checked').val();
+
+	if (typeof answer === 'undefined') {
+		//console.log("未定義です。")
+		let wObjballoon = $('#makeImg');
+		if (wObjballoon.attr("class") == "balloon1"){
+			
+			wObjballoon.text("答えを選択して下さい");
+			wObjballoon.removeClass('balloon1').addClass('balloon');
+			setTimeout(function(){wObjballoon.removeClass('balloon').addClass('balloon1')}, 3000);
+	
+		}else{
+			wObjballoon.removeClass('balloon').addClass('balloon1');
+		}
+	}else{
+		console.log(answer);
+
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//function showBalloon(){
+/*
+$('.modal_btn').on('click', function() {
+	const answer = $('input:radio[name^="amswer"]:checked').val();
+
+	if (typeof answer === 'undefined') {
+		//console.log("未定義です。")
+		let wObjballoon = $('#makeImg');
+		if (wObjballoon.attr("class") == "balloon1"){
+			
+			wObjballoon.text("答えを選択して下さい");
+			wObjballoon.removeClass('balloon1').addClass('balloon');
+			setTimeout(function(){wObjballoon.removeClass('balloon').addClass('balloon1')}, 3000);
+	
+		}else{
+			wObjballoon.removeClass('balloon').addClass('balloon1');
+		}
+	}else{
+		console.log(answer.val());
+	}
+*/
+/*
+	//var wObjballoon	= document.getElementById("makeImg");
+	let wObjballoon = $('#makeImg');
+	if (wObjballoon.attr("class") == "balloon1"){
+		
+		wObjballoon.text("答えを選択して下さい");
+		wObjballoon.removeClass('balloon1').addClass('balloon');
+		setTimeout(function(){wObjballoon.removeClass('balloon').addClass('balloon1')}, 3000);
+
+	}else{
+		wObjballoon.removeClass('balloon').addClass('balloon1');
+	}
+
+}
+*/
+/*
+function BBBshowBalloon(){
+	//var wObjballoon	= document.getElementById("makeImg");
+
+	wObjballoon = $('#makeImg');
+	$('#makeImg').fadeIn();
+	
+
+		$('#makeImg').delay(3000).fadeOut().queue(function(){
+			console.log('aaa');
+			//wObjballoon.className = "balloon1";
+				
+			//wObjballoon.css('display', 'aaa');
+			//wObjballoon.style.display = '';
+
+			//$('#makeImg').delay(500).fadeOut();
+			//$('#makeImg').delay(1000).fadeIn();
+		});
+
+
+
+
+	//wObjballoon.className = "balloon1";
+	console.log('bbb');
+
+
+
+}
+*/
+
+
+</script>
+
 
 <!--
 <div class="loading js-loading">
