@@ -1,3 +1,8 @@
+/*
+ **
+ ** モーダルウインドウ
+ **
+ */
 img.modal_window_bg{
     /*background-image: url(/image/menber_4_img.png);*/
     animation-delay: 0.8s;
@@ -24,7 +29,7 @@ div.modal_window{
     left: 0;
 
     display: none; /* 最初は非表示 */
-    z-index: 1200;
+    z-index: 1100;
 }
 
 .modal-inner {
@@ -88,7 +93,9 @@ input.modal_radio[type="radio"]{
 }
 
 /*
- * バルーンメッセージ
+ **
+ ** バルーンメッセージ
+ **
  */
 .balloon1 {
 display: none;                     /* 要素を非表示 */
@@ -106,7 +113,7 @@ margin-bottom : 12px;                 /* 表示位置 */
 font-size: 80%;                       /* 文字サイズ */ 
 padding-left: 20px;
 border-radius:30px;
-z-index: 1200;
+z-index: 1100;
 }
 .balloon:after{
 border-top: 12px solid rgba(5, 85, 5, 0.76);    /* 吹き出し口の高さ・色 */
@@ -117,3 +124,22 @@ left : 5%;                              /* 吹き出し口の横位置 */
 content: "";                       /* コンテンツの挿入 */
 position: absolute;                /* 親要素を基準 */
 }
+
+/*
+ **
+ ** 
+ **
+ */
+
+
+div.quiz_result{
+    /*position: static;*/
+    /*display: none;*/
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1100;
+}
+
+

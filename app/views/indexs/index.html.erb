@@ -1,179 +1,15 @@
 
 
-
-<div class="modal close">
-    <div class="modal-inner">
-        <img class="modal_window_bg" src="./image/img_sample_640_480.png" alt="海の写真" title="空と海">
-        <div class="modal_window">
-            <ul class="c-abouts-items">
-                <li class="c-abouts-item">
-                    <div class="c-abouts-item-choices">
-						<span class="balloon1" id="makeImg"></span>
-                        <p>プログラミング言語は？</p>
-                        <ul>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>rain</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>cube script</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Zava</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=1>ruby</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Pasta</li>
-                            <li><button type="button" class="modal_btn" name="answer">答えを送信！</button></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-
-
-<script>
-
-
-$(function() {
-
-	});
-
-/*
-$(function() {
-
-//console.log('aaa');
-
-$('.modal_btn').on('click', function() {		
-	const answer = $('input:radio[name^="amswer"]:checked').val();
-
-	if (typeof answer === 'undefined') {
-		//console.log("未定義です。")
-		showBalloon();
-	}else{
-
-
-	}
-
-
-
-  });
-
-});
-
-*/
-
-
-
-// https://webparts.cman.jp/balloon/click/
-
-$('.modal_btn').on('click', function() {
-	const answer = $('input:radio[name^="amswer"]:checked').val();
-
-	if (typeof answer === 'undefined') {
-		//console.log("未定義です。")
-		let wObjballoon = $('#makeImg');
-		if (wObjballoon.attr("class") == "balloon1"){
-			
-			wObjballoon.text("答えを選択して下さい");
-			wObjballoon.removeClass('balloon1').addClass('balloon');
-			setTimeout(function(){wObjballoon.removeClass('balloon').addClass('balloon1')}, 3000);
-	
-		}else{
-			wObjballoon.removeClass('balloon').addClass('balloon1');
-		}
-	}else{
-		console.log(answer);
-
-	}
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//function showBalloon(){
-/*
-$('.modal_btn').on('click', function() {
-	const answer = $('input:radio[name^="amswer"]:checked').val();
-
-	if (typeof answer === 'undefined') {
-		//console.log("未定義です。")
-		let wObjballoon = $('#makeImg');
-		if (wObjballoon.attr("class") == "balloon1"){
-			
-			wObjballoon.text("答えを選択して下さい");
-			wObjballoon.removeClass('balloon1').addClass('balloon');
-			setTimeout(function(){wObjballoon.removeClass('balloon').addClass('balloon1')}, 3000);
-	
-		}else{
-			wObjballoon.removeClass('balloon').addClass('balloon1');
-		}
-	}else{
-		console.log(answer.val());
-	}
-*/
-/*
-	//var wObjballoon	= document.getElementById("makeImg");
-	let wObjballoon = $('#makeImg');
-	if (wObjballoon.attr("class") == "balloon1"){
-		
-		wObjballoon.text("答えを選択して下さい");
-		wObjballoon.removeClass('balloon1').addClass('balloon');
-		setTimeout(function(){wObjballoon.removeClass('balloon').addClass('balloon1')}, 3000);
-
-	}else{
-		wObjballoon.removeClass('balloon').addClass('balloon1');
-	}
-
-}
-*/
-/*
-function BBBshowBalloon(){
-	//var wObjballoon	= document.getElementById("makeImg");
-
-	wObjballoon = $('#makeImg');
-	$('#makeImg').fadeIn();
-	
-
-		$('#makeImg').delay(3000).fadeOut().queue(function(){
-			console.log('aaa');
-			//wObjballoon.className = "balloon1";
-				
-			//wObjballoon.css('display', 'aaa');
-			//wObjballoon.style.display = '';
-
-			//$('#makeImg').delay(500).fadeOut();
-			//$('#makeImg').delay(1000).fadeIn();
-		});
-
-
-
-
-	//wObjballoon.className = "balloon1";
-	console.log('bbb');
-
-
-
-}
-*/
-
-
-</script>
-
-
 <!--
+<div id="loading">
+  <div id="loading_text"></div>
+</div>
+-->
+
+
+
+
+
 <div class="loading js-loading">
 <div class='tetrominos'>
 	<div class='tetromino box1'></div>
@@ -182,7 +18,7 @@ function BBBshowBalloon(){
 	<div class='tetromino box4'></div>
   </div>
 </div>
--->
+
 <!--l-root-->
 <div class="l-root">
 <!--//l-header END-->
@@ -709,3 +545,98 @@ function BBBshowBalloon(){
 
 </div>
 <!--//l-root END-->
+
+
+
+<span class="quiz_result"></span>
+
+<div class="modal close">
+    <div class="modal-inner">
+        <img class="modal_window_bg" src="./image/img_sample_640_480.png" alt="海の写真" title="空と海">
+        <div class="modal_window">
+            <ul class="c-abouts-items">
+                <li class="c-abouts-item">
+                    <div class="c-abouts-item-choices">
+						<span class="balloon1" id="makeImg"></span>
+                        <p>プログラミング言語は？</p>
+                        <ul>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>rain</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>cube script</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Zava</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=1>ruby</li>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Pasta</li>
+                            <li><button type="button" class="modal_btn" name="answer">答えを送信！</button></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+
+// https://webparts.cman.jp/balloon/click/
+
+$('.modal_btn').on('click', function() {
+	// バルーンメッセージの表示
+	showBalloonMsg = (msg) => {
+		wObjballoon.text(msg);
+		wObjballoon.removeClass('balloon1').addClass('balloon');
+		setTimeout(function(){wObjballoon.removeClass('balloon').addClass('balloon1')}, 3000);
+	}
+
+	// 画面ロック
+	screenLock = () => {
+		// ロック用のdivを生成
+		var element = document.createElement('div'); 
+		element.id = "screenLock"; 
+		// ロック用のスタイル
+		element.style.height = '100%'; 
+		element.style.left = '0px'; 
+		element.style.position = 'fixed';
+		element.style.top = '0px';
+		element.style.width = '100%';
+		element.style.zIndex = '9999';
+		element.style.opacity = '0';
+
+		var objBody = document.getElementsByTagName("body").item(0); 
+		objBody.appendChild(element);
+	}
+
+	zzz = () => {
+		$('.quiz_result').css("display", "block");
+	}
+
+	const answer = $('input:radio[name^="amswer"]:checked').val();
+	let wObjballoon = $('#makeImg');
+
+	if(typeof answer === 'undefined'){
+		// 回答(ラジオボタン)が選択されてない場合
+		if (wObjballoon.attr("class") == "balloon1"){
+			showBalloonMsg('答えを選択して下さい');
+		}else{
+			wObjballoon.removeClass('balloon').addClass('balloon1');
+		}
+	}else{
+		// 回答(ラジオボタン)が選択されている場合
+		// console.log(answer);
+		if(answer === '1'){
+			// トップページを表示する
+			$('.modal').fadeOut();
+			zzz();
+		}else{
+			showBalloonMsg('不正解です');
+			screenLock();
+			//location.reload();
+			//setTimeout(location.reload(),3000);
+			setTimeout(function(){location.reload()}, 3000);
+		}
+	}
+});
+
+
+
+
+
+</script>
