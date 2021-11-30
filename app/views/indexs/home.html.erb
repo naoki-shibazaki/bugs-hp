@@ -12,45 +12,59 @@
 		お名前※
 	</dt>
 	<dd>
-		<%= text_field_tag "form_onamae", @forms.form_onamae, placeholder: "25文字以内で必ず入力するのじゃ！" %>
+		<%= text_field_tag "items[form_onamae]", @forms.form_onamae, placeholder: "25文字以内で必ず入力するのじゃ！" %>
 	</dd>
 	<dt>
 		フリガナ
 	</dt>
 	<dd>
-		<%= text_field_tag "form_hurigana", @forms.form_hurigana, placeholder: "25文字以内で必要なら入力するのじゃ！" %>
+		<%= text_field_tag "items[form_hurigana]", @forms.form_hurigana, placeholder: "25文字以内で必要なら入力するのじゃ！" %>
 	</dd>
 	<dt>
 		メールアドレス※
 	</dt>
 	<dd>
-		<%= text_field_tag "form_email", @forms.form_email, placeholder: "100文字以内で必ず入力するのじゃ！" %>
+		<%= text_field_tag "items[form_email]", @forms.form_email, placeholder: "100文字以内で必ず入力するのじゃ！" %>
 	</dd>
 	<dt>
 		電話番号
 	</dt>
 	<dd>
-		<%= text_field_tag "form_tel", @forms.form_tel, placeholder: "15文字以内で必要なら入力するのじゃ！" %>
+		<%= text_field_tag "items[form_tel]", @forms.form_tel, type: 'number',  placeholder: "15文字以内で必要なら入力するのじゃ！" %>
 	</dd>
 	<dt>
 		メッセージ※
 	</dt>
 	<dd>
-		<%= text_area_tag "form_message", @forms.form_message, rows: 10, cols: 30, placeholder: "伝えたことは必ず書くのじゃ！" %>
+		<%= text_area_tag "items[form_message]", @forms.form_message, rows: 10, cols: 30, placeholder: "伝えたことは必ず1000文字以内で書くのじゃ！" %>
 	</dd>
 </dl>
 <p class="button-area">
 	<%= button_tag raw('<span class="select">送る</span>'), class: 'send-button' %>
 </p>
-
-
-
 <% end %>
 
 
 
+<script>
 
-								<!--
+/*
+$('.modal_btn').on('click', function() {
+
+});
+*/
+
+</script>
+
+
+
+
+
+
+
+
+
+<!--
 <%= form_with url: '/home' do |form| %>
 	<%= form.text_field :title %>
 <% end %>

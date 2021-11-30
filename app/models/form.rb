@@ -15,16 +15,27 @@ class Form
         :form_message
 
     #バリデーションの定義
-    # validates :content, {presence: true, length: {maximum: 140}}
+    MaxLength1 = 25
+    MaxLength2 = 100
+    MaxLength3 = 1000
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/i
+
     validates :form_onamae,
-        presence: true
-    validates :form_hurigana,
-        presence: true
+        presence: true,
+        length: { maximum: MaxLength1 }
+    #validates :form_hurigana,
+    #    presence: true
     validates :form_email,
-        presence: true
+        presence: true,
+        length: { maximum: MaxLength1 },
+        format: { with: VALID_EMAIL_REGEX }
     validates :form_tel,
-        presence: true
+        #presence: true,
+        length: { maximum: MaxLength2 }
+        #format: { with: VALID_PHONE_REGEX }
     validates :form_message,
-        presence: true
+        presence: true,
+        length: { maximum: MaxLength3 }
     
 end
