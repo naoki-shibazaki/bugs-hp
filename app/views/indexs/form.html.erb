@@ -1,0 +1,53 @@
+<section class="contact" id="contact">
+	<div class="c-fit">
+		<div class="c-content">
+		<%= form_with url: '/form' do |form| %>
+			<h2 class="c-page__title contact">CONTACT.</h2>
+		<% if flash[:notice] %>
+		<div class="formbox">
+			<p><%= flash[:notice] %></p>
+			<ul>
+			<% @forms.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+		<% end %>
+		<dl class="c-form">
+			<dt>
+				お名前※
+			</dt>
+			<dd>
+				<%= text_field_tag "items[form_onamae]", @forms.form_onamae, placeholder: "25文字以内で必ず入力するのじゃ！" %>
+			</dd>
+			<dt>
+				フリガナ
+			</dt>
+			<dd>
+				<%= text_field_tag "items[form_hurigana]", @forms.form_hurigana, placeholder: "25文字以内で必要なら入力するのじゃ！" %>
+			</dd>
+			<dt>
+				メールアドレス※
+			</dt>
+			<dd>
+				<%= text_field_tag "items[form_email]", @forms.form_email, placeholder: "100文字以内で必ず入力するのじゃ！" %>
+			</dd>
+			<dt>
+				電話番号
+			</dt>
+			<dd>
+				<%= text_field_tag "items[form_tel]", @forms.form_tel, type: 'number',  placeholder: "15文字以内で必要なら入力するのじゃ！" %>
+			</dd>
+			<dt>
+				メッセージ※
+			</dt>
+			<dd>
+				<%= text_area_tag "items[form_message]", @forms.form_message, rows: 3, cols: 25, placeholder: "伝えたことは必ず1000文字以内で書くのじゃ！" %>
+			</dd>
+		</dl>
+		<p class="button-area">
+			<%= button_tag raw('<span class="select">送る</span>'), class: 'send-button' %>
+		</p>
+		<% end %>
+	</div>
+</section>

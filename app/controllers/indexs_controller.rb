@@ -1,9 +1,34 @@
 class IndexsController < ApplicationController
 
   def index
-    
+    @forms = Form.new
+  end
+
+  def form
+    @forms = Form.new
+    # 連続で「メール送信」リンクを叩かれた際に値が残るので初期化する
+    flash[:notice] = nil
+    if request.post?
+      # 値を保持
+      params[:items].each do |key, value|
+        @forms.send("#{key}=", value)
+      end
+      if @forms.invalid?
+        flash[:notice] = '★入力エラーです！'
+      else
+        FormMailer.confirm_user(@forms).deliver_now
+        FormMailer.confirm_bugs(@forms).deliver_now
+        redirect_to('/form_end')
+      end
+    end
   end
   
+  def form_end
+  end
+
+
+
+
   def home
     #FormMailer.confirm.deliver_now
     #@posts.form_onamae = ''
@@ -41,7 +66,7 @@ class IndexsController < ApplicationController
       #aaa = 'form_onamae'
       #@forms.send(aaa) = params[:items][:form_onamae]
       #@forms.send("form_onamae=", 9)
-      #p @forms
+      p @forms
 
       
       #p @forms.valid?
@@ -49,9 +74,11 @@ class IndexsController < ApplicationController
 
       if @forms.invalid?
         p 'vエラーです'
+        flash[:notice] = "★入力エラーです！"
       else
         p 'vOKです'
-        FormMailer.confirm(@forms).deliver_now
+        FormMailer.confirm_user(@forms).deliver_now
+        FormMailer.confirm_bugs(@forms).deliver_now
       end
 
       #@posts.form_onamae = params[:form_onamae]

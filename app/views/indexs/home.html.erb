@@ -1,12 +1,15 @@
-
-<% if flash[:notice] %>
-	<div class="flash">
-	  <%= flash[:notice] %>
-	</div>
-<% end %>
-
 <%= form_with url: '/home' do |form| %>
 <h2 class="c-page__title contact">CONTACT.</h2>
+<% if flash[:notice] %>
+<div class="formbox">
+<p><%= flash[:notice] %></p>
+<ul>
+	<% @forms.errors.full_messages.each do |message| %>
+	<li><%= message %></li>
+	<% end %>
+</ul>
+</div>
+<% end %>
 <dl class="c-form">
 	<dt>
 		お名前※

@@ -2,6 +2,8 @@ class Form
     # 参考
     # https://railsguides.jp/active_model_basics.html
     # https://api.rubyonrails.org/classes/ActiveModel/Validations.html
+    # バリデーション
+    # https://techtechmedia.com/error-messages-validation-rails/
 
     #include ActiveModel::Model
     include ActiveModel::Validations
@@ -17,7 +19,8 @@ class Form
     #バリデーションの定義
     MaxLength1 = 25
     MaxLength2 = 100
-    MaxLength3 = 1000
+    MaxLength3 = 15
+    MaxLength4 = 1000
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/i
 
@@ -28,14 +31,14 @@ class Form
     #    presence: true
     validates :form_email,
         presence: true,
-        length: { maximum: MaxLength1 },
+        length: { maximum: MaxLength2 },
         format: { with: VALID_EMAIL_REGEX }
     validates :form_tel,
         #presence: true,
-        length: { maximum: MaxLength2 }
+        length: { maximum: MaxLength3 }
         #format: { with: VALID_PHONE_REGEX }
     validates :form_message,
         presence: true,
-        length: { maximum: MaxLength3 }
+        length: { maximum: MaxLength4 }
     
 end
