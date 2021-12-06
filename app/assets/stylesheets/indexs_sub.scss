@@ -107,12 +107,12 @@ position: absolute;                /* 親要素を基準 */
  ** 
  **
  */
-div.quiz_result{
-    display: block;
+span.quiz_result{
+    display: none;
     position: fixed;
-    top: 50%;
+    top: 20%;
     left: 50%;
-    z-index: 1100;
+    z-index: 1110;
 }
 /*
  **

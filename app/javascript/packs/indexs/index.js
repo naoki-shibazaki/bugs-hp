@@ -70,11 +70,6 @@ $(function(){
       objBody.appendChild(element);
     }
 
-    //正解メッセージ用
-    //zzz = () => {
-    //	//$('.quiz_result').css("display", "block");
-    //}
-
     // 送信されたクイズの答えを取得
     const answer = $('input:radio[name^="amswer"]:checked').val();
     // ユーザーへのメッセージ表示に使用
@@ -92,9 +87,14 @@ $(function(){
     }else{
       // 回答(ラジオボタン)が選択されている場合
       if(answer === '1'){
-        // トップページを表示する
-        $('.modal').fadeOut();
-        //zzz();
+        // 正解メッセージ用を表示
+        $('.quiz_result').show();
+        setTimeout(function(){
+          // 正解メッセージ用を非表示
+          $('.quiz_result').fadeOut();
+          // トップページを表示する
+          $('.modal').fadeOut();
+        }, 1000);
       }else{
         // 画面をロックする
         screenLock();
