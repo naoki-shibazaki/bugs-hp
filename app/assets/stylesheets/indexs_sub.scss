@@ -4,19 +4,13 @@
  **
  */
 img.modal_window_bg{
-    /*background-image: url(/image/menber_4_img.png);*/
     animation-delay: 0.8s;
 }
-
 div.modal_window{
-    /*font-size: 2.4rem;
-    position: relative;
-    display: initial;*/
     position: relative;
     left: 10px;
     bottom: 10px;
 }
-
 .modal {
     width: 100%;
     height: 100%;
@@ -31,30 +25,18 @@ div.modal_window{
     display: none; /* 最初は非表示 */
     z-index: 1100;
 }
-
 .modal-inner {
-    /*
-    width: 500px;
-    height: 500px;
-    
-    background-color: rgb(77, 60, 60);
-
-    padding: 50px;
-    border-radius: 20px;
-*/
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50% , -50% );
     
 }
-
 button.close-modal {
     border: none;  /* 枠線を消す */
     outline: none; /* クリックしたときに表示される枠線を消す */
     background: transparent; /* 背景の灰色を消す */
 }
-
 .fa-times-circle {
     font-size: 32px;
     color: white;
@@ -63,7 +45,6 @@ button.close-modal {
     top: 5px;
     right: 5px;
 }
-
 button.modal_btn {
 	position: static;
     width: 120px;
@@ -81,17 +62,14 @@ button.modal_btn {
   box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
   border        : 2px solid #0059b3;    /* 枠の指定 */
 }
-
 button.modal_btn:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #0059b3;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
 }
-
 input.modal_radio[type="radio"]{
     margin-right: 1em;
 }
-
 /*
  **
  ** バルーンメッセージ
@@ -124,22 +102,18 @@ left : 5%;                              /* 吹き出し口の横位置 */
 content: "";                       /* コンテンツの挿入 */
 position: absolute;                /* 親要素を基準 */
 }
-
 /*
  **
  ** 
  **
  */
 div.quiz_result{
-    /*position: static;*/
-    /*display: none;*/
     display: block;
     position: fixed;
     top: 50%;
     left: 50%;
     z-index: 1100;
 }
-
 /*
  **
  ** フォームのメッセージ
@@ -174,7 +148,6 @@ div.quiz_result{
     margin: 0; 
     padding: 0;
 }
-
 /*
  **
  ** メール送信完了
