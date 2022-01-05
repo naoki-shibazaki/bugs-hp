@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get '/form_end' => 'indexs#form_end'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # 隠れページ
+  get '/back_hide_page' => 'indexs#back_hide_page'
 end

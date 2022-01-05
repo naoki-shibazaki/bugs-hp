@@ -35,4 +35,9 @@ class IndexsController < ApplicationController
   def form_end
   end
 
+  # 隠れページ
+  def back_hide_page
+    @testtable = Testtable.all
+  end
+
 end
