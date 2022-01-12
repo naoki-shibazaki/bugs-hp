@@ -503,20 +503,31 @@
 <span class="quiz_result"><img class="modal_window_bg" src="./image/correct_answer.png" alt="正解" title="正解"></span>
 <div class="modal close">
     <div class="modal-inner">
-        <img class="modal_window_bg" src="./image/black_bugs_chan.png" alt="海の写真" title="空と海">
+		<div class="modal-black_bugs">
+			<img class="modal_window_bugs" src="./image/black_bugs_chan.png" alt="ブラックバグズちゃん" title="ブラックバグズちゃん">
+		</div>
         <div class="modal_window">
             <ul class="c-abouts-items">
                 <li class="c-abouts-item">
-                    <div class="c-abouts-item-choices">
-						<span class="balloon1" id="makeImg"></span>
-                        <p>プログラミング言語は？</p>
-                        <ul>
-							<% @quizzes.each do |key, value| %>
-								<li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
-							<% end %>
-                            <li><button type="button" class="modal_btn" name="answer">答えを送信！</button></li>
-                        </ul>
-                    </div>
+					<div class="modal-left_window">
+						<div class="c-abouts-item-choices">
+							<span class="balloon1" id="makeImg"></span>
+							<p>正しいプログラム言語で攻撃だ！</p>
+							<ul>
+								<% @quizzes.each do |key, value| %>
+									<li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
+								<% end %>
+								<li><button type="button" class="modal_btn" name="answer">攻撃！</button></li>
+							</ul>
+						</div>
+					</div>
+					<div class="modal-right_window">
+						<div class="c-abouts-item-choices">
+							<ul>
+								<li>ブラックバグズちゃん　−　1ぴき</li>
+							</ul>
+						</div>
+					</div>
                 </li>
             </ul>
         </div>

@@ -16,6 +16,24 @@ span.quiz_result{
 img.modal_window_bg{
     animation-delay: 0.8s;
 }
+/* ブラックバグズちゃん */
+div.modal-black_bugs{
+}
+img.modal_window_bugs{
+    width: 250px;
+}
+/* ウインドウ：左 */
+div.modal-left_window{
+    position: absolute;
+    top: 300px;
+}
+/* ウインドウ：右 */
+div.modal-right_window{
+    position: absolute;
+    top: 123px;
+    left: -160px;
+    width: 500px;
+}
 /*
  ** モーダルウインドウ:枠1
  */
@@ -40,18 +58,17 @@ img.modal_window_bg{
  */
 .modal-inner {
     position: fixed;
-    top: 50%;
+    top: 30%;
     left: 50%;
+    /*
     transform: translate(-50% , -50% );
-    
+    */
 }
 /*
  ** モーダルウインドウ:枠3
  */
 div.modal_window{
-    position: relative;
-    left: 10px;
-    bottom: 10px;
+    position: fixed;
 }
 /*
  ** モーダルウインドウを閉じる
