@@ -3,15 +3,23 @@
  ** モーダルウインドウ
  **
  */
+/*
+ ** クイズ正解時の画像表示用
+ */
+span.quiz_result{
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    z-index: 1110;
+}
 img.modal_window_bg{
     animation-delay: 0.8s;
 }
-div.modal_window{
-    position: relative;
-    left: 10px;
-    bottom: 10px;
-}
-.modal {
+/*
+ ** モーダルウインドウ:枠1
+ */
+ .modal {
     width: 100%;
     height: 100%;
     /*background-color: rgb(204, 204, 204, 0.5);
@@ -27,6 +35,9 @@ div.modal_window{
     display: none; /* 最初は非表示 */
     z-index: 1100;
 }
+/*
+ ** モーダルウインドウ:枠2
+ */
 .modal-inner {
     position: fixed;
     top: 50%;
@@ -34,6 +45,17 @@ div.modal_window{
     transform: translate(-50% , -50% );
     
 }
+/*
+ ** モーダルウインドウ:枠3
+ */
+div.modal_window{
+    position: relative;
+    left: 10px;
+    bottom: 10px;
+}
+/*
+ ** モーダルウインドウを閉じる
+ */
 button.close-modal {
     border: none;  /* 枠線を消す */
     outline: none; /* クリックしたときに表示される枠線を消す */
@@ -47,6 +69,9 @@ button.close-modal {
     top: 5px;
     right: 5px;
 }
+/*
+ ** モーダルウインドウのボタン
+ */
 button.modal_btn {
 	position: static;
     width: 120px;
@@ -73,9 +98,7 @@ input.modal_radio[type="radio"]{
     margin-right: 1em;
 }
 /*
- **
  ** バルーンメッセージ
- **
  */
 .balloon1 {
 display: none;                     /* 要素を非表示 */
@@ -104,18 +127,7 @@ left : 5%;                              /* 吹き出し口の横位置 */
 content: "";                       /* コンテンツの挿入 */
 position: absolute;                /* 親要素を基準 */
 }
-/*
- **
- ** 
- **
- */
-span.quiz_result{
-    display: none;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    z-index: 1110;
-}
+
 /*
  **
  ** フォームのメッセージ
@@ -151,9 +163,7 @@ span.quiz_result{
     padding: 0;
 }
 /*
- **
  ** メール送信完了
- **
  */
 p.form_end{
     color: #364e96;/*文字色*/
