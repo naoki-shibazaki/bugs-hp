@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_052803) do
+ActiveRecord::Schema.define(version: 2022_01_11_081917) do
 
   create_table "quizzes", force: :cascade do |t|
     t.string "quiz", null: false
     t.boolean "answer", null: false
+    t.integer "answer2"
     t.index ["quiz"], name: "index_quizzes_on_quiz", unique: true
   end
 

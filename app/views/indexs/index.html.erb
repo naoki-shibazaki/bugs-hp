@@ -511,11 +511,9 @@
 						<span class="balloon1" id="makeImg"></span>
                         <p>プログラミング言語は？</p>
                         <ul>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>rain</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>cube script</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Zava</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=1>ruby</li>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=0>Pasta</li>
+							<% @quizzes.each do |key, value| %>
+								<li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
+							<% end %>
                             <li><button type="button" class="modal_btn" name="answer">答えを送信！</button></li>
                         </ul>
                     </div>
