@@ -6,21 +6,40 @@
 /*
  ** クイズ正解時の画像表示用
  */
-span.quiz_result{
+div.quiz_result{
     display: none;
-    position: fixed;
+    position: absolute;
     top: 20%;
     left: 50%;
     z-index: 1110;
 }
-img.modal_window_bg{
-    animation-delay: 0.8s;
+div.quiz_result2{
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    z-index: 1110;
+}
+/* 回答後のメッセージを1文字づつ表示 */
+p.eachTextAnime{
+    width: 200px;
+    white-space: nowrap;
+}
+.eachTextAnime span{opacity: 0;}
+.eachTextAnime.appeartext span{ animation:text_anime_on .1s ease-out forwards; }
+@keyframes text_anime_on {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
 }
 /* ブラックバグズちゃん */
 div.modal-black_bugs{
 }
 img.modal_window_bugs{
-    width: 250px;
+    width: 200px;
 }
 /* ウインドウ：左 */
 div.modal-left_window{
@@ -58,7 +77,7 @@ div.modal-right_window{
  */
 .modal-inner {
     position: fixed;
-    top: 30%;
+    top: 2%;
     left: 50%;
     /*
     transform: translate(-50% , -50% );

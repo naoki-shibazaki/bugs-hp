@@ -500,8 +500,25 @@
 </div>
 <!--//l-root END-->
 
-<span class="quiz_result"><img class="modal_window_bg" src="./image/correct_answer.png" alt="正解" title="正解"></span>
 <div class="modal close">
+	<div class="quiz_result">
+		<ul class="c-abouts-items">
+			<li class="c-abouts-item">
+				<div class="c-abouts-item-choices">
+					<p class="eachTextAnime">ブラックバグズちゃん を倒した！</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="quiz_result2">
+		<ul class="c-abouts-items">
+			<li class="c-abouts-item">
+				<div class="c-abouts-item-choices">
+					<p class="eachTextAnime">勇者たちは全滅した・・・</p>
+				</div>
+			</li>
+		</ul>
+	</div>
     <div class="modal-inner">
 		<div class="modal-black_bugs">
 			<img class="modal_window_bugs" src="./image/black_bugs_chan.png" alt="ブラックバグズちゃん" title="ブラックバグズちゃん">
@@ -534,9 +551,30 @@
     </div>
 </div>
 
+<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/8-11/js/8-11.js"></script>
+
 <script>
 //正解メッセージ用
 //zzz = () => {
 //	//$('.quiz_result').css("display", "block");
 //}
+
+
+// eachTextAnimeにappeartextというクラス名を付ける定義
+/*
+function EachTextAnimeControl() {
+  $('.eachTextAnime').each(function () {
+    var elemPos = $(this).offset().top - 50;
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight) {
+      $(this).addClass("appeartext");
+
+    } else {
+      $(this).removeClass("appeartext");
+    }
+  });
+}
+*/
+
 </script>

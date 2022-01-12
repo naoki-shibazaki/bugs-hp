@@ -1,4 +1,8 @@
 $(function(){
+  // 戦闘後(クイズ)のメッセージ
+  // let msg_right = 'ブラックバグズちゃん を倒した！';
+  // let msg_wrong = '勇者たちは全滅した・・・';
+
   ///
   /// モーダルウインドウの処理
   ///
@@ -79,7 +83,7 @@ $(function(){
       // 回答(ラジオボタン)が選択されてない場合		
       if (wObjballoon.attr("class") == "balloon1"){
         // メッセージを表示する
-        showBalloonMsg('答えを選択して下さい');
+        showBalloonMsg('攻撃を選択するのじゃ！');
       // 
       }else{
         //wObjballoon.removeClass('balloon').addClass('balloon1');
@@ -87,19 +91,25 @@ $(function(){
     }else{
       // 回答(ラジオボタン)が選択されている場合
       if(answer === '1'){
-        // 正解メッセージ用を表示
+        // メッセージウインドウを表示
         $('.quiz_result').show();
+        // 表示するメッセージの書き換え
+        //$('.eachTextAnime').text(msg_right);
         setTimeout(function(){
           // 正解メッセージ用を非表示
           $('.quiz_result').fadeOut();
           // トップページを表示する
           $('.modal').fadeOut();
-        }, 1000);
+        }, 2500);
       }else{
+        // メッセージウインドウを表示
+        $('.quiz_result2').show();
+        // 表示するメッセージの書き換え
+        //$('.eachTextAnime').text(msg_wrong);
         // 画面をロックする
         screenLock();
         // メッセージを表示する
-        showBalloonMsg('不正解です');
+        //showBalloonMsg('不正解です');
         // 3秒後にリロードする
         setTimeout(function(){location.reload()}, 3000);
       }
