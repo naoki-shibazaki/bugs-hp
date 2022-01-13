@@ -119,22 +119,16 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # メール送信関連の設定
-  ### 
-  ### ★以下の値を本番環境で設定する必要あり
-  ###  config.action_mailer.smtp_settings
-  ### 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'bugs.co.jp' }
   config.action_mailer.delivery_method = :smtp
-=begin
   config.action_mailer.smtp_settings = {
       :address => 'smtp.gmail.com',
       :port => 587,
-      :domain => 'bugs.co.jp',
+      :domain => 'example.com',
       :user_name => 'harada.itservice@gmail.com',
       :password => 'iipubnlvmrtzcxks',
       :authentication => :'login',
       :enable_starttls_auto => true
   }
-=end
 end
