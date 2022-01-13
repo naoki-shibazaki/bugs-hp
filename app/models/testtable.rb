@@ -1,0 +1,2 @@
+class Testtable < ApplicationRecord
+end
