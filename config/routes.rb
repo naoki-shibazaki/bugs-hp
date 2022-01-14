@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # トップページ
   get '/' => 'indexs#index'
   post '/' => 'indexs#index'
