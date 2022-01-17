@@ -20,6 +20,24 @@ div.quiz_result2{
     left: 50%;
     z-index: 1110;
 }
+/* ブラックバグズちゃん */
+div.modal-black_bugs{
+}
+img.modal_window_bugs{
+    width: 200px;
+}
+/* ウインドウ：左 */
+div.modal-left_window{
+    position: absolute;
+    top: 320px;
+}
+/* ウインドウ：右 */
+div.modal-right_window{
+    position: absolute;
+    top: 123px;
+    left: -160px;
+    width: 500px;
+}
 /* 回答後のメッセージを1文字づつ表示 */
 p.eachTextAnime{
     width: 200px;
@@ -35,23 +53,52 @@ p.eachTextAnime{
         opacity:1;
     }
 }
+
+@media only screen and (max-width: 46.875em) { 
 /* ブラックバグズちゃん */
-div.modal-black_bugs{
+    div.quiz_result2{
+        display: none;
+        position: absolute;
+        top: 20%;
+        left: 80%;
+        z-index: 1110;
+    }
+    div.modal-black_bugs{
+    }
+    img.modal_window_bugs{
+        width: 100px;
+    }
+    /* ウインドウ：左 */
+    div.modal-left_window{
+        position: absolute;
+        top: 285px;
+        left: 30px;
+        transform: scale(0.8,0.8);
+    }
+    /* ウインドウ：右 */
+    div.modal-right_window{
+        position: absolute;
+        top: 143px;
+        left: -220px;
+        width: 500px;
+        transform: scale(0.8,0.8);
+    /* 回答後のメッセージを1文字づつ表示 */
+    p.eachTextAnime{
+        width: 200px;
+        white-space: nowrap;
+    }
+    .eachTextAnime span{opacity: 0;}
+    .eachTextAnime.appeartext span{ animation:text_anime_on .1s ease-out forwards; }
+    @keyframes text_anime_on {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
 }
-img.modal_window_bugs{
-    width: 200px;
-}
-/* ウインドウ：左 */
-div.modal-left_window{
-    position: absolute;
-    top: 300px;
-}
-/* ウインドウ：右 */
-div.modal-right_window{
-    position: absolute;
-    top: 123px;
-    left: -160px;
-    width: 500px;
+
 }
 /*
  ** モーダルウインドウ:枠1
@@ -78,7 +125,7 @@ div.modal-right_window{
 .modal-inner {
     position: fixed;
     top: 2%;
-    left: 50%;
+    left: 40%;
     /*
     transform: translate(-50% , -50% );
     */
