@@ -56,6 +56,13 @@ p.eachTextAnime{
 
 @media only screen and (max-width: 46.875em) { 
 /* ブラックバグズちゃん */
+    div.quiz_result{
+        display: none;
+        position: absolute;
+        top: 20%;
+        left: 80%;
+        z-index: 1110;
+    }
     div.quiz_result2{
         display: none;
         position: absolute;
