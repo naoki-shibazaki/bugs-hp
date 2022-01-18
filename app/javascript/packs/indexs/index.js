@@ -50,12 +50,12 @@ $(function(){
   setTimeout(function(){
     // 正解メッセージ用を非表示
     $('.eachTextAnime#first_msg2').fadeIn();
-  }, 5000);
+  }, 6000);
   setTimeout(function(){
     // 正解メッセージ用を非表示
     $('.quiz_first').fadeOut();
     $('div.msgbox').fadeIn();
-  }, 9000);
+  }, 12000);
 
   ///
   /// バルーンメッセージの処理
