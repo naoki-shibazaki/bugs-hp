@@ -46,7 +46,7 @@
 
 <% case controller.action_name %>
 <% when "index" %>
-<%= javascript_pack_tag 'indexs/index', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'indexs/index_modal', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'indexs/index_move_char', 'data-turbolinks-track': 'reload' %>
 <% when "zzzzzzzzzz" %>
 <% end %>
@@ -55,5 +55,5 @@
 <body>
   <%= yield %>
 </body>
-<!--<script src="./js/jquery-3.6.0.min.js"></script>-->
+<%= javascript_pack_tag 'indexs/index', 'data-turbolinks-track': 'reload' %>
 </html>
