@@ -43,7 +43,20 @@ $(function(){
   //     console.log('これはダメ');
   //     $(this).fadeOut();
   // });
-  
+  setTimeout(function(){
+    // 正解メッセージ用を非表示
+    $('.eachTextAnime#first_msg1').fadeIn();
+  }, 2000);
+  setTimeout(function(){
+    // 正解メッセージ用を非表示
+    $('.eachTextAnime#first_msg2').fadeIn();
+  }, 5000);
+  setTimeout(function(){
+    // 正解メッセージ用を非表示
+    $('.quiz_first').fadeOut();
+    $('div.msgbox').fadeIn();
+  }, 9000);
+
   ///
   /// バルーンメッセージの処理
   ///   ※参考:https://webparts.cman.jp/balloon/click/
@@ -83,7 +96,7 @@ $(function(){
       // 回答(ラジオボタン)が選択されてない場合		
       if (wObjballoon.attr("class") == "balloon1"){
         // メッセージを表示する
-        showBalloonMsg('攻撃を選択するのじゃ！');
+        showBalloonMsg('選んで救うのじゃ！');
       // 
       }else{
         //wObjballoon.removeClass('balloon').addClass('balloon1');
@@ -92,12 +105,12 @@ $(function(){
       // 回答(ラジオボタン)が選択されている場合
       if(answer === '1'){
         // メッセージウインドウを表示
-        $('.quiz_result').show();
+        $('.quiz_result1').show();
         // 表示するメッセージの書き換え
         //$('.eachTextAnime').text(msg_right);
         setTimeout(function(){
           // 正解メッセージ用を非表示
-          $('.quiz_result').fadeOut();
+          $('.quiz_result1').fadeOut();
           // トップページを表示する
           $('.modal').fadeOut();
         }, 2500);

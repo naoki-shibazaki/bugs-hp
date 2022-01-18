@@ -501,11 +501,20 @@
 <!--//l-root END-->
 
 <div class="modal close">
-	<div class="quiz_result">
+	<div class="quiz_first">
+		<img class="msg_window" src="./image/msg_window.png" alt="ブラックバグズちゃん" title="ブラックバグズちゃん">
+		<p class="eachTextAnime" id="first_msg1">
+		ダークサイドに堕ちた「ブラックバグズちゃん」が現れた！
+		</p>
+		<p class="eachTextAnime" id="first_msg2">
+		正しいプログラム言語を使ってバグズちゃんを救いたまえ！！
+		</p>
+	</div>
+	<div class="quiz_result1">
 		<ul class="c-abouts-items">
 			<li class="c-abouts-item">
 				<div class="c-abouts-item-choices">
-					<p class="eachTextAnime">ブラックバグズちゃん を倒した！</p>
+					<p class="eachTextAnime">ブラックバグズちゃんは救われた！</p>
 				</div>
 			</li>
 		</ul>
@@ -529,7 +538,7 @@
 					<div class="modal-left_window">
 						<div class="c-abouts-item-choices">
 							<span class="balloon1" id="makeImg"></span>
-							<p>正しいプログラム言語で攻撃だ！</p>
+							<p>正しいプログラム言語で浄化じゃ！</p>
 							<ul>
 								<% @quizzes.each do |key, value| %>
 									<li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
@@ -549,4 +558,5 @@
             </ul>
         </div>
     </div>
+	<div class="msgbox">バグズちゃんを浄化し、<br />正しいウェブサイトを表示するのじゃ！</div>
 </div>
