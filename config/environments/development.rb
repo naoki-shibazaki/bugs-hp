@@ -79,12 +79,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => 'smtp.gmail.com',
-      :port => 587,
-      :domain => 'example.com',
-      :user_name => 'harada.itservice@gmail.com',
-      :password => 'iipubnlvmrtzcxks',
-      :authentication => :'login',
-      :enable_starttls_auto => true
+      address:                'smtp.gmail.com',
+      port:                   587,
+      domain:                 'gmail.com',
+      user_name:              ENV['D_MYAPP_MAIL_AUTH_ADDR'],
+      password:               ENV['D_MYAPP_MAIL_AUTH_SMTP'],
+      authentication:         'login',
+      enable_starttls_auto:    true
   }
 end
