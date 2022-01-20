@@ -116,11 +116,11 @@ div.msgbox{
     }
     60% {
       opacity: 1;
-      width: 300px;
+      width: 320px;
     }
     100% {
       opacity: 1;
-      width: 300px;
+      width: 320px;
     }
   }
 
@@ -183,6 +183,7 @@ button.modal_btn {
 	position: static;
     width: 120px;
     height: auto;
+    margin-top: 25px;
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 10pt;        /* 文字サイズ */
