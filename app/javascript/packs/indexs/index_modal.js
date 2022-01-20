@@ -39,10 +39,11 @@ $(function(){
       これはダメ
           画面内のどこをクリックしてもイベントが発生するため
   */
-  // $('.modal').click(function() {
-  //     console.log('これはダメ');
-  //     $(this).fadeOut();
-  // });
+  $('.modal').click(function() {
+    $('.quiz_first').fadeOut();
+    $('div.msgbox').fadeIn();
+  });
+
   setTimeout(function(){
     // 正解メッセージ用を非表示
     $('.eachTextAnime#first_msg1').fadeIn();
