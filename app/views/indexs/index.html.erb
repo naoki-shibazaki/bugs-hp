@@ -126,7 +126,7 @@
 										<h3>SES<br>
 											システムエンジニアリングサービス</h3>
 										<p>
-											株SESとは、システムエンジニアリングサービスの略です。<br>
+											SESとは、システムエンジニアリングサービスの略です。<br>
 											ソフトウェアやシステムの開発・保守・運用における委託契約の一種で特定の業務に対して技術者の労働を提供する契約のことです。<br>
 											オフィスにエンジニアを派遣（常駐）することにより、お客様に寄り添った対応、様々なサポートが可能になります。<br>
 											Bug.sでは、経験豊富な幅広いエンジニアを保持しており質の高いシステムソリューションを提供しております。<br><br>
@@ -168,7 +168,7 @@
 							<li class="c-abouts-item">
 								<div class="c-abouts-item-inner">
 									<div class="c-abouts-wrap">
-										<h3>stemdevelopment<br>
+										<h3>systemdevelopment<br>
 											システム開発</h3>
 										<p>
 											ソフトウェア開発<br>
@@ -190,6 +190,7 @@
 									</div>
 								</div>
 							</li>
+<!--
 							<li class="c-abouts-item">
 								
 								<div class="about-home">
@@ -226,6 +227,8 @@
 									</div>
 								</div>
 							</li>
+-->
+<!--
 							<li class="c-abouts-item">
 								<div class="c-abouts-item-inner">
 									<div class="c-abouts-wrap">
@@ -254,6 +257,16 @@
 									</div>
 								</div>
 							</li>
+-->
+<% if false %> 上記・「SNS運用」と「写真撮影」のコメントアウトに伴う、以下は暫定措置(キャラクターアニメーションを表示)<% end %>
+<li>
+<div class="person reverse">
+<div class="inner">
+	<img class="img1" src="./image/side_4.png">
+	<img class="img2" src="./image/stop_4.png">
+</div>
+</div>
+</li>
 						</ul>
 					</div>
 			</section>
@@ -399,7 +412,7 @@
 									システム開発経験１年以上お持ちの方、優遇致します。
 								</dd>
 								<dt>雇用形態</dt>
-								<dd>正社員（使用期間あり）、アルバイト
+								<dd>正社員（試用期間あり）、アルバイト
 								</dd>
 								<dt>職種</dt>
 								<dd>プログラマ、システムエンジニア、WEBデザイナー
@@ -501,11 +514,20 @@
 <!--//l-root END-->
 
 <div class="modal close">
-	<div class="quiz_result">
+	<div class="quiz_first">
+		<img class="msg_window" src="./image/msg_window.png" alt="ブラックバグズちゃん" title="ブラックバグズちゃん">
+		<p class="eachTextAnime" id="first_msg1">
+		ダークサイドに堕ちた「ブラックバグズちゃん」が現れた！
+		</p>
+		<p class="eachTextAnime" id="first_msg2">
+		正しいプログラム言語を使ってバグズちゃんを救いたまえ！！
+		</p>
+	</div>
+	<div class="quiz_result1">
 		<ul class="c-abouts-items">
 			<li class="c-abouts-item">
 				<div class="c-abouts-item-choices">
-					<p class="eachTextAnime">ブラックバグズちゃん を倒した！</p>
+					<p class="eachTextAnime">バグズちゃんは救われた！！</p>
 				</div>
 			</li>
 		</ul>
@@ -529,7 +551,7 @@
 					<div class="modal-left_window">
 						<div class="c-abouts-item-choices">
 							<span class="balloon1" id="makeImg"></span>
-							<p>正しいプログラム言語で攻撃だ！</p>
+							<p>正しいプログラム言語で浄化じゃ！</p>
 							<ul>
 								<% @quizzes.each do |key, value| %>
 									<li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
@@ -549,32 +571,5 @@
             </ul>
         </div>
     </div>
+	<div class="msgbox">バグズちゃんを浄化し、<br />Bug.sのウェブサイトを表示するのじゃ！</div>
 </div>
-
-<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/8-11/js/8-11.js"></script>
-
-<script>
-//正解メッセージ用
-//zzz = () => {
-//	//$('.quiz_result').css("display", "block");
-//}
-
-
-// eachTextAnimeにappeartextというクラス名を付ける定義
-/*
-function EachTextAnimeControl() {
-  $('.eachTextAnime').each(function () {
-    var elemPos = $(this).offset().top - 50;
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    if (scroll >= elemPos - windowHeight) {
-      $(this).addClass("appeartext");
-
-    } else {
-      $(this).removeClass("appeartext");
-    }
-  });
-}
-*/
-
-</script>

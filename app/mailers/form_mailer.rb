@@ -1,16 +1,17 @@
 class FormMailer < ApplicationMailer
     # http://railman.net/railsguides/4.2/action_mailer_basics.html
-    #default from: "harada.itservice@gmail.com"
+    #default from: "aaaaa@aaaaaaaaaa"
 
     # ユーザーへの確認メール
     def confirm_user(forms)
         #@greeting = "Hello"
         @forms = forms
         mail(
-            from: 'harada.itservice@gmail.com',
+            from: ENV['DP_MYAPP_MAIL_BUGS'],
             to:   @forms.form_email,
-           #bcc:  'oldtimer.masa+aaa@gmail.com',
-            subject: '＜テストメール＞お問い合わせ内容が送信されました'
+           #bcc:  'aaaaa@aaaaaaaaaa',
+            reply_to: ENV['DP_MYAPP_MAIL_BUGS'],
+            subject: '＜Bugs.HP＞お問い合わせ内容が送信されました'
           ) do |format|
             format.text #テキストメールを指定
             #format.html #HTMLメールを指定
@@ -22,8 +23,9 @@ class FormMailer < ApplicationMailer
         @forms = forms
         mail(
             from: @forms.form_email,
-            to:   'harada.itservice@gmail.com',
-            subject: '＜テストメール＞お問い合わせがありました'
+            to:   ENV['DP_MYAPP_MAIL_BUGS'],
+            reply_to: @forms.form_email,
+            subject: '＜Bugs.HP＞お問い合わせがありました'
           ) do |format|
             format.text #テキストメールを指定
             #format.html #HTMLメールを指定
