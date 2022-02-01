@@ -7,10 +7,10 @@ class FormMailer < ApplicationMailer
         #@greeting = "Hello"
         @forms = forms
         mail(
-            from: ENV['DP_MYAPP_MAIL_BUGS'],
+            from: ENV['MYAPP_MAIL_BUGS'],
             to:   @forms.form_email,
            #bcc:  'aaaaa@aaaaaaaaaa',
-            reply_to: ENV['DP_MYAPP_MAIL_BUGS'],
+            reply_to: ENV['MYAPP_MAIL_BUGS'],
             subject: '＜Bugs.HP＞お問い合わせ内容が送信されました'
           ) do |format|
             format.text #テキストメールを指定
@@ -23,7 +23,7 @@ class FormMailer < ApplicationMailer
         @forms = forms
         mail(
             from: @forms.form_email,
-            to:   ENV['DP_MYAPP_MAIL_BUGS'],
+            to:   ENV['MYAPP_MAIL_BUGS'],
             reply_to: @forms.form_email,
             subject: '＜Bugs.HP＞お問い合わせがありました'
           ) do |format|
