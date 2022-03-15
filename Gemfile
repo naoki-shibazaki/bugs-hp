@@ -58,7 +58,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise：ログイン認証機能
-gem 'devise'
+# gem 'devise'
 
 #  環境変数管理
 gem 'dotenv-rails'

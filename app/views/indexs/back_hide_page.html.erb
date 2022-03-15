@@ -2,28 +2,4 @@
 <h1>隠れページ</h1>
 <hr />
 
-<h2>ログイン機能テスト</h2>
-<header>
-<nav>
-    <% if user_signed_in? %>
-    <strong>
-        <%= link_to current_user.email, 'aaa' %></strong>
-        <%= link_to 'プロフィール変更', edit_user_registration_path %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-        <%= link_to 'サインアップ', new_user_registration_path %>
-        <%= link_to 'ログイン', new_user_session_path %>
-    <% end %>
-</nav>
-</header> 
-
-<hr />
-
-<h2>DB接続テスト</h2>
-<% @testtable.each do |tt| %>
-	<%= tt.id %><br />
-	<%= tt.test_num %><br />
-	<%= tt.test_str %><br />
-<% end %>
-
-
+<h2>確認</h2>
