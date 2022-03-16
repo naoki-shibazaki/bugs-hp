@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_081917) do
+ActiveRecord::Schema.define(version: 2022_03_16_005540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 2022_01_11_081917) do
     t.string "test_str"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name", limit: 255, null: false, comment: "ユーザー名"
+    t.string "email", limit: 255, null: false, comment: "メールアドレス"
+    t.string "password_digest", null: false, comment: "暗号化・bcrypt「gem bcrypt」使用)"
+    t.string "activation_digest", null: false, comment: "暗号化・bcrypt「gem bcrypt」使用)"
+    t.boolean "activated", default: false, null: false, comment: "アカウントアクティベート"
+    t.datetime "activated_at"
+    t.string "reset_digest", comment: "パスワードリマインダー"
+    t.datetime "reset_sent_at"
+    t.boolean "acount_lock", default: false, null: false, comment: "アカウントロック"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

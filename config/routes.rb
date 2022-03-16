@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/new'
   # トップページ
   get '/' => 'indexs#index'
   post '/' => 'indexs#index'
