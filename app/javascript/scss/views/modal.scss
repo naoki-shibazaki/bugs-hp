@@ -134,7 +134,7 @@ div.msgbox{
     background-color: #9cc9d7;*/
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
-    background-image: url(../image/bg.png);
+    background-image: url(/image/bg.png);
 
     position: fixed;
     top: 0;
@@ -234,56 +234,4 @@ bottom: -11px;                          /* 吹き出し口の位置調整 */
 left : 5%;                              /* 吹き出し口の横位置 */
 content: "";                       /* コンテンツの挿入 */
 position: absolute;                /* 親要素を基準 */
-}
-
-/*
- **
- ** フォームのメッセージ
- **
- */
- .formbox{
-    margin:1em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-
-    width: 100%;
-    top: 5%;
-	left: 50%;
-	transform: translate(-50%, -10%);
-    color: #7e0707;
-    font-weight: bold;
-}
-.formbox:before, .formbox:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-.formbox:before {left: 10px;}
-.formbox:after {right: 10px;}
-.formbox p {
-    margin: 0; 
-    padding: 0;
-}
-/*
- ** メール送信完了
- */
-p.form_end{
-    color: #364e96;/*文字色*/
-    border: solid 3px #364e96;/*線色*/
-    padding: 0.5em;/*文字周りの余白*/
-    border-radius: 0.5em;/*角丸*/
-
-    position: fixed;
-    width: 50%;
-    top: 10%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-    font-weight: bold;
-    font-size: x-large
 }

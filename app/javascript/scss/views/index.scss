@@ -1,3 +1,8 @@
+@import './modal.scss';
+@import './modal_s.scss';
+@import './modal_m.scss';
+@import './form.scss';
+
 // Place all the styles related to the Indexs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
@@ -185,7 +190,7 @@ button.swiper-pagination-bullet { border: none; margin: 0; padding: 0; -webkit-b
 
 .swiper-container-coverflow .swiper-wrapper { -ms-perspective: 1200px; }
 
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 /*Magnific Popup
 ---------------------------------------------------------- */
@@ -535,7 +540,7 @@ input, select, textarea { font-size: 1.6rem; }
 
 * { box-sizing: border-box; }
 
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 /*common
 ---------------------------------------------------------- */
@@ -563,7 +568,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 /*object
 ---------------------------------------------------------- */
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 /*icon
 ---------------------------------------------------------- */
@@ -649,7 +654,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 .c-page__eyecatch .top-arrow img { position: relative; animation: 1.5s shake infinite ease-in; }
 
-.c-page__eyecatch-inner { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 200px 0; background-image: url(../image/main_image.png); background-color: #53C2F4; background-size: contain; background-position: center; background-repeat: no-repeat; }
+.c-page__eyecatch-inner { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 100vh; padding: 200px 0; background-image: url(/image/main_image.png); background-color: #53C2F4; background-size: contain; background-position: center; background-repeat: no-repeat; }
 
 .c-page__eyecatch-nav-wrap { display: none; }
 
@@ -657,7 +662,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 .c-page__eyecatch-nav-inner a:hover { position: relative; }
 
-.c-page__eyecatch-nav-inner a:hover:before { position: absolute; left: -5px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(../image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
+.c-page__eyecatch-nav-inner a:hover:before { position: absolute; left: -5px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(/image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
 
 @media screen and (max-width: 46.875em) { .c-page__eyecatch-nav-inner { padding-top: 25vw; } }
 
@@ -673,7 +678,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 .c-page__eyecatch-nav ul a:hover { left: 8px; }
 
-.c-page__eyecatch-nav ul a:hover:before { position: absolute; left: -5px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(../image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
+.c-page__eyecatch-nav ul a:hover:before { position: absolute; left: -5px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(/image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
 
 @media screen and (max-width: 46.875em) { .c-page__eyecatch-nav ul a { display: flex; justify-content: center; align-items: center; } }
 
@@ -685,15 +690,15 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 .c-page__main-content-nav ul a:hover { position: relative; }
 
-.c-page__main-content-nav ul a:hover:before { position: absolute; left: -5px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(../image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
+.c-page__main-content-nav ul a:hover:before { position: absolute; left: -5px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(/image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
 
 @media screen and (max-width: 46.875em) { .c-page__main-content-nav { display: none; } }
 
 .select { position: relative; }
 
-.select:before { position: absolute; left: -15px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(../image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
+.select:before { position: absolute; left: -15px; top: 50%; transform: translateY(-50%); display: block; content: ""; width: 15px; height: 15px; background-image: url(/image/arrow_white.png); background-size: contain; background-repeat: no-repeat; animation: flash 1s linear infinite; }
 
-.select.black:before { background-image: url(../image/arrow_black.png); }
+.select.black:before { background-image: url(/image/arrow_black.png); }
 
 .c-page__eyecatch-title { width: 100%; padding: 1vw 3vw 2vw; text-align: center; text-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); background-color: #151515; }
 
@@ -737,7 +742,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 /*fit
 ---------------------------------------------------------- */
-.c-fit { position: relative; max-width: calc(1200px + 60px); width: 100%; margin: auto; padding: 0 30px; background-image: url(../image/bg.png); }
+.c-fit { position: relative; max-width: calc(1200px + 60px); width: 100%; margin: auto; padding: 0 30px; background-image: url(/image/bg.png); }
 
 @media screen and (max-width: 46.875em) { .c-fit { padding: 0 15px; overflow: hidden; }
   .c-fit[sp-full-width] { padding: 0; } }
@@ -754,15 +759,15 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 @media screen and (max-width: 46.875em) { .c-page__title:after { width: 25px; height: 25px; } }
 
-.c-page__title.about:after { background-image: url(../image/front_1.png); }
+.c-page__title.about:after { background-image: url(/image/front_1.png); }
 
-.c-page__title.service:after { background-image: url(../image/front_2.png); }
+.c-page__title.service:after { background-image: url(/image/front_2.png); }
 
-.c-page__title.member:after { background-image: url(../image/front_3.png); }
+.c-page__title.member:after { background-image: url(/image/front_3.png); }
 
-.c-page__title.recruit:after { background-image: url(../image/front_4.png); }
+.c-page__title.recruit:after { background-image: url(/image/front_4.png); }
 
-.c-page__title.contact:after { background-image: url(../image/front_3.png); }
+.c-page__title.contact:after { background-image: url(/image/front_3.png); }
 
 /*heading
 ---------------------------------------------------------- */
@@ -1104,25 +1109,25 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 @media screen and (max-width: 46.875em) { .c-abouts-items .c-abouts-item:nth-child(1) .about-home { display: none; } }
 
-.c-abouts-items .c-abouts-item:nth-child(2):after { position: absolute; content: ""; display: block; background-image: url(../image/service_1_content.png); background-size: contain; background-repeat: no-repeat; z-index: 2; }
+.c-abouts-items .c-abouts-item:nth-child(2):after { position: absolute; content: ""; display: block; background-image: url(/image/service_1_content.png); background-size: contain; background-repeat: no-repeat; z-index: 2; }
 
 @media screen and (min-width: 46.9375em) { .c-abouts-items .c-abouts-item:nth-child(2):after { width: 167px; height: 146px; top: -50px; right: 50px; } }
 
 @media screen and (max-width: 46.875em) { .c-abouts-items .c-abouts-item:nth-child(2):after { width: 20vw; height: 20vw; top: 4vw; right: 3vw; } }
 
-.c-abouts-items .c-abouts-item:nth-child(2):before { position: absolute; content: ""; display: block; background-image: url(../image/service_4_content.png); background-size: contain; background-repeat: no-repeat; z-index: 2; animation: gear1 6s; animation-iteration-count: infinite; animation-timing-function: linear; }
+.c-abouts-items .c-abouts-item:nth-child(2):before { position: absolute; content: ""; display: block; background-image: url(/image/service_4_content.png); background-size: contain; background-repeat: no-repeat; z-index: 2; animation: gear1 6s; animation-iteration-count: infinite; animation-timing-function: linear; }
 
 @media screen and (min-width: 46.9375em) { .c-abouts-items .c-abouts-item:nth-child(2):before { width: 100px; height: 100px; top: -70px; left: 200px; } }
 
 @media screen and (max-width: 46.875em) { .c-abouts-items .c-abouts-item:nth-child(2):before { width: 20vw; height: 20vw; top: -50px; left: 4vw; } }
 
-.c-abouts-items .c-abouts-item:nth-child(3):after { position: absolute; content: ""; display: block; background-image: url(../image/service_2_content.png); background-size: contain; background-repeat: no-repeat; animation: gear1 6s; animation-iteration-count: infinite; animation-timing-function: linear; }
+.c-abouts-items .c-abouts-item:nth-child(3):after { position: absolute; content: ""; display: block; background-image: url(/image/service_2_content.png); background-size: contain; background-repeat: no-repeat; animation: gear1 6s; animation-iteration-count: infinite; animation-timing-function: linear; }
 
 @media screen and (min-width: 46.9375em) { .c-abouts-items .c-abouts-item:nth-child(3):after { width: 148px; height: 148px; top: -30px; right: 20px; } }
 
 @media screen and (max-width: 46.875em) { .c-abouts-items .c-abouts-item:nth-child(3):after { width: 20vw; height: 20vw; top: -50px; right: 4vw; } }
 
-.c-abouts-items .c-abouts-item:nth-child(4):after { position: absolute; content: ""; display: block; background-image: url(../image/service_3_content.png); background-size: contain; background-repeat: no-repeat; }
+.c-abouts-items .c-abouts-item:nth-child(4):after { position: absolute; content: ""; display: block; background-image: url(/image/service_3_content.png); background-size: contain; background-repeat: no-repeat; }
 
 @media screen and (min-width: 46.9375em) { .c-abouts-items .c-abouts-item:nth-child(4):after { width: 100px; height: 170px; bottom: -20px; left: 170px; } }
 
@@ -1130,7 +1135,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 .c-abouts-items .c-abouts-item:nth-child(4) .about-home { bottom: 100%; }
 
-.c-abouts-items .c-abouts-item:nth-child(5):after { position: absolute; content: ""; display: block; width: 200px; height: 200px; bottom: 170px; left: -500px; background-image: url(../image/service_5_content.png); background-size: contain; background-repeat: no-repeat; animation: gear1 6s; animation-iteration-count: infinite; animation-timing-function: linear; }
+.c-abouts-items .c-abouts-item:nth-child(5):after { position: absolute; content: ""; display: block; width: 200px; height: 200px; bottom: 170px; left: -500px; background-image: url(/image/service_5_content.png); background-size: contain; background-repeat: no-repeat; animation: gear1 6s; animation-iteration-count: infinite; animation-timing-function: linear; }
 
 .c-abouts-items .c-abouts-item:nth-child(5) .person { position: absolute; top: -60px; left: -440px; width: 86px; height: 86px; }
 
@@ -1188,13 +1193,13 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 @media screen and (max-width: 46.875em) { .c-menbers-items .c-menbers-item { padding-top: 74vw; margin-bottom: 10vw; } }
 
-.c-menbers-items .c-menbers-item:nth-child(1) { background-image: url(../image/menber_1_img.png); }
+.c-menbers-items .c-menbers-item:nth-child(1) { background-image: url(/image/menber_1_img.png); }
 
-.c-menbers-items .c-menbers-item:nth-child(2) { background-image: url(../image/menber_2_img.png); animation-delay: 0.4s; }
+.c-menbers-items .c-menbers-item:nth-child(2) { background-image: url(/image/menber_2_img.png); animation-delay: 0.4s; }
 
-.c-menbers-items .c-menbers-item:nth-child(3) { background-image: url(../image/menber_3_img.png); animation-delay: 0.8s; }
+.c-menbers-items .c-menbers-item:nth-child(3) { background-image: url(/image/menber_3_img.png); animation-delay: 0.8s; }
 
-.c-menbers-items .c-menbers-item:nth-child(4) { background-image: url(../image/menber_4_img.png); animation-delay: 1.2s; }
+.c-menbers-items .c-menbers-item:nth-child(4) { background-image: url(/image/menber_4_img.png); animation-delay: 1.2s; }
 
 .c-menbers-items .c-menbers-item .title { font-size: 1rem; text-align: center; line-height: 1.2; margin: 0 auto -2px; }
 
@@ -1297,7 +1302,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 @media screen and (max-width: 46.875em) { .button.active:not(.active-click) .img2 { bottom: 9vw; } }
 
 /*このクラスが付与されると表示する*/
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 /*表示・非表示管理
 ---------------------------------------------------------- */
@@ -2568,7 +2573,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 @media screen and (max-width: 46.875em) { .u-sp-pr0 { padding-right: 0 !important; }
   .u-sp-pl0 { padding-left: 0 !important; } }
 
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 /*lazyload
 ----------------------------------------*/
@@ -2582,7 +2587,7 @@ body { font-family: "myfont", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ P
 
 img.lazyaspectratio { width: 100%; }
 
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 @keyframes onAutoFillStart { from { }
   to { } }
@@ -2653,7 +2658,7 @@ img.lazyaspectratio { width: 100%; }
   50% { bottom: 25px; }
   100% { bottom: 10px; } }
 
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 /*accordion
 ----------------------------------------*/
@@ -2668,7 +2673,7 @@ img.lazyaspectratio { width: 100%; }
 
 /*layout
 ---------------------------------------------------------- */
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 .l-header { display: flex; position: relative; width: 100%; min-height: 110px; }
 
@@ -2728,13 +2733,13 @@ img.lazyaspectratio { width: 100%; }
 
 @media screen and (min-width: 46.9375em) { .sp-button { display: none; } }
 
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
-@font-face { font-family: 'myfont'; src: url("../font/PixelMplus10-Regular.ttf"); }
+@font-face { font-family: 'myfont'; src: url("/font/PixelMplus10-Regular.ttf"); }
 
 @media screen and (max-width: 46.875em) { .l-main { padding-top: 6vw; background-color: #53C2F4; } }
 
-@media screen and (min-width: 46.9375em) { .dot_kumo_bg { position: relative; background: url(../image/dot_kumo6.png); animation: cloudmove 20s linear infinite; } }
+@media screen and (min-width: 46.9375em) { .dot_kumo_bg { position: relative; background: url(/image/dot_kumo6.png); animation: cloudmove 20s linear infinite; } }
 
 .copyright { text-align: center; font-size: 1.2rem; color: #fff; }
 
