@@ -1,2 +1,24 @@
 <h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div id="login_forms">
+  <div class="contents-wrapp">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <div class="input-form">
+
+        <% if !params.dig(:session,:email).nil? %>
+          <%= f.email_field :email, :placeholder => 'メールアドレス', :class => 'input-field', value: params.dig(:session,:email) %>
+        <% else %>
+          <%= f.email_field :email, :placeholder => 'メールアドレス', :class => 'input-field' %>
+        <% end %>
+
+        <%= f.password_field :password, :placeholder => 'パスワード', :class => 'input-field' %>
+        <%= f.submit "ログイン", :class => 'btn login-btn' %>
+
+        <p class="link-p">アカウントをお持ちでない場合はこちらから</p>
+        <%= link_to "新規登録", new_users_path, :class => 'link' %>
+
+        <p class="link-p">パスワードを忘れた方はこちらから</p>
+        <%# link_to "パスワード再発行", reset_password_path, :class => 'link' %>
+      </div>
+    <% end %>
+  </div>
+</div>

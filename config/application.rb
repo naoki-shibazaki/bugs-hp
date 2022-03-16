@@ -21,5 +21,8 @@ module Myapp
 
     # バリデーションの日本語化
     config.i18n.default_locale = :ja
+
+    # add custom validators path
+    config.autoload_paths += Dir["#{config.root}/app/validators"]
   end
 end

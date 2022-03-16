@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_16_005540) do
+ActiveRecord::Schema.define(version: 2022_03_16_084634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2022_03_16_005540) do
     t.string "name", limit: 255, null: false, comment: "ユーザー名"
     t.string "email", limit: 255, null: false, comment: "メールアドレス"
     t.string "password_digest", null: false, comment: "暗号化・bcrypt「gem bcrypt」使用)"
-    t.string "activation_digest", null: false, comment: "暗号化・bcrypt「gem bcrypt」使用)"
+    t.string "activation_digest", comment: "暗号化・bcrypt「gem bcrypt」使用)"
     t.boolean "activated", default: false, null: false, comment: "アカウントアクティベート"
     t.datetime "activated_at"
     t.string "reset_digest", comment: "パスワードリマインダー"

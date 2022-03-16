@@ -1,2 +1,15 @@
 <h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div id="login_forms">
+  <div class="contents-wrapp">
+    <%= form_for(@user) do |f| %>
+      <div class="input-form">
+        <%= f.text_field :name, :placeholder => 'ユーザー名', :class => 'input-field', :maxlength => 255 %>
+        <%= f.email_field :email, :placeholder => 'メールアドレス', :class => 'input-field', :maxlength => 255 %>
+        <%= f.password_field :password, :placeholder => 'パスワード', :class => 'input-field', :maxlength => 255 %>
+        <%= f.submit "登録", :class => 'btn create-btn' %>
+        <p class="link-p">アカウントをお持ちの方はこちらから</p>
+        <%= link_to "ログイン", login_path, :class => 'link' %>
+      </div>
+    <% end %>
+  </div>
+</div>

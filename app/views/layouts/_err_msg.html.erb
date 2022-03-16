@@ -1,0 +1,17 @@
+<% flash.each do |message_type, message| %>
+  <div class="notifications">
+    <div class="notice"><%= message %></div>
+  </div>
+<% end %>
+
+<% if @user.respond_to?(:errors) %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="notifications">
+        <div class="alert">
+          <ul>
+            <li><%= message %></li>
+          </ul>
+        </div>
+    </div>
+  <% end %>
+<% end %>
