@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  # アカウント登録
+  get '/users/account_activation/:token/edit', to: 'users#account_activation_edit', as: 'account_activation_edit'
 
   resource :users
 

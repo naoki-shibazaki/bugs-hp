@@ -21,8 +21,9 @@ class SessionsController < ApplicationController
   end
 
   def debug_menu
+    #SystemMailer.testmail.deliver_now
   end
-  
+
   private
 
   # ログインチェック

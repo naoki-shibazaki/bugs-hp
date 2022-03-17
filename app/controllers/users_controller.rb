@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # 非ログイン時のみ実行可能
   before_action :logged_in_user_deny, {only: [  :new,
                                                 :create]}
-  
+
   def new
     @user = User.new
   end
@@ -26,6 +26,22 @@ class UsersController < ApplicationController
       pp 9999999999
       #flash.now[:danger] = 'えらー'
       render :new
+    end
+  end
+
+  # アカウント有効化
+  def account_activation_edit
+    #@user = User.new
+    user = User.find_by(email: params[:email])
+    if user && !user.activated? && user.authenticated?(:activation, params[:token])
+      user.update_attribute(:activated,    true)
+      user.update_attribute(:activated_at, Time.zone.now)
+      #log_in user
+      flash[:success] = "アカウントが有効になりました"
+      #redirect_to user
+    else
+      flash[:danger] = "リンクが無効です"
+      redirect_to root_url
     end
   end
 

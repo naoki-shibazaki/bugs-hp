@@ -5,7 +5,7 @@ class User < ApplicationRecord
     attr_accessor :activation_token, :reset_token
 
     #バリデーションの定義
-    MiniLength1 = 8
+    MiniLength1 = 1
     MaxLength1 = 255
     MaxLength2 = 16
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -63,7 +63,7 @@ class User < ApplicationRecord
         self.activation_token = User.new_token
         update_attribute(:activation_digest,  User.digest(activation_token))
         update_attribute(:activated_at, Time.zone.now)
-        #SystemMailer.account_activation_mail(self).deliver_now
+        SystemMailer.account_activation_mail(self).deliver_now
     end
     
     # パスワード再設定の属性を設定する
