@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-    #has_secure_password validations: false
-    has_secure_password
+    has_secure_password validations: false
 
     attr_accessor :activation_token, :reset_token
 
@@ -50,11 +49,7 @@ class User < ApplicationRecord
         format: { with: VALID_EMAIL_REGEX },
         on: :change_userinfo
     
-    validates :last_name,
-        length: { maximum: MaxLength1 },
-        on: :change_userinfo
-
-    validates :first_name,
+    validates :name,
         length: { maximum: MaxLength1 },
         on: :change_userinfo
     

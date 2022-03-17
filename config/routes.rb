@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  
+
   # アカウント登録
   get '/users/account_activation/:token/edit', to: 'users#account_activation_edit', as: 'account_activation_edit'
-
+  # パスワードリマインダー
+  get '/users/reset_password', to: 'users#reset_password', as: 'reset_password'
+  post '/users/reset_password', to: 'users#reset_password_sendmail'
+  get '/users/reset_password/:token/edit', to: 'users#reset_password_edit', as: 'reset_password_edit'
+  patch '/users/reset_password_update', to: 'users#reset_password_update', as: 'reset_password_update'
   resource :users
 
   # トップページ

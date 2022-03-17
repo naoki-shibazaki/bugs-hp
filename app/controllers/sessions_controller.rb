@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     
     if ret_login_check['login']
       log_in user
-      #redirect_to *******_url
+      redirect_to login_url
     else
       flash.now[:notice] = ret_login_check['msg']
       render 'new'
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    #redirect_to root_url
+    redirect_to login_url
   end
 
   def debug_menu

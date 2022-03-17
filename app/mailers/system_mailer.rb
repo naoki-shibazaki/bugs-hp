@@ -11,7 +11,20 @@ class SystemMailer < ApplicationMailer
             #format.html #HTMLメールを指定
         end
     end
-    
+
+    # パスワードリマインダー案内
+    def reset_password_mail(user)
+        @user = user
+        mail(
+            from: ENV['MYAPP_MAIL_AUTH_USER'],
+            to:   @user.email,
+            subject: '＜Bugs＞パスワード再発行'
+        ) do |format|
+            format.text #テキストメールを指定
+            #format.html #HTMLメールを指定
+        end
+    end
+
     # メールテスト用
     def testmail
         @greeting = "Hello"
