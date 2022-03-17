@@ -1,0 +1,6 @@
+<% case controller.controller_name %>
+<% when 'sessions', 'users' %>
+  <h2>ログイン：<%= logged_in? %></h2>
+  <div class="menu__item"><%= link_to "Log out", logout_path, method: :delete, class: 'header-button logout-button' %></div>
+  <%= controller.controller_name %>
+<% end %>

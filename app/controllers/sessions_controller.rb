@@ -20,6 +20,9 @@ class SessionsController < ApplicationController
     #redirect_to root_url
   end
 
+  def debug_menu
+  end
+  
   private
 
   # ログインチェック

@@ -1,0 +1,53 @@
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B4YPT1WD36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B4YPT1WD36');
+</script>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>株式会社Bug.s</title>
+
+<!-- seo -->
+<meta name="description" content="ここにHPの説明が入ります。">
+<meta name="keywords" content="ここにキーワードが入ります。">
+
+<!-- og -->
+<meta property="og:title" content="株式会社Bug.s">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bugs.co.jp/">
+<meta property="og:image" content="https://bugs.co.jp/image/ogp.png">
+
+<link rel="icon" href="image/favicon.ico" id="favicon">
+<link rel="apple-touch-icon" sizes="180x180" href="image/favicon.ico">
+
+<meta property="og:site_name" content="株式会社Bug.s">
+<meta property="og:description" content="ここにHPの説明が入ります。">
+<!-- twitter -->
+<meta name="twitter:card" content="summary_large_image">
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+<!--<link rel="stylesheet" href="./css/style.css">-->
+<%# stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<% case controller.action_name %>
+<% when "index" %>
+<%= javascript_pack_tag 'indexs/index_modal', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'indexs/index_move_char', 'data-turbolinks-track': 'reload' %>
+<% when "zzzzzzzzzz" %>
+<% end %>
+
+</head>

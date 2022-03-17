@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  # ログイン時のみ実行可能
+  #before_action :logged_in_user, {only: [ :edit, 
+  #                                        :update,
+  #                                        :destroy]}
+  # 非ログイン時のみ実行可能
+  before_action :logged_in_user_deny, {only: [  :new,
+                                                :create]}
+  
   def new
     @user = User.new
   end
