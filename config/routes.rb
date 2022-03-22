@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # 隠れページ・デバッグ
-  get '/back_hide_page' => 'indexs#back_hide_page'
-  get '/debug_menu',   to: 'sessions#debug_menu'
+  if ENV['DEBUG_PAGE_SHOW'] == '1'
+    get '/back_hide_page' => 'indexs#back_hide_page'
+    get '/debug/menu',   to: 'sessions#debug_menu'
+    get '/debug/test_modal',   to: 'sessions#test_modal'
+    get '/debug/test_battle',   to: 'sessions#test_battle'
+  end
 end
