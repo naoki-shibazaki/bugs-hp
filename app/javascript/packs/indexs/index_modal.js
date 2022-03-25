@@ -97,7 +97,7 @@ $(function(){
       // 回答(ラジオボタン)が選択されてない場合		
       if (wObjballoon.attr("class") == "balloon1"){
         // メッセージを表示する
-        showBalloonMsg('選んで救うのじゃ！');
+        showBalloonMsg(wObjballoon.text());
       // 
       }else{
         //wObjballoon.removeClass('balloon').addClass('balloon1');
