@@ -10,10 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_16_084634) do
+ActiveRecord::Schema.define(version: 2022_04_11_030252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "quest_monsters", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "quest_stage_id"
+    t.string "img_path"
+    t.integer "hp", null: false
+    t.integer "mp", null: false
+    t.integer "power", null: false
+    t.integer "protect", null: false
+    t.integer "speed", null: false
+    t.integer "wise", null: false
+    t.integer "luck", null: false
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["name"], name: "index_quest_monsters_on_name", unique: true
+    t.index ["quest_stage_id"], name: "index_quest_monsters_on_quest_stage_id"
+  end
+
+  create_table "quest_quizzes", force: :cascade do |t|
+    t.bigint "quest_stage_id", null: false
+    t.bigint "quest_monster_id", null: false
+    t.string "format", null: false
+    t.string "question", null: false
+    t.string "choice", null: false
+    t.string "answer", null: false
+    t.string "tips"
+    t.string "episode"
+    t.integer "exp", null: false
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["quest_monster_id"], name: "index_quest_quizzes_on_quest_monster_id"
+    t.index ["quest_stage_id"], name: "index_quest_quizzes_on_quest_stage_id"
+  end
+
+  create_table "quest_stages", force: :cascade do |t|
+    t.integer "num", null: false
+    t.string "name", null: false
+    t.text "episode", null: false
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["num", "name"], name: "index_quest_stages_on_num_and_name", unique: true
+  end
+
+  create_table "quest_statuses", force: :cascade do |t|
+    t.integer "lv"
+    t.integer "exp"
+    t.integer "hp"
+    t.integer "mp"
+    t.integer "power"
+    t.integer "protect"
+    t.integer "speed"
+    t.integer "wise"
+    t.integer "luck"
+    t.index ["lv", "exp"], name: "index_quest_statuses_on_lv_and_exp", unique: true
+  end
+
+  create_table "quest_users", force: :cascade do |t|
+    t.bigint "users_id", null: false
+    t.string "name", limit: 255, null: false
+    t.integer "lv", default: 1, null: false
+    t.integer "exp", default: 0, null: false
+    t.string "sex", default: "？", null: false
+    t.string "job"
+    t.integer "quiz_id", default: 1, null: false
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "change_token_digest"
+    t.integer "recent_quiz_id"
+    t.index ["change_token_digest"], name: "index_quest_users_on_change_token_digest", unique: true
+    t.index ["quiz_id"], name: "index_quest_users_on_quiz_id", unique: true
+    t.index ["users_id"], name: "index_quest_users_on_users_id", unique: true
+  end
 
   create_table "quizzes", force: :cascade do |t|
     t.string "quiz", null: false
@@ -44,4 +116,5 @@ ActiveRecord::Schema.define(version: 2022_03_16_084634) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "quest_users", "users", column: "users_id"
 end

@@ -1,0 +1,9 @@
+<% if logged_in? %>
+    <button class="pulse-btn position1"><span class="btn-menu">メニュー</span></button>
+    <button class="pulse-btn position2"><span class="btn-account">アカウント</span></button>
+    <%= link_to "ログアウト", logout_path, method: :delete, class: 'pulse-btn position3' %>
+<% else %>
+    <button class="pulse-btn position1"><span class="btn-menu">メニュー</span></button>
+    <%= link_to "ログイン", login_path, method: :get, class: 'pulse-btn position2' %>
+<% end %>
+<button class="pulse-btn position5" id="TestBtn"><span class="btn-menu">Test</span></button>

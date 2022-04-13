@@ -1,0 +1,2 @@
+class QuestQuiz < ApplicationRecord
+end

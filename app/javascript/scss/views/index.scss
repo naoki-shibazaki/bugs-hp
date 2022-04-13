@@ -6,7 +6,7 @@
 // Place all the styles related to the Indexs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-@charset "UTF-8";
+/*@charset "UTF-8";*/
 /*vendor
 ---------------------------------------------------------- */
 /** Swiper 4.5.2 Most modern mobile touch slider and framework with hardware accelerated transitions http://www.idangero.us/swiper/ Copyright 2014-2019 Vladimir Kharlampidi Released under the MIT License Released on: October 16, 2019 */
@@ -2836,3 +2836,25 @@ img.lazyaspectratio { width: 100%; }
     transform: translate(48px, 27px); }
   90%, 100% { /* compose logo */
     transform: translate(0, 0); } }
+
+/***
+  * 「げーむ」ボタン
+*/
+/* ボタンの装飾 */
+.pulse-btn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff200;
+  box-shadow: 0 0 20px #ffe000b8;
+  cursor: pointer;
+  z-index: 1000;
+}
+.position1{
+  top: 80px;
+  right: 25px;
+}

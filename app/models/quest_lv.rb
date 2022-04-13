@@ -1,0 +1,2 @@
+class QuestLv < ApplicationRecord
+end

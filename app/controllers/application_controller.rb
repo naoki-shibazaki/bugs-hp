@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     # 共通Helper用
+    include ApplicationHelper
     include SessionsHelper
+    include GameBugsquestHelper
 
     private
     # ログイン済みユーザーかどうか確認

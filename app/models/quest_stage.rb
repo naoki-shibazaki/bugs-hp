@@ -1,0 +1,2 @@
+class QuestStage < ApplicationRecord
+end

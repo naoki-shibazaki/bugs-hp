@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stage_id: 1
+  monster_id: 1
+  format: MyString
+  question: MyString
+  Choice: MyString
+  answer: MyString
+  exp: 1
+
+two:
+  stage_id: 1
+  monster_id: 1
+  format: MyString
+  question: MyString
+  Choice: MyString
+  answer: MyString
+  exp: 1

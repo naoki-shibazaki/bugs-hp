@@ -1,0 +1,2 @@
+class QuestMonster < ApplicationRecord
+end

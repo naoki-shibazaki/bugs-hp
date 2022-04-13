@@ -1,5 +1,5 @@
 module ApplicationHelper
-    # クイズ取得
+    # クイズ取得[ゲスト用]
     def get_quiz
         quin_num_all = 5
         quin_num_false = 4

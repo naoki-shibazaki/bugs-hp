@@ -1,0 +1,2 @@
+class QuestStatus < ApplicationRecord
+end

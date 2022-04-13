@@ -1,0 +1,76 @@
+/* 基本装飾 */
+header.slide-menu {
+	/*
+	position: inherit;
+	background: #333;
+	padding: .5rem;
+	text-align: right;
+	z-index: 2000;
+	*/
+  }
+  header.slide-menu a {
+	color: #fff;
+	text-decoration: none;
+	white-space: nowrap;
+  }
+  header.slide-menu li {
+	margin: 2rem 0;
+  }
+  
+  /* ボタン */
+  /*
+  header.slide-menu .btn-menu {
+	border: 1px solid #999;
+	background: transparent;
+	color: #fff;
+	padding: .5rem 1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	line-height: 1;
+  }
+  */
+  
+  /* メニュー */
+  header.slide-menu nav {
+	background: #0bd;
+	position: absolute;
+	height: 100%;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	overflow-x: hidden;
+	text-align: center;
+	width: 0;
+	transition: .5s;
+  }
+  /* メニューを開いた時 */
+  header.slide-menu nav.open-menu {
+	width: 100%;
+  }
+  
+  
+  /* メニュー */
+  header.slide-menu nav2 {
+	background: #cdf4d0;
+	position: absolute;
+	height: 100%;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	overflow-x: hidden;
+	text-align: center;
+	width: 0;
+	transition: .5s;
+  }
+  /* メニューを開いた時 */
+  header.slide-menu nav2.open-menu {
+	width: 100%;
+  }
+  
+  /**********************************************************/
+  header.slide-menu div.menu_bar a{
+	color: #000;
+  }
+  header.slide-menu div.menu_bar buttona{
+	color: #000;
+  }

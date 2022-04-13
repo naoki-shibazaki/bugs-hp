@@ -1,0 +1,49 @@
+<style>
+div.box_login_confirm{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+  font-size: 20pt;
+
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+
+h2.game_bugsquest {
+  color: #364e96;/*文字色*/
+  border: solid 3px #364e96;/*線色*/
+  padding: 0.5em;/*文字周りの余白*/
+  border-radius: 0.5em;/*角丸*/
+  width: 320px;
+  font-size: 20px;
+}
+</style>
+
+<div class="box_login_confirm">
+  <h2 class="game_bugsquest">Bug.s Quest - バグズクエスト</h2>
+
+  <% if logged_in? %>
+  <a href="/game/bugsquest" class="btn btn--orange btn--radius">ゲームスタート</a><br />
+  <%= link_to "ログアウト", logout_path, method: :delete, class: 'btn btn--orange btn--radius' %>
+  <% else %>
+  <a href="/game/bugsquest?mode=guest" class="btn btn--orange btn--radius">ゲームスタート[ゲスト]</a><br />
+  <%= link_to "ログインする", login_path, method: :get, class: 'btn btn--orange btn--radius' %><br />
+  <a href="/users/new" class="btn btn--orange btn--radius">新規アカウント作成</a><br />
+  <% end %>
+</div>

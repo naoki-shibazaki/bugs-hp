@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  get    '/login_confirm',   to: 'sessions#login_confirm'
 
   # アカウント登録
   get '/users/account_activation/:token/edit', to: 'users#account_activation_edit', as: 'account_activation_edit'
@@ -31,7 +32,21 @@ Rails.application.routes.draw do
   if ENV['DEBUG_PAGE_SHOW'] == '1'
     get '/back_hide_page' => 'indexs#back_hide_page'
     get '/debug/menu',   to: 'sessions#debug_menu'
-    get '/debug/test_modal',   to: 'sessions#test_modal'
-    get '/debug/test_battle',   to: 'sessions#test_battle'
+    patch '/debug/postTest',   to: 'sessions#apiPostTest'
+    #get '/debug/test_modal',   to: 'sessions#test_modal'
+    #get '/debug/test_battle',   to: 'sessions#test_battle'
+    #get '/debug/test_game_enter',   to: 'sessions#test_game_enter'
+    
+    #get '/debug/test_create_quest_user',   to: 'sessions#test_create_quest_user'
+
+    #get '/debug/postTest',   to: 'sessions#postTest'
+
+    patch '/api/checkAnswer',   to: 'sessions#apiCheckAnswer'
+    patch '/api/apiDamege',   to: 'sessions#apiDamege'
+    patch '/api/victoryBattle',   to: 'sessions#apiVictoryBattle'
+    
+    get '/game/bugsquest',   to: 'game_bugsquest#index'
+
+    #get '/logout',  to: 'sessions#destroy'
   end
 end
