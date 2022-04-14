@@ -1,4 +1,9 @@
 #login_forms{
+    position: fixed;
+    background-image: url(/image/dot_kumo6.png);
+    width: 100%;
+    height: 100%;
+
     .btn{
         width:22em;
         height:2.5em;
@@ -54,5 +59,40 @@
         color: #666;
         margin:0;
     }
-    
+
+    div.box_login_confirm{
+        position: fixed;
+        text-align: center;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+        .btn--orange,
+        a.btn--orange {
+          color: #fff;
+          background-color: #eb6100;
+          font-size: 20pt;
+          padding: 8px;
+          line-height: 2.5em;
+        }
+        .btn--orange:hover,
+        a.btn--orange:hover {
+          color: #fff;
+          background: #f56500;
+        }
+        
+        a.btn--radius {
+           border-radius: 100vh;
+        }
+        
+        h2.game_bugsquest {
+          color: #364e96;/*文字色*/
+          border: solid 5px #364e96;/*線色*/
+          padding: 0.5em;/*文字周りの余白*/
+          border-radius: 1.5em;/*角丸*/
+          font-size: 30px;
+          background-color: papayawhip;
+          font-weight: bold;
+        }
+    }
 }

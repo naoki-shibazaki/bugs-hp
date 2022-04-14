@@ -4,7 +4,7 @@
 <body>
   <%= render 'layouts/err_msg' %>
   <%= yield %>
-  <%= render 'layouts/debug' %>
+  <% if false %><%= render 'layouts/debug' %><% end %>
 </body>
 <%= javascript_pack_tag 'indexs/index', 'data-turbolinks-track': 'reload' %>
 </html>
