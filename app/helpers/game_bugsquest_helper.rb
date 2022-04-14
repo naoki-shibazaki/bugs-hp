@@ -63,7 +63,7 @@ module GameBugsquestHelper
     # データ変更用のクエストユーザートークン生成
     def create_user_token
         if logged_in?
-            gen_usertoken = QuestUser.find(current_user.id)
+            gen_usertoken = QuestUser.find_by(users_id: current_user.id)
             gen_usertoken.create_token_digest
             return gen_usertoken.change_token
         end
@@ -72,7 +72,7 @@ module GameBugsquestHelper
     # 次のレベルまでの経験値を取得
     def next_lvup_exp
         if logged_in?
-            questUser = QuestUser.find(current_user.id)
+            questUser = QuestUser.find_by(users_id: current_user.id)
             # 次のレベルまでの経験値
             return QuestStatus.find_by(lv: questUser.lv + 1).exp - questUser.exp
         end
