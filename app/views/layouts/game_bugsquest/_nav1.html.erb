@@ -1,0 +1,104 @@
+<div class="box_menu">
+	<div class="msgbox_out menu1">
+		<div class="msgbox_in menu1">
+			<table class="user_status">
+				<tr>
+					<td>
+						名前：
+					</td>
+					<td>
+						<span id="user_name"><%= @get_bugsquest_game_data[:questUser].name %></span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						レベル：
+					</td>
+					<td>
+						<%= @get_bugsquest_game_data[:questUser].lv %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						経験値：
+					</td>
+					<td>
+						<%= @get_bugsquest_game_data[:questUser].exp %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						次のレベル<br />までの経験値：
+					</td>
+					<td>
+						<%= @get_bugsquest_game_data[:next_lvup_exp] %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						STEP：
+					</td>
+					<td>
+						<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						STAGE<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span>：
+					</td>
+					<td>
+						<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="msgbox_out menu2">
+		<div class="msgbox_in menu2">
+			<table class="user_status">
+				<tr>
+				<td>
+					ちから：
+				</td>
+				<td>
+					<%= @get_bugsquest_game_data[:questStatus].power %>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					みのまもり：
+				</td>
+				<td>
+					<%= @get_bugsquest_game_data[:questStatus].protect %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					すばやさ：
+				</td>
+				<td>
+					<%= @get_bugsquest_game_data[:questStatus].speed %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					かしこさ：
+				</td>
+				<td>
+					<%= @get_bugsquest_game_data[:questStatus].wise %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					うんのよさ：
+				</td>
+				<td>
+					<%= @get_bugsquest_game_data[:questStatus].luck %>
+				</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+</div>

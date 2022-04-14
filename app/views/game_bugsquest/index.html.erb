@@ -11,26 +11,15 @@
 <div id="container">
     <header class="slide-menu">
         <nav>
-            <!--
-            <ul>
-                <li><a href="#">ホーム</a></li>
-                <li><a href="#">サービス概要</a></li>
-                <li><a href="#">実績紹介</a></li>
-                <li><a href="#">お問い合わせ</a></li>
-            </ul>
-            -->
-            名前：<%= @get_bugsquest_game_data[:questUser].name %><br />
-            経験値：<%= @get_bugsquest_game_data[:questUser].exp %><br />
-            レベル：<%= @get_bugsquest_game_data[:questUser].lv %><br />
-            <br />
-            次の経験値：<%= @get_bugsquest_game_data[:next_lvup_exp] %>
+            <%= render 'layouts/game_bugsquest/nav1', cached: false %>
         </nav>
+        
         <nav2>
             aaaaaaaaaa
         </nav2>
 
         <div class="menu_bar">
-            <%= render 'layouts/game_menu' %>
+            <%= render 'layouts/game_bugsquest/game_menu' %>
         </div>
     </header>
 
