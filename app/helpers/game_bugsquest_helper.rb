@@ -40,7 +40,12 @@ module GameBugsquestHelper
             # 次のレベルまでの経験値
             ret[:next_lvup_exp] = next_lvup_exp
         else
-            ret[:questUser].name = '＜ゲストユーザー＞'
+            ret[:questUser].name = 'ゲストユーザー'
+            ret[:questQuiz].id = 0
+            ret[:questStage].num = 0
+            ret[:questStage].name = 'ゲストモード'
+            ret[:questStatus].hp = 5
+            ret[:questStatus].mp = 2
             ret[:questUser].lv = 0
             ret[:questUser].exp = 0
             ret[:questMonster].name = 'ブラックバグズ'
