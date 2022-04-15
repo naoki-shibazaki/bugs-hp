@@ -1,6 +1,6 @@
 class User < ApplicationRecord
+    has_many :quest_users, foreign_key: :users_id, dependent: :destroy
     has_secure_password validations: false
-
     attr_accessor :activation_token, :reset_token
 
     #バリデーションの定義

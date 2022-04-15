@@ -84,6 +84,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # アカウント削除
+  def destroy
+    #@user = User.find(current_user.id)
+    @user = User.find_by(id: current_user.id)
+    log_out
+    @user.destroy
+    redirect_to game_bugsquest_path
+  end
+
   def reset_password_sendmail
     @user = User.new(user_params)
     if @user.valid?(:reset_password)

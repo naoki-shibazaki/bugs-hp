@@ -1,6 +1,4 @@
 class QuestUser < ApplicationRecord
-    has_one_attached :quest_quizzes
-
     attr_accessor :change_token
 
     def create_token_digest
