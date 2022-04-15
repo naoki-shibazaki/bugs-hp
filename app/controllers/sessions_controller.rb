@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     
     if ret_login_check['login']
       log_in user
-      redirect_to game_bugsquest_index_url
+      redirect_to game_bugsquest_url
     else
       flash.now[:notice] = ret_login_check['msg']
       render 'new'
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to game_bugsquest_index_url
+    redirect_to game_bugsquest_url
   end
 
   def login_confirm

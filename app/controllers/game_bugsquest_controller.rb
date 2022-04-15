@@ -12,6 +12,13 @@ class GameBugsquestController < ApplicationController
 
     # 最新の挑戦するクイズIDを設定
     set_quiz_id
+
+    # ユーザーアカウントデータのセット
+    unless current_user.nil?
+      @user = User.find(current_user.id)
+    else
+      @user = User.new
+    end
   end
 
   private

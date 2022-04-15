@@ -47,6 +47,38 @@ class UsersController < ApplicationController
     end
   end
 
+  # ユーザーアカウント情報更新
+  def update
+    @user = User.find_by(id: current_user.id)
+    # 更新対象
+    @user.id = current_user.id
+    @user.name = user_params[:name]
+    
+    if @user.save(context: :change_userinfo)
+      flash[:success] = '登録変更が完了しました'
+      redirect_to game_bugsquest_path
+    else
+      #flash.now[:danger] = 'えらー'
+      redirect_to game_bugsquest_path
+    end
+  end
+
+  # パスワード変更
+  def update_edit_pw
+    @user = User.find(current_user.id)
+    # 更新対象
+    @user.id = current_user.id
+    @user.password = user_params[:password]
+
+    if @user.save(context: :change_password)
+      flash[:success] = '変更完了しました'
+      redirect_to game_bugsquest_path
+    else
+      #flash.now[:danger] = 'えらー'
+      render game_bugsquest_path
+    end
+  end
+
   # パスワードリセット
   def reset_password
     @user = User.new
