@@ -20,7 +20,7 @@ $(window).on('load',function(){
     setTimeout(() => {
       msg = [$('span#typedMsg2Text').text()];
       battle_msg({tid : 'span#typedMsg2',tclass : '.typedMsg2', strings : msg, startDelay : 100, loop : true, typeSpeed : 50});
-    }, 5500);
+    }, 4500);
 
     // 
     setTimeout(() => {

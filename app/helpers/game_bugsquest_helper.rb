@@ -46,6 +46,12 @@ module GameBugsquestHelper
             ret[:questStage].name = 'ゲストモード'
             ret[:questStatus].hp = 5
             ret[:questStatus].mp = 2
+            ret[:questStatus].power = 3
+            ret[:questStatus].protect = 4
+            ret[:questStatus].speed = 2
+            ret[:questStatus].wise = 3
+            ret[:questStatus].luck = 100
+
             ret[:questUser].lv = 0
             ret[:questUser].exp = 0
             ret[:questMonster].name = 'ブラックバグズ'
@@ -54,7 +60,7 @@ module GameBugsquestHelper
             ret[:questQuiz].tips = 'アカウントを作成すると<br />経験値をためらるぞ❢'
 
             # 次のレベルまでの経験値
-            ret[:next_lvup_exp] = '＜アカウントを作成すると経験値をためられるぞ❢＞'
+            ret[:next_lvup_exp] = '＜アカウントを作成すると<br />経験値をためらるぞ❢＞'
         end
         return ret
     end
