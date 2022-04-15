@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_030252) do
+ActiveRecord::Schema.define(version: 2022_04_15_065146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2022_04_11_030252) do
     t.string "change_token_digest"
     t.integer "recent_quiz_id"
     t.index ["change_token_digest"], name: "index_quest_users_on_change_token_digest", unique: true
-    t.index ["quiz_id"], name: "index_quest_users_on_quiz_id", unique: true
     t.index ["users_id"], name: "index_quest_users_on_users_id", unique: true
   end
 
