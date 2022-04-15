@@ -6,7 +6,7 @@ const nav2 = document.querySelector('nav2');
 
 if(btn){
   btn.addEventListener('click', () => {
-    if(btn2.innerHTML === '閉じる'){ return false; }
+    if(btn2){ if(btn2.innerHTML === '閉じる'){ return false; } }
     nav.classList.toggle('open-menu')
     btn.innerHTML = btn.innerHTML === 'メニュー'
       ? (v => {menu_btn_change(2, false); menu_btn_change(3, false); return '閉じる';})()
