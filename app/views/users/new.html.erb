@@ -1,5 +1,8 @@
 <div id="login_forms">
   <div class="contents-wrapp">
+    <div class="page_name">
+      <h2>アカウント登録</h2>
+    </div>
     <%= form_for(@user) do |f| %>
       <div class="input-form">
         <%= f.text_field :name, :placeholder => 'ユーザー名', :class => 'input-field', :maxlength => 255 %>

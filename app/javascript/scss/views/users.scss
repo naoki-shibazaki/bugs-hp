@@ -1,0 +1,17 @@
+#login_forms{
+  .contents-wrapp{
+    .page_name {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+
+      h2{
+        background: linear-gradient(transparent 70%, #feff9e 70%);
+        font-size: x-large;
+        /* font-weight: bold; */
+        color: mediumblue;
+      }
+    }
+  }
+}
