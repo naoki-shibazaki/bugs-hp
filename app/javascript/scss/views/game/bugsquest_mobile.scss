@@ -3,10 +3,10 @@
         header.slide-menu{
             .box_menu{
                 position: absolute;
-                left: 35%;
+                left: 10%;
                 top: 5%;
                 transform: translate(-50%, 0%);
-                width: 60%;
+                width: 10%;
 
                 .msgbox_out{
                     padding: 2px;
@@ -43,8 +43,8 @@
                         }
                         
                         .input-field{
-                            width:20em;
-                            height:2.5em;
+                            width:16.5em;
+                            height:2em;
                             border: 2px solid #BCE0FD;
                             border-radius: 1.5em;
                             padding-left: 1em;
@@ -111,37 +111,37 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 25px;
-                    height: 25px;
+                    width: 35px;
+                    height: 35px;
                     border-radius: 50%;
                     background-color: #fff200;
                     box-shadow: 0 0 20px #ffe000b8;
                     cursor: pointer;
-                    font-size: 6pt;
+                    font-size: 5pt;
                     z-index: 1000;
                 }
                 .position1{
-                    top: 10%;
+                    top: 5%;
                     right: 3%;
                 }
                 .position2{
-                    top: 20%;
+                    top: 15%;
                     right: 3%;
                 }
                 .position3{
-                    top: 30%;
+                    top: 25%;
                     right: 3%;
                 }
                 .position4{
-                    top: 40%;
+                    top: 35%;
                     right: 3%;
                 }
                 .position5{
-                    top: 50%;
+                    top: 45%;
                     right: 3%;
                 }
                 .position6{
-                    top: 60%;
+                    top: 55%;
                     right: 3%;
                 }
                 /* ボタンの中のアイコン画像 */
