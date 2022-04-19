@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       activation.create_activation_digest
       redirect_to login_url
     else
-      flash.now[:danger] = 'えらー'
+      #flash.now[:danger] = 'えらー'
       render :new
     end
   end

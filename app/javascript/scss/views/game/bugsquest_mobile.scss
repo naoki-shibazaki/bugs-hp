@@ -1,0 +1,366 @@
+@media screen and (max-width: 480px) {
+    div#container{
+        header.slide-menu{
+            .box_menu{
+                position: absolute;
+                left: 35%;
+                top: 5%;
+                transform: translate(-50%, 0%);
+                width: 60%;
+
+                .msgbox_out{
+                    padding: 2px;
+                    display: none;
+                    display: table;
+                    /*background-color: #000000;*/
+                    border-radius: 12px;
+                    margin: 5px 0 0px 0;
+                    white-space: nowrap;
+                    /*
+                    position: absolute;
+                    top: 10%;
+                    left: 20%;
+                    */
+                    /*transform: translate(-50%,10%);*/
+                    .menu1{
+                        /*position: fixed;*/
+                        width: 100%;
+                    }
+                    .menu2{
+                        position: absolute;
+                        left: 0%;
+                        top: 100%;
+                    }
+                    .menu3{
+                        .input-form{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            > input{
+                                margin-bottom: 2em;
+                            }
+                        }
+                        
+                        .input-field{
+                            width:20em;
+                            height:2.5em;
+                            border: 2px solid #BCE0FD;
+                            border-radius: 1.5em;
+                            padding-left: 1em;
+                            color: crimson;
+                            &::placeholder{
+                            color: #2699FB;
+                            }
+                        }
+                        
+                        .create-btn{
+                            width: 10em;
+                            height: 2.5em;
+                            background: darkblue;
+                            color: #fff;
+                            text-align: center;
+                        }                    
+                    }
+                }
+
+                .msgbox_in{
+                    height: inherit;
+                    padding: 5px;
+                    border: ridge 4px #fff;
+                    border-radius: 10px;
+                    background-color: #000000;
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    color: #fff;
+                    margin: 2px;
+                    /*
+                    left: 50%;
+                    transform: translate(-50%,10%);
+                    */
+                    /*
+                    .status1{}
+                    */
+                    .menu1{
+                        position: relative;
+                        left: 85%;
+                    }
+                    .menu2{
+                        position: relative;
+                        left: 85%;
+                    }
+                }
+                table.user_status{
+                    border-collapse:collapse;
+                    margin:0 auto;
+                    td,th{
+                        border-top:1px solid #666;
+                        padding:10px;
+                    }
+                    tr:last-child td,
+                    tr:last-child th{
+                        border-bottom:1px solid #666;  
+                    }
+                }
+            }
+
+            div.menu_bar{
+                /* ボタンの装飾 */
+                .pulse-btn {
+                    position: fixed;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    background-color: #fff200;
+                    box-shadow: 0 0 20px #ffe000b8;
+                    cursor: pointer;
+                    font-size: 6pt;
+                    z-index: 1000;
+                }
+                .position1{
+                    top: 10%;
+                    right: 3%;
+                }
+                .position2{
+                    top: 20%;
+                    right: 3%;
+                }
+                .position3{
+                    top: 30%;
+                    right: 3%;
+                }
+                .position4{
+                    top: 40%;
+                    right: 3%;
+                }
+                .position5{
+                    top: 50%;
+                    right: 3%;
+                }
+                .position6{
+                    top: 60%;
+                    right: 3%;
+                }
+                /* ボタンの中のアイコン画像 */
+                .pulse-btn img {
+                    width: 60%;
+                }
+                /* ボタンの波紋 */
+                .pulse-btn::before, .pulse-btn::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid #1da1f2;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    pointer-events: none;
+                    animation: pulsate 2s linear infinite;
+                }
+                .pulse-btn::after {
+                    animation-delay: 1s;
+                }
+                /* ボタンの波紋が広がっていくアニメーション */
+                @keyframes pulsate {
+                    0% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+        .game_bugsquest{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+            background-image: url(/image/bg.png);
+            .battle{
+                position: fixed;
+                top: 25%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                font-size: 16px;
+                /*background-image: url(/image/black_bugs_chan.png);*/
+                background-size: cover;
+                background-repeat:  no-repeat;
+                width: 150px;
+                height: 220px;
+                /*
+                border: 3px solid;
+                color: pink;
+                */
+                resize: both;
+                /*overflow: scroll;*/
+
+                /* 回答ボタン */
+                button.modal_btn2 {
+                    border: solid 2px #485645;
+                    border-radius: 3px;
+                    color: #ffffff;
+                    background-color: #080b73;
+                    display: inline-block;
+                    /*font-size: 24px;*/
+                    padding: 5px 30px;
+                    text-decoration: none;
+                    transition: .4s;
+                }
+
+                /* 回答ボタン */
+                button.modal_btn2:hover {
+                    background: #5c0101;
+                    color: rgb(255, 212, 22);
+                }
+
+                img.enemy{
+                    position: absolute;
+                    top: 50px;
+                    width: 35%;
+                    transform: translate(80%, 50%);            
+                }
+                .msgbox_out{
+                    padding: 2px;
+                    display: none;
+                    display: table;
+                    /*background-color: #000000;*/
+                    border-radius: 12px;
+                    margin: 10px 0 10px 0;
+                    white-space: nowrap;
+                    font-size: 8pt;
+
+                    .status1{
+                        position: fixed;
+                        top: 0%;
+                        right: 35%;
+                        width: 160px;
+                    }
+
+                    .status2{
+                        position: fixed;
+                        top: 0%;
+                        left: 70%;
+                        width: 80px;
+                    }
+
+                    .main{
+                        position: absolute;
+                        top: 85%;
+                        /*right: -190px;*/
+                        width: 170%;
+                        height: 100px;
+                        z-index: 10;
+                        transform: translate(-20%,0%);
+                    }
+
+                    .monster{
+                        position: fixed;
+                        top: 80%;
+                        left: 47%;
+                    }
+
+                    .quiz{
+                        position: fixed;
+                        top: 80%;
+                        right: 55%;
+                        width: 90%;
+                        white-space: normal;
+                    }
+
+                    .question{
+                        position: fixed;
+                        top: 15%;
+                        right: 35%;
+                    }
+
+                    .yesno{
+                        position: fixed;
+                        top: 15%;
+                        left: 65%;
+                        color: chartreuse;
+                        font-weight: bold;
+                        width: 60%;
+                        text-align: center;
+                    }
+                }
+                .msgbox_in{
+                    height: inherit;
+                    padding: 5px;
+                    border: ridge 4px #fff;
+                    border-radius: 10px;
+                    background-color: #000000;
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    color: #fff;
+                    margin: 1px;
+
+                    /*
+                    .status1{}
+                    */
+                }
+                /* メッセージ表示 */
+                div.msgbox2{
+                    /*display: none;*/
+                    position: absolute;
+                    top: 93%;
+                    left: 35%;
+                    /*animation: flash_msg 2s linear infinite;*/
+                    width:100%;
+                    height:146px;
+                    background:#0d20c5;
+                    margin:20px;
+                    border-radius:15px;
+                    padding:10px;
+                    font-size: 10px;
+                    color: #ffffff;
+                }
+                /*
+                @keyframes flash_msg {
+                0% {
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                60% {
+                    opacity: 1;
+                    width: 200%;
+                }
+                100% {
+                    opacity: 1;
+                    width: 200%;
+                }
+                }
+                */
+                span#QuestionId{
+                    display: none;
+                }
+                span#typedMsg2Text{
+                    display: none;
+                }
+                span#typedQuestionText{
+                    display: none;
+                }
+                span#typedQuestion{
+                    color: #ffe500;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

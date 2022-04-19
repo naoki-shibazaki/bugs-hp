@@ -1,0 +1,34 @@
+@media screen and (max-width: 480px) {
+  /*** ＜メッセージ表示:START＞ ***/
+  div.notifications{
+    color: white;
+    text-align: center;  
+
+    .notice {
+      background-color: lightseagreen;
+    }
+
+    .alert {
+      background-color: maroon;
+    }
+  }
+  /*** ＜メッセージ表示:END＞ ***/
+
+  #login_forms{
+    .contents-wrapp{
+      .page_name {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+
+        h2{
+          background: linear-gradient(transparent 70%, #feff9e 70%);
+          font-size: large;
+          /* font-weight: bold; */
+          color: mediumblue;
+        }
+      }
+    }
+  }
+}

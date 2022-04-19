@@ -16,7 +16,7 @@ div.notifications{
 #login_forms{
   .contents-wrapp{
     .page_name {
-      position: fixed;
+      position: absolute;
       top: 10%;
       left: 50%;
       transform: translate(-50%, 0%);
@@ -30,3 +30,5 @@ div.notifications{
     }
   }
 }
+
+@import './users_mobile';

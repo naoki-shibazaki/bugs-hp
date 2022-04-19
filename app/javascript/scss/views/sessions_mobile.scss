@@ -1,0 +1,101 @@
+@media screen and (max-width: 480px) {
+    #login_forms{
+        position: fixed;
+        background-image: url(/image/dot_kumo6.png);
+        width: 100%;
+        height: 100%;
+
+        .btn{
+            width:22em;
+            height:2.5em;
+            border-radius: 1.5em;
+        }
+
+        .contents-wrapp{
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .input-form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            > input{
+                margin-bottom: 1em;
+            }
+        }
+
+        .input-field{
+            width:20em;
+            height:2.5em;
+            border: 2px solid #BCE0FD;
+            border-radius: 1.5em;
+            padding-left: 1em;
+            &::placeholder{
+            color: #2699FB;
+            }
+        }
+        
+        .login-btn{
+            width:22em;
+            height:2.5em;
+            background:#2699FB;
+            color:#fff;
+            text-align: center;
+        }
+
+        .create-btn{
+            width:22em;
+            height:2.5em;
+            background:#11e040;
+            color:#fff;
+            text-align: center;
+        }
+
+        .link-p{
+            color: #666;
+            margin:0;
+        }
+
+        div.box_login_confirm{
+            position: fixed;
+            width: 80%;
+            text-align: center;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            .btn--orange,
+            a.btn--orange {
+            color: #fff;
+            background-color: #eb6100;
+            font-size: 12pt;
+            padding: 5px;
+            line-height: 2.5em;
+            }
+            .btn--orange:hover,
+            a.btn--orange:hover {
+            color: #fff;
+            background: #f56500;
+            }
+            
+            a.btn--radius {
+            border-radius: 100vh;
+            }
+            
+            h2.game_bugsquest {
+            color: #364e96;/*文字色*/
+            border: solid 5px #364e96;/*線色*/
+            padding: 0.5em;/*文字周りの余白*/
+            border-radius: 1.5em;/*角丸*/
+            font-size: 18px;
+            background-color: papayawhip;
+            font-weight: bold;
+            }
+        }
+    }
+}
