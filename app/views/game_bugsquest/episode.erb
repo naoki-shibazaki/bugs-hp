@@ -1,0 +1,14 @@
+<div id="episode">
+    <div class="msgbox_out">
+        <div class="msgbox_in">
+            <span class="title_stage">STAGE:<%= @get_bugsquest_game_data[:questStage].num %> &lt;<%= @get_bugsquest_game_data[:questStage].name %>&gt;</span>
+            <p class="text"><%= @get_bugsquest_game_data[:questStage].episode %></p>
+        </div>
+    </div>
+    <div class="msgbox_out">
+        <div class="msgbox_in">
+        <span class="title_step">STEP:<%= @get_bugsquest_game_data[:questQuiz].id %></span>
+            <p class="text"><%= @get_bugsquest_game_data[:questQuiz].episode %></p>
+        </div>
+    </div>
+</div>

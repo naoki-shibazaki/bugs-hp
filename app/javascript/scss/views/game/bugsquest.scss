@@ -307,10 +307,41 @@ div#container{
                 margin-bottom: 30px;
                 color: #fff;
                 margin: 2px;
-
                 /*
                 .status1{}
                 */
+                .btn-attend-new {
+                    position: absolute;
+                    top: 37%;
+                    left: 30%;
+                    width: 25px;
+                    height: 25px;
+                    text-align:center;
+                    /*line-height:50px;*/
+                    color:#FFFFFF;
+                    font-size:14px;
+                    border-radius:50%;
+                    background: #ff3019;
+                    background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%);
+                    animation: btn-attend-new 2s infinite;
+                    -webkit-animation: btn-attend-new 2s infinite;
+                }
+                @-webkit-keyframes btn-attend-new {
+                    0% { transform:scale(1); }
+                    30% { transform:scale(1.3)rotate(-25deg);box-shadow:2px 2px 4px #999999;}
+                    40% { transform:scale(1); }
+                    50% { transform:scale(1.3)rotate(-25deg);box-shadow:2px 2px 4px #999999;}
+                    70% { transform:scale(1);}
+                    100% { transform:scale(1); }
+                }
+                @keyframes btn-attend-new {
+                    0% { transform:scale(1); }
+                    30% { transform:scale(1.3)rotate(-25deg);box-shadow:2px 2px 4px #999999;}
+                    40% { transform:scale(1); }
+                    50% { transform:scale(1.3)rotate(-25deg);box-shadow:2px 2px 4px #999999;}
+                    70% { transform:scale(1);}
+                    100% { transform:scale(1); }
+                }
             }
             /* メッセージ表示 */
             div.msgbox2{
@@ -358,6 +389,52 @@ div#container{
             span#typedQuestion{
                 color: #ffe500;
                 font-weight: bold;
+            }
+        }
+    }
+}
+
+div#episode{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: fit-content;
+    width: -webkit-fill-available;
+    transform: translate(-50%, 0%);
+
+    .msgbox_out{
+        padding: 2px;
+        display: none;
+        display: table;
+        /*background-color: #000000;*/
+        border-radius: 12px;
+        margin: 10px 0 10px 0;
+        /*white-space: nowrap;*/
+
+        .msgbox_in{
+            height: inherit;
+            padding: 5px;
+            border: ridge 4px #fff;
+            border-radius: 10px;
+            background-color: #000000;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #fff;
+            margin: 2px;
+            font-size: medium;
+
+            span.title_stage{
+                font-size: x-large;
+                color: chartreuse;
+            }
+
+            span.title_step{
+                font-size: x-large;
+                color: cyan;
+            }
+
+            p.text{
+                word-break: break-word;
             }
         }
     }
