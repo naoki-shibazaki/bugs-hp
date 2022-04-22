@@ -1,7 +1,7 @@
 <% if logged_in? %>
     <button class="pulse-btn position1"><span class="btn-menu">メニュー</span></button>
     <button class="pulse-btn position2"><span class="btn-account">アカウント</span></button>
-    <%= link_to "ログアウト", logout_path, method: :delete, class: 'pulse-btn position3' %>
+    <button class="pulse-btn position3"><%= link_to "ログアウト", logout_path, method: :delete %></button>
 <% else %>
     <button class="pulse-btn position1"><span class="btn-menu">メニュー</span></button>
     <button class="pulse-btn position2"><%= link_to "ログイン", login_path, method: :get %></button>

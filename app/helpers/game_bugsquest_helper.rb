@@ -32,7 +32,8 @@ module GameBugsquestHelper
         ret[:questMonster] = QuestMonster.new
         unless current_user.nil?
             ret[:questUser] = QuestUser.find_by(users_id: current_user.id)
-            ret[:questQuiz] = QuestQuiz.find(ret[:questUser].quiz_id)
+            #ret[:questQuiz] = QuestQuiz.find(ret[:questUser].quiz_id)
+            ret[:questQuiz] = QuestQuiz.find(ret[:questUser].recent_quiz_id)
             ret[:questStage] = QuestStage.find(ret[:questQuiz].quest_stage_id)
             ret[:questMonster] = QuestMonster.find(ret[:questQuiz].quest_monster_id)
             ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
@@ -57,7 +58,7 @@ module GameBugsquestHelper
             ret[:questMonster].name = 'ブラックバグズ'
 
             ret[:questQuiz].question = '正しいプログラム言語で敵を倒せ！'
-            ret[:questQuiz].tips = 'アカウントを作成すると<br />経験値をためらるぞ❢'
+            ret[:questQuiz].tips = 'アカウントを作成するとストーリーが楽しめて経験値もためらるぞ❢'
 
             # 次のレベルまでの経験値
             ret[:next_lvup_exp] = '＜アカウントを作成すると<br />経験値をためらるぞ❢＞'

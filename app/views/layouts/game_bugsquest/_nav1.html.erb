@@ -1,4 +1,14 @@
 <div class="box_menu">
+	<div class="msgbox_out menu_select_battle">
+		<div class="msgbox_in menu_select_battle">
+			<h2>バトル選択！</h2>
+			<%= form_with do |form| %>
+				Stage:<span id="form_select_stage"></span><br />
+				Step:<span id="form_select_step"></span><br />
+				<%= form.submit 'バトル！', :id => 'select_battle' %>
+			<% end %>
+		</div>
+	</div>
 	<div class="msgbox_out menu1">
 		<div class="msgbox_in menu1">
 			<table class="user_status">

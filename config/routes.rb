@@ -47,8 +47,11 @@ Rails.application.routes.draw do
     patch '/api/checkAnswer',   to: 'sessions#apiCheckAnswer'
     patch '/api/apiDamege',   to: 'sessions#apiDamege'
     patch '/api/victoryBattle',   to: 'sessions#apiVictoryBattle'
-    
+    get '/api/getStage', to: 'sessions#apiGetStage'
+    get '/api/getStep', to: 'sessions#apiGetStep'
+
     get '/game/bugsquest',   to: 'game_bugsquest#index'
+    post '/game/bugsquest',   to: 'game_bugsquest#index'
     get '/game/bugsquest/episode',   to: 'game_bugsquest#episode'
 
     #get '/logout',  to: 'sessions#destroy'

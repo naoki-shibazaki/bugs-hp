@@ -23,14 +23,41 @@ div#container{
                 left: 20%;
                 */
                 /*transform: translate(-50%,10%);*/
+                .menu_select_battle{
+                    position: relative;
+
+                    h2{
+                        color: #37e80d;
+                        padding: 0.5em 0;
+                        /* border-top: solid 2px #ffe000; */
+                        border-bottom: solid 2px #ffe000;
+                        font-size: larger;
+                        font-weight: bold;
+                        margin: 0 0 10px 0;
+                    }
+
+                    form{
+                        select{
+                            background: #040082;
+                            margin: 5px;
+                            font-size: revert;
+                        }
+                        #select_battle{
+                            background: #040082;
+                            margin: 5px;
+                            padding: 7px;
+                            border-radius: 15px;
+                        }
+                    }
+                }
                 .menu1{
                     /*position: fixed;*/
                     width: 100%;
                 }
                 .menu2{
                     position: absolute;
-                    left: 100%;
-                    top: 12px;
+                    left: 102%;
+                    top: 36.5%;
                 }
                 .menu3{
                     .input-form{
@@ -82,25 +109,17 @@ div#container{
                 /*
                 .status1{}
                 */
-                .menu1{
-                    position: relative;
-                    left: 85%;
-                }
-                .menu2{
-                    position: relative;
-                    left: 85%;
-                }
-            }
-            table.user_status{
-                border-collapse:collapse;
-                margin:0 auto;
-                td,th{
-                    border-top:1px solid #666;
-                    padding:10px;
-                }
-                tr:last-child td,
-                tr:last-child th{
-                    border-bottom:1px solid #666;  
+                table.user_status{
+                    border-collapse:collapse;
+                    margin:0 auto;
+                    td,th{
+                        border-top:1px solid #666;
+                        padding:10px;
+                    }
+                    tr:last-child td,
+                    tr:last-child th{
+                        border-bottom:1px solid #666;  
+                    }
                 }
             }
         }
@@ -116,9 +135,10 @@ div#container{
                 height: 50px;
                 border-radius: 50%;
                 background-color: #fff200;
-                box-shadow: 0 0 20px #ffe000b8;
+                box-shadow: 0 0 20px #7d95ffb8;
                 cursor: pointer;
                 z-index: 1000;
+                white-space: unset;
             }
             .position1{
                 top: 80px;
@@ -296,6 +316,16 @@ div#container{
                     width: 60%;
                     text-align: center;
                 }
+
+                .yesno2{
+                    position: fixed;
+                    top: 20%;
+                    left: 80%;
+                    color: chartreuse;
+                    font-weight: bold;
+                    width: 60%;
+                    text-align: center;
+                }
             }
             .msgbox_in{
                 height: inherit;
@@ -377,7 +407,16 @@ div#container{
             }
             }
             */
+            span#bugsquestQuestUserID{
+                display: none;
+            }
+            span#bugsquestMode{
+                display: none;
+            }
             span#QuestionId{
+                display: none;
+            }
+            span#monsterId{
                 display: none;
             }
             span#typedMsg2Text{

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/dev/TEST.css">
 
-<%# メニューボタン用 %>
+<%# 変更用トークン生成 %>
 <meta name="csrf-questuser-token" content="<%= create_user_token %>" />
 
 <div id="splash">
@@ -41,8 +41,11 @@
             <div class="msgbox_out status1">
                 <div class="msgbox_in status1">
                     名前：<span id="user_name"><%= @get_bugsquest_game_data[:questUser].name %></span><br />
-                    <!--経験値：<span id="user_exp"><%= @get_bugsquest_game_data[:questUser].exp %></span><br />-->
+<% if logged_in? %>
                     STEP:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span><div class="btn-attend-new"><a class="trig-colorbox_iframe" href="/game/bugsquest/episode">EP.</a></div><br />
+<% else %>
+                    STEP:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span><br />
+<% end %>
                     STAGE:<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span> &lt;<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>&gt;<br />
                 </div>
             </div>
@@ -57,6 +60,7 @@
         
             <div class="msgbox_out monster">
                 <div class="msgbox_in monster">
+                    <span id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
                     <span id="monster_name"><%= @get_bugsquest_game_data[:questMonster].name %></span>　−　1ぴき
                 </div>
             </div>
@@ -64,6 +68,8 @@
             <div class="msgbox_out quiz">
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
+                    <span id="bugsquestMode"><%= @mode %></span>
+                    <span id="bugsquestQuestUserID"><%= @get_bugsquest_game_data[:questUser].id %></span>
                     <span id="QuestionId"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
                     <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
                     <p><span class="typedQuestion" id="typedQuestion"></span></p>
@@ -106,6 +112,13 @@
                     <a link="/game/bugsquest<%= make_bugsquest_pram %>" onclick="window.location = $(this).attr('link');">はい</a>
                 </div>
             </div>
+
+            <div class="msgbox_out yesno2">
+                <div class="msgbox_in yesno2">
+                <%= link_to "はい", {controller: 'game_bugsquest', action: 'index', select_step: @get_bugsquest_game_data[:questQuiz].id }, method: :post %>
+                </div>
+            </div>
+
         </div>
     </div>
 </div><!--/contaier-->

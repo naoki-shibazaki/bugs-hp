@@ -73,12 +73,14 @@ class SessionsController < ApplicationController
       next_exp = next_lvup_exp
 
       # 次のステップ(クイズ)へ
-      if questUser.quiz_id < questQuiz_max_id
-        questUser.quiz_id += 1
-      end
+      if params[:mode] === 'story'
+        if questUser.quiz_id < questQuiz_max_id
+          questUser.quiz_id += 1
+        end
 
-      # クエストユーザーデータをアップデート
-      questUser.save
+        # クエストユーザーデータをアップデート
+        questUser.save
+      end
 
       datas = {
                 msg: {
@@ -94,6 +96,28 @@ class SessionsController < ApplicationController
     end
   end
 
+  # API:ステージ取得
+  def apiGetStage
+    questUser = QuestUser.find_by(users_id: params[:user_id])
+    if questUser.authenticated?(:change_token, params[:change_token])
+      questQuiz = QuestQuiz.find(questUser.quiz_id)
+      questStage = QuestStage.select(:num, :name).where(id: Float::MIN..questQuiz.quest_stage_id)
+      render :json => questStage
+    else
+      render plain: ''
+    end
+  end
+
+  # API:ステップ取得
+  def apiGetStep
+    questUser = QuestUser.find_by(users_id: params[:user_id])
+    if questUser.authenticated?(:change_token, params[:change_token])
+      questQuiz = QuestQuiz.select(:id, :question).where(quest_stage_id: params[:stage].to_i, id: Float::MIN..questUser.quiz_id)
+      pp questQuiz
+      render :json => questQuiz
+    end
+  end
+  
   private
 
   # ログインチェック

@@ -54,7 +54,7 @@ get_battle_damege = ({  quest_user_id = 0,
 }
 
 // バトル勝利
-get_battle_victory_info = ({ quest_user_id = 0 }) => {
+get_battle_victory_info = ({ quest_user_id = 0, mode = 'story' }) => {
   //  ajax通信条件にCSRFトークンを入れる
   set_csrftoken();
 
@@ -62,7 +62,7 @@ get_battle_victory_info = ({ quest_user_id = 0 }) => {
     //headers: { 'X-CSRF-TOKEN': 'TOKEN' },
     type: 'PATCH', // HTTPリクエストメソッドの指定
     //url: '/debug/apiVictoryBattle?user_id='+quest_user_id, // 送信先URLの指定
-    url: '/api/victoryBattle?user_id='+quest_user_id+'&change_token='+get_csrftoken_questuser(), // 送信先URLの指定
+    url: '/api/victoryBattle?user_id='+quest_user_id+'&change_token='+get_csrftoken_questuser()+'&mode='+mode, // 送信先URLの指定
     async: false, // 非同期通信フラグの指定
     //dataType: 'json', // 受信するデータタイプの指定
     dataType: 'text', // 受信するデータタイプの指定
@@ -94,11 +94,9 @@ set_csrftoken = () => {
 }
 
 get_csrftoken_questuser = () => {
-  console.log('get_csrftoken_questuser:' + $('meta[name="csrf-questuser-token"]').attr('content'));
+  //console.log('get_csrftoken_questuser:' + $('meta[name="csrf-questuser-token"]').attr('content'));
   return $('meta[name="csrf-questuser-token"]').attr('content');
 }
-
-
 
 function postTest(text){
   //  ajax通信条件にCSRFトークンを入れる
