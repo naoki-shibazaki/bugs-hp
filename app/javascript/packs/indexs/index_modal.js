@@ -6,7 +6,7 @@ $(function(){
   ///
   /// モーダルウインドウの処理
   ///
-  $('.modal').delay(500).fadeIn();
+  $('.modal').delay(300).fadeIn();
     //モーダルを開く
     //$('button.open-modal').click(function() {
     //    $('.modal').fadeIn();
@@ -44,6 +44,12 @@ $(function(){
     $('div.msgbox').fadeIn();
   });
 
+  //msg = ['ダークサイドに堕ちた「ブラックバグズちゃん」が現れた！'+"<br />"+'正しいプログラム言語を使ってバグズちゃんを救いたまえ！！'];
+  msg1 = ['ダークサイドに堕ちた「ブラックバグズちゃん」が現れた！'];
+  msg2 = ['正しいプログラム言語を使ってバグズちゃんを救いたまえ！！'];
+  typing_msg({tid : 'span#typed1',tclass : '.typed1', strings : msg1, startDelay : 1500});
+  typing_msg({tid : 'span#typed2',tclass : '.typed2', strings : msg2, startDelay : 3500});
+  /*
   setTimeout(function(){
     // 正解メッセージ用を非表示
     $('.eachTextAnime#first_msg1').fadeIn();
@@ -52,11 +58,12 @@ $(function(){
     // 正解メッセージ用を非表示
     $('.eachTextAnime#first_msg2').fadeIn();
   }, 6000);
+  */
   setTimeout(function(){
     // 正解メッセージ用を非表示
     $('.quiz_first').fadeOut();
     $('div.msgbox').fadeIn();
-  }, 12000);
+  }, 6000);
 
   ///
   /// バルーンメッセージの処理
@@ -140,3 +147,27 @@ $(function(){
   });
 
 });
+
+// バトルメッセージ
+typing_msg = ({ tclass = [''],
+  tid = [''],
+  strings = [''],
+  typeSpeed = 25,
+  startDelay = 0,
+  backSpeed = 0,
+  backDelay = 0,
+  loop = false,
+  cursorChar = '',
+  contentType = ''}) => {
+    $(tid).text('');
+    let typed = new Typed(tclass, {
+      strings: strings,
+      typeSpeed: typeSpeed,
+      startDelay: startDelay,
+      backSpeed: backSpeed,
+      backDelay: backDelay,
+      loop: loop,
+      cursorChar: cursorChar,
+      //contentType: 'html',
+  });
+}
