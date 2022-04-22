@@ -4,7 +4,7 @@ class User < ApplicationRecord
     attr_accessor :activation_token, :reset_token
 
     #バリデーションの定義
-    MiniLength1 = 1
+    MiniLength1 = 8
     MaxLength1 = 255
     MaxLength2 = 16
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
