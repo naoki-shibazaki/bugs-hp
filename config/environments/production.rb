@@ -120,7 +120,7 @@ Rails.application.configure do
 
   # メール送信関連の設定
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { :host => 'bugs.co.jp' }
+  config.action_mailer.default_url_options = { :host => 'bugs.co.jp', :protocol => 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       address:                'smtp.gmail.com',
