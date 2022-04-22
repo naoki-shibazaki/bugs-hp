@@ -29,31 +29,22 @@ Rails.application.routes.draw do
   # メール送信完了ページ
   get '/form_end' => 'indexs#form_end'
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # バグズクエスト
+  get '/game/bugsquest',   to: 'game_bugsquest#index'
+  post '/game/bugsquest',   to: 'game_bugsquest#index'
+  get '/game/bugsquest/episode',   to: 'game_bugsquest#episode'
+
+  # API
+  patch '/api/checkAnswer',   to: 'sessions#apiCheckAnswer'
+  patch '/api/apiDamege',   to: 'sessions#apiDamege'
+  patch '/api/victoryBattle',   to: 'sessions#apiVictoryBattle'
+  get '/api/getStage', to: 'sessions#apiGetStage'
+  get '/api/getStep', to: 'sessions#apiGetStep'
 
   # 隠れページ・デバッグ
   if ENV['DEBUG_PAGE_SHOW'] == '1'
     get '/back_hide_page' => 'indexs#back_hide_page'
     get '/debug/menu',   to: 'sessions#debug_menu'
     patch '/debug/postTest',   to: 'sessions#apiPostTest'
-    #get '/debug/test_modal',   to: 'sessions#test_modal'
-    #get '/debug/test_battle',   to: 'sessions#test_battle'
-    #get '/debug/test_game_enter',   to: 'sessions#test_game_enter'
-    
-    #get '/debug/test_create_quest_user',   to: 'sessions#test_create_quest_user'
-
-    #get '/debug/postTest',   to: 'sessions#postTest'
-
-    patch '/api/checkAnswer',   to: 'sessions#apiCheckAnswer'
-    patch '/api/apiDamege',   to: 'sessions#apiDamege'
-    patch '/api/victoryBattle',   to: 'sessions#apiVictoryBattle'
-    get '/api/getStage', to: 'sessions#apiGetStage'
-    get '/api/getStep', to: 'sessions#apiGetStep'
-
-    get '/game/bugsquest',   to: 'game_bugsquest#index'
-    post '/game/bugsquest',   to: 'game_bugsquest#index'
-    get '/game/bugsquest/episode',   to: 'game_bugsquest#episode'
-
-    #get '/logout',  to: 'sessions#destroy'
   end
 end
