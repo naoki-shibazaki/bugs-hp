@@ -1,6 +1,9 @@
 $(function(){
   // 回答送信[ログインモード]
   $('#answer3').on('click', function(){
+    // 画面ロック
+    screenLock();
+
     let msg;
     // クイズユーザーID取得
     const questUserId = $('#bugsquestQuestUserID').text();
@@ -20,11 +23,21 @@ $(function(){
     //console.log('mode:'+mode);
     
     if(answer === undefined){
+      // 画面ロック解除
+      setTimeout(() => {
+        $('#screenLock').remove();
+      }, 1000);
+
       // バルーンメッセージ表示
       showBalloonMsg2();
       return false;
 
     }else{
+      // 画面ロック解除
+      setTimeout(() => {
+        $('#screenLock').remove();
+      }, 5000);
+
       // 解答の正否チェック
       let quiz_result = checkAnswer({quest_recent_quiz_id : questionId, quest_quiz_answer : answer});
       
