@@ -70,7 +70,11 @@ class SessionsController < ApplicationController
       end
 
       # 次のレベルまでの経験値
-      next_exp = next_lvup_exp
+      if level_up_flag === false
+        next_exp = next_lvup_exp(1) - get_exp
+      else
+        next_exp = next_lvup_exp(2) - get_exp
+      end
 
       # 次のステップ(クイズ)へ
       if params[:mode] === 'story'

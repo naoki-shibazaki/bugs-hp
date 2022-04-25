@@ -39,7 +39,7 @@ module GameBugsquestHelper
             ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
             ret[:answers] = get_bugsquest_quiz_choice(ret[:questQuiz].choice)
             # 次のレベルまでの経験値
-            ret[:next_lvup_exp] = next_lvup_exp
+            ret[:next_lvup_exp] = next_lvup_exp(1)
         else
             ret[:questUser].name = 'ゲストユーザー'
             ret[:questQuiz].id = 0
@@ -82,11 +82,11 @@ module GameBugsquestHelper
     end
 
     # 次のレベルまでの経験値を取得
-    def next_lvup_exp
+    def next_lvup_exp(next_plus_num)
         if logged_in?
             questUser = QuestUser.find_by(users_id: current_user.id)
             # 次のレベルまでの経験値
-            return QuestStatus.find_by(lv: questUser.lv + 1).exp - questUser.exp
+            return QuestStatus.find_by(lv: questUser.lv + next_plus_num).exp - questUser.exp
         end
     end
 end
