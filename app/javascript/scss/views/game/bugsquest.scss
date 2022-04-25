@@ -372,6 +372,12 @@ div#container{
                     70% { transform:scale(1);}
                     100% { transform:scale(1); }
                 }
+
+                ul.game_quiz_radio{
+                    li{
+                        margin-bottom: 5px;
+                    }
+                }
             }
             /* メッセージ表示 */
             div.msgbox2{

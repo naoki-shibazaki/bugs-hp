@@ -36,7 +36,7 @@
 						<div class="c-abouts-item-choices">
 							<span class="balloon1" id="makeImg">選んで救うのじゃ！</span>
 							<p>正しいプログラム言語で浄化じゃ！</p>
-							<ul>
+							<ul class="quiz-radio-btn">
 								<% @quizzes.each do |key, value| %>
 									<li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
 								<% end %>
