@@ -73,7 +73,7 @@
                     <span id="QuestionId"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
                     <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
                     <p><span class="typedQuestion" id="typedQuestion"></span></p>
-                    <ul>
+                    <ul class="game_quiz_radio">
                         <% @get_bugsquest_game_data[:answers].each do |value| %>
                             <li><input type="radio" class="modal_radio" name="amswer[]" value="<%= value %>"><%= value %></li>
                         <% end %>
