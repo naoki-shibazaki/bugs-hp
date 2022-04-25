@@ -43,7 +43,8 @@ class UsersController < ApplicationController
       #redirect_to user
     else
       flash[:danger] = "リンクが無効です"
-      redirect_to root_url
+      #redirect_to root_url
+      redirect_to login_confirm_url
     end
   end
 
@@ -137,7 +138,8 @@ class UsersController < ApplicationController
   def valid_user
     @user.authenticated?(:reset, params[:token])
     unless (@user && @user.authenticated?(:reset, params[:token]))
-      redirect_to root_url
+      #redirect_to root_url
+      redirect_to login_confirm_url
     end
   end
 

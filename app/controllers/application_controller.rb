@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
     # ログイン済みユーザーの場合、アクセス不可ページの処理
     def logged_in_user_deny
         if logged_in?
-            redirect_to root_url
+            #redirect_to root_url
+            redirect_to login_confirm_url
         end
     end
 end
