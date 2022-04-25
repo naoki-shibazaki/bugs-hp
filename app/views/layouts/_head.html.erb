@@ -17,20 +17,30 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
-<title>株式会社Bug.s</title>
-
 <!-- seo -->
-<meta name="description" content="ここにHPの説明が入ります。">
-<meta name="keywords" content="ここにキーワードが入ります。">
+<meta name="description" content="当社はHP制作やリニューアル、企画からデザイン・運用に至るまで、お客様のご希望に沿ったサイト構築をご提案いたします。皆様や身近な方々の幸せのお手伝いをさせて下さい。">
+<meta name="keywords" content="HP制作,WEB制作,SES事業,システム開発">
 
 <!-- og -->
-<meta property="og:title" content="株式会社Bug.s">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://bugs.co.jp/">
-<meta property="og:image" content="https://bugs.co.jp/image/ogp.png">
 
-<link rel="icon" href="image/favicon.ico" id="favicon">
-<link rel="apple-touch-icon" sizes="180x180" href="image/favicon.ico">
+<% case controller.controller_name %>
+  <% when 'game_bugsquest', 'sessions' %>
+    <title>バグズクエスト｜株式会社Bug.s</title>
+    <meta property="og:title" content="バグズクエスト｜株式会社Bug.s">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bugs.co.jp/game/bugsquest">
+    <meta property="og:image" content="https://bugs.co.jp/image/ogp_bugsquest.png">
+  <% else %>
+    <title>株式会社Bug.s</title>
+    <meta property="og:title" content="株式会社Bug.s">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bugs.co.jp/">
+    <meta property="og:image" content="https://bugs.co.jp/image/ogp_top.png">
+<% end %>
+
+
+<link rel="icon" href="/image/favicon.ico" id="favicon">
+<link rel="apple-touch-icon" sizes="180x180" href="/image/favicon.ico">
 
 <meta property="og:site_name" content="株式会社Bug.s">
 <meta property="og:description" content="ここにHPの説明が入ります。">
