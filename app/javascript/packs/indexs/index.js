@@ -21,6 +21,7 @@ var jqOther = jQuery.noConflict(true);
     //ハンバーガーメニュー
     jqOther('.sp-button,.c-page__eyecatch-nav-wrap a').on('click',function(){//.btn_triggerをクリックすると
       jqOther('.c-page__eyecatch-nav-wrap').fadeToggle(500);//.nav-wrapperが0.5秒でフェードイン(メニューのフェードイン)
+      jqOther('.pulse-btn').fadeToggle(500);
       jqOther('body').toggleClass('noscroll');//bodyにnoscrollクラスを付与(スクロールを固定)
       });
     
