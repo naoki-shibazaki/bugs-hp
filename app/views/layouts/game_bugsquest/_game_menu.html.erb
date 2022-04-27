@@ -1,4 +1,5 @@
 <% if logged_in? %>
+    <button class="pulse-btn position0"><%= link_to game_bugsquest_news_path, class: :'trig-colorbox_iframe' do %><i class="fa-regular fa-bell"></i><% end %></button>
     <button class="pulse-btn position1"><span class="btn-menu">メニュー</span></button>
     <button class="pulse-btn position2"><span class="btn-account">アカウント</span></button>
     <button class="pulse-btn position3"><%= link_to "ログアウト", logout_path, method: :delete %></button>

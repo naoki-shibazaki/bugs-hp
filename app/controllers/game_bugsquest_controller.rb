@@ -41,6 +41,9 @@ class GameBugsquestController < ApplicationController
     @get_bugsquest_game_data = get_bugsquest_game_data
   end
 
+  def news
+  end
+
   private
   
   # ログインの有無をチェック
