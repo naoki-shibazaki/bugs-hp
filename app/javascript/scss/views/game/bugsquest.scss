@@ -23,7 +23,7 @@ div#container{
                 left: 20%;
                 */
                 /*transform: translate(-50%,10%);*/
-                .menu_select_battle{
+                .menu_mode{
                     position: relative;
 
                     h2{
@@ -55,7 +55,7 @@ div#container{
                     width: 100%;
                 }
                 .menu2{
-                    position: absolute;
+                    /*position: absolute;*/
                     left: 102%;
                     top: 36.5%;
                 }
@@ -140,27 +140,27 @@ div#container{
                 z-index: 1000;
                 white-space: unset;
             }
-            .position1{
+            .position0{
                 top: 80px;
                 right: 25px;
             }
-            .position2{
+            .position1{
                 top: 140px;
                 right: 25px;
             }
-            .position3{
+            .position2{
                 top: 200px;
                 right: 25px;
             }
-            .position4{
+            .position3{
                 top: 260px;
                 right: 25px;
             }
-            .position5{
+            .position4{
                 top: 320px;
                 right: 25px;
             }
-            .position6{
+            .position5{
                 top: 380px;
                 right: 25px;
             }
@@ -491,6 +491,15 @@ div#episode{
                 color: crimson;
                 font-weight: bold;
                 font-size: x-large;
+            }
+
+            span.title_news{
+                font-size: large;
+                color: burlywood;
+            }
+
+            p.text_news{
+                word-break: break-word;
             }
         }
     }

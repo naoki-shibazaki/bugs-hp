@@ -1,12 +1,24 @@
 <div class="box_menu">
-	<div class="msgbox_out menu_select_battle">
-		<div class="msgbox_in menu_select_battle">
-			<h2>バトル選択！</h2>
+	<div class="msgbox_out menu_mode">
+		<div class="msgbox_in menu_mode">
+			<h2>【選択モード】</h2>
 			<%= form_with do |form| %>
 				Stage:<span id="form_select_stage"></span><br />
 				Step:<span id="form_select_step"></span><br />
 				<%= form.submit 'バトル！', :id => 'select_battle' %>
 			<% end %>
+		</div>
+	</div>
+	<div class="msgbox_out menu_mode">
+		<div class="msgbox_in menu_mode">
+			<h2>【エキストラモード】</h2>
+			※近日公開予定
+		</div>
+	</div>
+	<div class="msgbox_out menu_mode">
+		<div class="msgbox_in menu_mode">
+			<h2>【サバイバルモード】</h2>
+			※後日公開予定
 		</div>
 	</div>
 	<div class="msgbox_out menu1">
