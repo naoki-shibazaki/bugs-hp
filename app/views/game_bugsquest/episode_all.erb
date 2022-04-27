@@ -5,16 +5,16 @@
             <%= link_to "戻る", game_bugsquest_episode_path, class: :all_episode, method: :get %>
         </div>
     </div>
-    <% arr_arrive_stage(@get_bugsquest_game_data[:questQuiz].quest_stage_id).each do |aaa| %>
+    <% arr_arrive_stage(@get_bugsquest_game_data[:questQuiz].quest_stage_id).each do |aaStage| %>
         <div class="msgbox_out">
             <div class="msgbox_in">
-                <span class="title_stage">STAGE:<%= aaa.num %> &lt;<%= aaa.name %>&gt;</span>
+                <span class="title_stage">STAGE:<%= aaStage.num %> &lt;<%= aaStage.name %>&gt;</span>
                 <ul>
-                    <li><%= aaa.episode.gsub(/＜主人公＞/, @get_bugsquest_game_data[:questUser].name) %></li>
+                    <li><%= aaStage.episode.gsub(/＜主人公＞/, @get_bugsquest_game_data[:questUser].name) %></li>
                 </ul>
                 <br />
-                <% arr_arrive_step(aaa.num,@get_bugsquest_game_data[:questQuiz].id).each do |bbb| %>
-                    <p><span class="title_step">step<%= bbb.id %>:</span><%= bbb.episode %></p>
+                <% arr_arrive_step(aaStage.num,@get_bugsquest_game_data[:questQuiz].id).each do |aaStep| %>
+                    <p><span class="title_step">step<%= aaStep.id %>:</span><%= aaStep.episode.gsub(/＜主人公＞/, @get_bugsquest_game_data[:questUser].name) %></p>
                 <% end %>
             </div>
         </div>
