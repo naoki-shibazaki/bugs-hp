@@ -65,7 +65,7 @@ module GameBugsquestHelper
         end
         return ret
     end
-    
+
     # クイズ取得
     def get_bugsquest_quiz_choice(quiz_choice)
         answers = quiz_choice.split(',').shuffle!
@@ -88,5 +88,16 @@ module GameBugsquestHelper
             # 次のレベルまでの経験値
             return QuestStatus.find_by(lv: questUser.lv + next_plus_num).exp - questUser.exp
         end
+    end
+
+    # エピソード表示用：到達ステージ
+    def arr_arrive_stage(now_stage)
+        #questStage = QuestStage.find(now_stage)
+        questStage = QuestStage.select(:num, :name, :episode).where(num: 1..now_stage)
+    end
+
+    # エピソード表示用：到達ステップ
+    def arr_arrive_step(now_stage, now_step)
+        questQuiz = QuestQuiz.select(:id, :episode).where(quest_stage_id: now_stage, id: 1..now_step)
     end
 end

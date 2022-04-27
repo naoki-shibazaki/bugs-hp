@@ -1,0 +1,22 @@
+<div id="episode">
+    <div class="msgbox_out">
+        <div class="msgbox_in">
+            <i class="fa-solid fa-arrow-left-long"></i>
+            <%= link_to "戻る", game_bugsquest_episode_path, class: :all_episode, method: :get %>
+        </div>
+    </div>
+    <% arr_arrive_stage(@get_bugsquest_game_data[:questQuiz].quest_stage_id).each do |aaa| %>
+        <div class="msgbox_out">
+            <div class="msgbox_in">
+                <span class="title_stage">STAGE:<%= aaa.num %> &lt;<%= aaa.name %>&gt;</span>
+                <ul>
+                    <li><%= aaa.episode.gsub(/＜主人公＞/, @get_bugsquest_game_data[:questUser].name) %></li>
+                </ul>
+                <br />
+                <% arr_arrive_step(aaa.num,@get_bugsquest_game_data[:questQuiz].id).each do |bbb| %>
+                    <p><span class="title_step">step<%= bbb.id %>:</span><%= bbb.episode %></p>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>

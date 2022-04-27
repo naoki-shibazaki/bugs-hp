@@ -1,6 +1,12 @@
 <div id="episode">
     <div class="msgbox_out">
         <div class="msgbox_in">
+            <i class="fa-solid fa-book-bible"></i>
+            <%= link_to "全エピソードを見る", game_bugsquest_episode_all_path, class: :all_episode, method: :get %>
+        </div>
+    </div>
+    <div class="msgbox_out">
+        <div class="msgbox_in">
             <span class="title_stage">STAGE:<%= @get_bugsquest_game_data[:questStage].num %> &lt;<%= @get_bugsquest_game_data[:questStage].name %>&gt;</span>
             <p class="text"><%= @get_bugsquest_game_data[:questStage].episode.gsub(/＜主人公＞/, @get_bugsquest_game_data[:questUser].name) %></p>
         </div>

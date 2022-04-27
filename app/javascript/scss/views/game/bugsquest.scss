@@ -481,6 +481,17 @@ div#episode{
             p.text{
                 word-break: break-word;
             }
+
+            i.fa-solid{
+                margin: 10px;
+                font-size: x-large;
+            }
+
+            a.all_episode{
+                color: crimson;
+                font-weight: bold;
+                font-size: x-large;
+            }
         }
     }
 }

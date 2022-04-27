@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get '/game/bugsquest',   to: 'game_bugsquest#index'
   post '/game/bugsquest',   to: 'game_bugsquest#index'
   get '/game/bugsquest/episode',   to: 'game_bugsquest#episode'
+  get '/game/bugsquest/episode_all',   to: 'game_bugsquest#episode_all'
 
   # API
   patch '/api/checkAnswer',   to: 'sessions#apiCheckAnswer'
