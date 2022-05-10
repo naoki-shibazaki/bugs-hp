@@ -63,6 +63,8 @@
     <%= javascript_pack_tag 'game_bugsquest/loading', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'game_bugsquest/ajax', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'game_bugsquest/battle', 'data-turbolinks-track': 'reload' %>
+  <% when 'users' %>
+    <%= javascript_pack_tag 'users/user', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
 <%= javascript_pack_tag 'indexs/index_colorbox', 'data-turbolinks-track': 'reload' %>

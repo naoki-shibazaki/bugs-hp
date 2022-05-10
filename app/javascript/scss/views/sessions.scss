@@ -32,6 +32,10 @@
         > input{
             margin-bottom: 2em;
         }
+        
+        .radio_btn_area{
+            display: inline-block
+        }
     }
 
     .input-field{
@@ -100,6 +104,18 @@
           background-color: papayawhip;
           font-weight: bold;
         }
+    }
+}
+
+.field_with_errors > input{
+    border-color: red !important;
+    margin-bottom: 1em;
+}
+
+div.radio_btn_area{
+    .field_with_errors > input{
+        border-color: red !important;
+        margin-bottom: 1em;
     }
 }
 

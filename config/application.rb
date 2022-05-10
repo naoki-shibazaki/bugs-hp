@@ -27,5 +27,12 @@ module Myapp
 
     # add custom validators path
     config.autoload_paths += Dir["#{config.root}/app/validators"]
+
+    #config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+    #  %Q(#{html_tag}).html_safe
+    #end
+    config.action_view.field_error_proc = Proc.new {
+      |html_tag, instance| %(<span class="field_with_errors">#{html_tag}</span>).html_safe 
+    }
   end
 end

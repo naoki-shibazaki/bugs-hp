@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get    '/login_confirm',   to: 'sessions#login_confirm'
 
-  # アカウント登録
+  # ＜Bugs＞アカウント登録
   get '/users/account_activation/:token/edit', to: 'users#account_activation_edit', as: 'account_activation_edit'
   # パスワード変更
   get '/users/edit_pw', to: 'users#edit_pw', as: 'edit_pw'
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get '/users/reset_password/:token/edit', to: 'users#reset_password_edit', as: 'reset_password_edit'
   patch '/users/reset_password_update', to: 'users#reset_password_update', as: 'reset_password_update'
   resource :users
-
+  # 利用規約
+  get '/rule', to: 'sessions#rule'
+  
   # トップページ
   get '/' => 'indexs#index'
   post '/' => 'indexs#index'

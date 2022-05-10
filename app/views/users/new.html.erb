@@ -1,13 +1,23 @@
 <div id="login_forms">
   <div class="contents-wrapp">
     <div class="page_name">
-      <h2>アカウント登録</h2>
+      <h2>＜Bugs＞アカウント登録</h2>
     </div>
     <%= form_for(@user) do |f| %>
       <div class="input-form">
         <%= f.text_field :name, :placeholder => 'ユーザー名', :class => 'input-field', :maxlength => 255 %>
         <%= f.email_field :email, :placeholder => 'メールアドレス', :class => 'input-field', :maxlength => 255 %>
         <%= f.password_field :password, :placeholder => 'パスワード(8文字以上16文字以下)', :class => 'input-field', :maxlength => 255 %>
+
+        <div class="radio_btn_area">
+          <label><%= f.radio_button :corporation, true, {required: true} %>法人</label>
+          <label><%= f.radio_button :corporation, false %>個人</label>
+        </div>
+
+        <span id="corporation_name"><%= f.text_field :corporation_name, :placeholder => '法人名', :class => 'input-field', :maxlength => 255 %></span>
+
+        <span><%= check_box_tag :check_rule, 0, checked=false, {required: true} %> <a id="open_rule">利用規約</a>に同意します</span>
+        
         <%= f.submit "登録", :class => 'btn create-btn' %>
 
         <p class="link-p">アカウントをお持ちの方はこちらから</p>

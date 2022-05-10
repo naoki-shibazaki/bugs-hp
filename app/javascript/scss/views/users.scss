@@ -20,6 +20,7 @@ div.notifications{
       top: 10%;
       left: 50%;
       transform: translate(-50%, 0%);
+      width: fit-content;
 
       h2{
         background: linear-gradient(transparent 70%, #feff9e 70%);
@@ -27,6 +28,16 @@ div.notifications{
         /* font-weight: bold; */
         color: mediumblue;
       }
+    }
+    #open_rule{
+      font-weight: bold;
+      color: mediumblue;
+    }
+    span#corporation_name{
+      display: none;
+    }
+    span#corporation_name.is-active{
+      display: contents;
     }
   }
 }

@@ -23,6 +23,18 @@ class User < ApplicationRecord
         on: :create_acount
 
     validates :name,
+        presence: true,
+        length: { maximum: MaxLength1 },
+        on: :create_acount
+
+    validates :corporation,
+        #presence: true,
+        inclusion:{in: [true, false]},
+        on: :create_acount
+
+    validates :corporation_name,
+        presence: true,
+        if: :corporation?,
         length: { maximum: MaxLength1 },
         on: :create_acount
 
@@ -50,10 +62,11 @@ class User < ApplicationRecord
         on: :change_userinfo
     
     validates :name,
+        presence: true,
         length: { maximum: MaxLength1 },
         on: :change_userinfo
     
-    # アカウント登録時のアクティベーション
+    # ＜Bugs＞アカウント登録時のアクティベーション
     def create_activation_digest
         self.activation_token = User.new_token
         update_attribute(:activation_digest,  User.digest(activation_token))
