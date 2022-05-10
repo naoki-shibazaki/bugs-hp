@@ -153,6 +153,15 @@ div.msgbox{
     /*
     transform: translate(-50% , -50% );
     */
+    /* メール送信ボタンの位置 */
+    span.mail_send_btn{
+        position: absolute;
+        right: 125%;
+        top: 30%;
+        .send-button {
+            width: 160px;
+        }
+    }
 }
 /*
  ** モーダルウインドウ:枠3

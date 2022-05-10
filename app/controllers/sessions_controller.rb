@@ -187,4 +187,7 @@ class SessionsController < ApplicationController
     testtable.test_str = SecureRandom.alphanumeric(20)
     testtable.save
   end
+
+  def rule
+  end
 end
