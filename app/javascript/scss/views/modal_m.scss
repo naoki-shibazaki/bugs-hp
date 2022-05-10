@@ -121,4 +121,19 @@
         width: 300px;
         }
     }
+    /*
+    ** モーダルウインドウ:枠2
+    */
+    .modal-inner {
+        /* メール送信ボタンの位置 */
+        span.mail_send_btn{
+            position: absolute;
+            right: 110%;
+            top: 25%;
+            .send-button {
+                width: 140px;
+                font-size: 2.0rem;
+            }
+        }
+    }
 }
