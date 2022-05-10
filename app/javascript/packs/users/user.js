@@ -1,7 +1,7 @@
 $(function(){
   // 「法人名」項目の表示[リロード時]
   $(window).on('load',function () {
-    if($('input[name="user[corporation]"]:checked').val() === 'true'){
+    if($('input[name="user[corporation]"]:checked').val() === '2'||$('input[name="user[corporation]"]:checked').val() === '3'){
       $('#corporation_name').addClass('is-active');
     }else{
       $('#corporation_name').removeClass('is-active');
@@ -16,7 +16,7 @@ $(function(){
 
   // 「法人名」項目の表示
   $('input[name="user[corporation]"]').on('click', function() {
-    if($(this).val() === 'true'){
+    if($(this).val() === '2'||$(this).val() === '3'){
       $('#corporation_name').addClass('is-active');
     }else{
       $('#corporation_name').removeClass('is-active');

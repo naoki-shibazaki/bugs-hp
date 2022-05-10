@@ -10,8 +10,9 @@
         <%= f.password_field :password, :placeholder => 'パスワード(8文字以上16文字以下)', :class => 'input-field', :maxlength => 255 %>
 
         <div class="radio_btn_area">
-          <label><%= f.radio_button :corporation, true, {required: true} %>法人</label>
-          <label><%= f.radio_button :corporation, false, checked: false %>個人</label>
+          <label><%= f.radio_button :corporation, 1 %>個人</label>
+          <label><%= f.radio_button :corporation, 2 %>個人事業主</label>
+          <label><%= f.radio_button :corporation, 3, {required: true}  %>法人</label>
         </div>
 
         <span id="corporation_name"><%= f.text_field :corporation_name, :placeholder => '法人名', :class => 'input-field', :maxlength => 255 %></span>

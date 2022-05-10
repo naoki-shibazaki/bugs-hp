@@ -29,12 +29,12 @@ class User < ApplicationRecord
 
     validates :corporation,
         #presence: true,
-        inclusion:{in: [true, false]},
+        inclusion:{in: [1, 2, 3]},
         on: :create_acount
 
     validates :corporation_name,
+        if: :check_corporation?,
         presence: true,
-        if: :corporation?,
         length: { maximum: MaxLength1 },
         on: :create_acount
 
@@ -111,5 +111,12 @@ class User < ApplicationRecord
         #reset_sent_at < 2.hours.ago
         num = ENV['MYAPP_EXPIRATION_MINUTES_RESET_PASSWORD'].to_i
         reset_sent_at < num.minutes.ago
+    end
+
+    private
+
+    # 法人項目のチェック ※「個人」ならチェック不要にするため
+    def check_corporation?
+        corporation != 1 ? true : false
     end
 end
