@@ -15,7 +15,7 @@
           <label><%= f.radio_button :corporation, 3, {required: true}  %>法人</label>
         </div>
 
-        <span id="corporation_name"><%= f.text_field :corporation_name, :placeholder => '法人名', :class => 'input-field', :maxlength => 255 %></span>
+        <span id="corporation_name"><%= f.text_field :corporation_name, :placeholder => '法人名 / 屋号', :class => 'input-field', :maxlength => 255 %></span>
 
         <span><%= check_box_tag :check_rule, 0, checked=false, {required: true} %> <a id="open_rule">利用規約</a>に同意します</span>
         

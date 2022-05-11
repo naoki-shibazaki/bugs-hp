@@ -36,6 +36,8 @@ class UsersController < ApplicationController
     if user && !user.activated? && user.authenticated?(:activation, params[:token])
       user.update_attribute(:activated,    true)
       user.update_attribute(:activated_at, Time.zone.now)
+      # 新規アカウントの登録通知
+      SystemMailer.account_regist_mail(user).deliver_now
       # バグズクエストのアカウント作成
       create_bugsquest_account(user.id)
       #log_in user

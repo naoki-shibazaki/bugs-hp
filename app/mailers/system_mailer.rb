@@ -25,6 +25,19 @@ class SystemMailer < ApplicationMailer
         end
     end
 
+    # Bug.sアカウント登録通知
+    def account_regist_mail(user)
+        @user = user
+        mail(
+            from: ENV['MYAPP_MAIL_AUTH_USER'],
+            to:   ENV['MYAPP_MAIL_ADDR_TOIAWASE'],
+            subject: '＜Bugs管理者通知＞新規アカウント登録情報'
+        ) do |format|
+            format.text #テキストメールを指定
+            #format.html #HTMLメールを指定
+        end
+    end
+
     # メールテスト用
     def testmail
         @greeting = "Hello"
