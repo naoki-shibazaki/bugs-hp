@@ -1,4 +1,5 @@
 <div class="box_menu">
+<% if logged_in? %>
 	<div class="msgbox_out menu_mode">
 		<div class="msgbox_in menu_mode">
 			<h2>【選択モード】</h2>
@@ -21,6 +22,7 @@
 			※後日公開予定
 		</div>
 	</div>
+<% end %>
 	<div class="msgbox_out menu1">
 		<div class="msgbox_in menu1">
 			<table class="user_status">
