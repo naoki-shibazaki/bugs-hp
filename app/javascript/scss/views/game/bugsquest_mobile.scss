@@ -140,28 +140,43 @@
                     z-index: 1000;
                     white-space: unset;
                 }
+                .pulse-btn2 {
+                    position: fixed;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    background-color: #b7acee;
+                    box-shadow: 0 0 20px #7d95ffb8;
+                    cursor: pointer;
+                    font-size: 5pt;
+                    z-index: 1000;
+                    white-space: unset;
+                }
                 .position0{
                     top: 3%;
                     right: 3%;
                 }
                 .position1{
-                    top: 13%;
+                    top: 10%;
                     right: 3%;
                 }
                 .position2{
-                    top: 23%;
+                    top: 17%;
                     right: 3%;
                 }
                 .position3{
-                    top: 33%;
+                    top: 24%;
                     right: 3%;
                 }
                 .position4{
-                    top: 43%;
+                    top: 31%;
                     right: 3%;
                 }
                 .position5{
-                    top: 53%;
+                    top: 38%;
                     right: 3%;
                 }
                 /* ボタンの中のアイコン画像 */
