@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  users_id: 1
+  web_url1: MyString
+  web_url2: MyString
+  web_url3: MyString
+  twitter_url: MyString
+  facebook_url: MyString
+  instagram_url: MyString
+  youtube_url: MyString
+  tiktok_url: MyString
+
+two:
+  users_id: 1
+  web_url1: MyString
+  web_url2: MyString
+  web_url3: MyString
+  twitter_url: MyString
+  facebook_url: MyString
+  instagram_url: MyString
+  youtube_url: MyString
+  tiktok_url: MyString

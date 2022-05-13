@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_10_072403) do
+ActiveRecord::Schema.define(version: 2022_05_13_061501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,21 @@ ActiveRecord::Schema.define(version: 2022_05_10_072403) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_urls", force: :cascade do |t|
+    t.bigint "users_id", null: false
+    t.string "web_url1", limit: 255
+    t.string "web_url2", limit: 255
+    t.string "web_url3", limit: 255
+    t.string "twitter_url", limit: 255
+    t.string "facebook_url", limit: 255
+    t.string "instagram_url", limit: 255
+    t.string "youtube_url", limit: 255
+    t.string "tiktok_url", limit: 255
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["users_id"], name: "index_user_urls_on_users_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", limit: 255, null: false, comment: "ユーザー名"
     t.string "email", limit: 255, null: false, comment: "メールアドレス"
@@ -119,4 +134,5 @@ ActiveRecord::Schema.define(version: 2022_05_10_072403) do
   end
 
   add_foreign_key "quest_users", "users", column: "users_id"
+  add_foreign_key "user_urls", "users", column: "users_id"
 end
