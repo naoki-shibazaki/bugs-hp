@@ -2,6 +2,9 @@
 ■＜Bug.sアカウント＞新規登録者情報通知
 ==============================
 
+★アカウント存在チェック(リアルタイムでチェック可能)
+<%= api_account_id_exist_url(id: @user.id) %>
+
 ●法人区分[個人 / 個人事業主 / 法人]
 <% case @user.corporation %>
 <% when 1 %>
@@ -22,6 +25,31 @@
 <%= @user.email %>
 
 ---
+●ウェブサイトURL1
+<%= @user.user_url.web_url1 %>
+
+●ウェブサイトURL2
+<%= @user.user_url.web_url2 %>
+
+●ウェブサイトURL3
+<%= @user.user_url.web_url3 %>
+
+●ツイッターURL
+<%= @user.user_url.twitter_url %>
+
+●フェイスブックURL
+<%= @user.user_url.facebook_url %>
+
+●インスタグラムUR
+<%= @user.user_url.instagram_url %>
+
+●ユーチューブURL
+<%= @user.user_url.youtube_url %>
+
+●ティックトックURL
+<%= @user.user_url.tiktok_url %>
+
+-----
 ※システム用補足情報
 ●id
 <%= @user.id %>

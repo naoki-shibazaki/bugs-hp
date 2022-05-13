@@ -35,7 +35,8 @@ class UsersController < ApplicationController
   # アカウント有効化
   def account_activation_edit
     #@user = User.new
-    user = User.find_by(email: params[:email])
+    #user = User.find_by(email: params[:email])
+    user = User.includes(:user_url).find_by(email: params[:email])
     if user && !user.activated? && user.authenticated?(:activation, params[:token])
       user.update_attribute(:activated,    true)
       user.update_attribute(:activated_at, Time.zone.now)

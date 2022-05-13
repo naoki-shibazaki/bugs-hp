@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   patch '/api/victoryBattle',   to: 'sessions#apiVictoryBattle'
   get '/api/getStage', to: 'sessions#apiGetStage'
   get '/api/getStep', to: 'sessions#apiGetStep'
+  get '/api/account_id_exist/:id', to: 'api#account_id_exist', constraints: { id: /[0-9]+/ }, as: 'api_account_id_exist'
 
   # 隠れページ・デバッグ
   if ENV['DEBUG_PAGE_SHOW'] == '1'
