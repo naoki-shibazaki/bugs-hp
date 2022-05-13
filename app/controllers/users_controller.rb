@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_user_url
   end
 
   def create
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
       redirect_to login_url
     else
       #flash.now[:danger] = 'えらー'
+      # 「SNS URL」のチェックボックス入力保持
+      @check_url = params[:check_url] === '1' ? true : false
       render :new
     end
   end
@@ -129,7 +132,26 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :name, :corporation, :corporation_name)
+    params.require(:user).permit(
+      :email,
+      :password,
+      :name,
+      :corporation,
+      :corporation_name,
+      user_url_attributes: [
+        :_destroy,
+        :id,
+        :users_id,
+        :web_url1,
+        :web_url2,
+        :web_url3,
+        :twitter_url,
+        :facebook_url,
+        :instagram_url,
+        :youtube_url,
+        :tiktok_url
+      ]
+    )
   end
 
   def get_user

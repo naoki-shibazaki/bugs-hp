@@ -10,13 +10,27 @@
         <%= f.password_field :password, :placeholder => 'パスワード(8文字以上16文字以下)', :class => 'input-field', :maxlength => 255 %>
 
         <div class="radio_btn_area">
-          <label><%= f.radio_button :corporation, 1 %>個人</label>
+          <label><%= f.radio_button :corporation, 1, {required: true} %>個人</label>
           <label><%= f.radio_button :corporation, 2 %>個人事業主</label>
-          <label><%= f.radio_button :corporation, 3, {required: true}  %>法人</label>
+          <label><%= f.radio_button :corporation, 3 %>法人</label>
         </div>
+        <span id="corporation_name"><%= f.text_field :corporation_name, :placeholder => '法人名 / 屋号', :class => 'input-field', :maxlength => 255 %><br /></span>
 
-        <span id="corporation_name"><%= f.text_field :corporation_name, :placeholder => '法人名 / 屋号', :class => 'input-field', :maxlength => 255 %></span>
-
+        <span><%= check_box_tag :check_url, 1, @check_url %> SNS URLを記入</span>
+        <div id="url_enter_box">
+          <%= f.fields_for :user_url do |url|%>
+            <%# url.hidden_field :_destroy %>
+            <%= url.text_field :web_url1, :placeholder => 'ウェブサイトURL1', :class => 'input-field', :maxlength => 255 %>
+            <%= url.text_field :web_url2, :placeholder => 'ウェブサイトURL2', :class => 'input-field', :maxlength => 255 %>
+            <%= url.text_field :web_url3, :placeholder => 'ウェブサイトURL3', :class => 'input-field', :maxlength => 255 %>
+            <%= url.text_field :twitter_url, :placeholder => 'ツイッターURL', :class => 'input-field', :maxlength => 255 %>
+            <%= url.text_field :facebook_url, :placeholder => 'フェイスブックURL', :class => 'input-field', :maxlength => 255 %>
+            <%= url.text_field :instagram_url, :placeholder => 'インスタグラムURL', :class => 'input-field', :maxlength => 255 %>
+            <%= url.text_field :youtube_url, :placeholder => 'ユーチューブURL', :class => 'input-field', :maxlength => 255 %>
+            <%= url.text_field :tiktok_url, :placeholder => 'ティックトックURL', :class => 'input-field', :maxlength => 255 %>
+          <% end %>
+        </div>
+        
         <span><%= check_box_tag :check_rule, 0, checked=false, {required: true} %> <a id="open_rule">利用規約</a>に同意します</span>
         
         <%= f.submit "登録", :class => 'btn create-btn' %>

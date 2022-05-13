@@ -39,6 +39,18 @@ div.notifications{
     span#corporation_name.is-active{
       display: contents;
     }
+    div#url_enter_box{
+      display: none;
+      height: 0;
+      opacity: 0;
+      transition: all .6s ease;
+    }
+    div#url_enter_box.is-active{
+      display: block;
+      height: 100%;
+      opacity: 1;
+      width: min-content;
+    }
   }
 }
 
