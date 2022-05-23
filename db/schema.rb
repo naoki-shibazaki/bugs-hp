@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_040137) do
+ActiveRecord::Schema.define(version: 2022_05_23_040503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "news", force: :cascade do |t|
+    t.boolean "status", null: false
+    t.datetime "news_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "title", limit: 50
+    t.text "article"
+    t.string "category", limit: 50
+    t.string "tag", limit: 50
+  end
 
   create_table "quest_monsters", force: :cascade do |t|
     t.string "name", null: false
