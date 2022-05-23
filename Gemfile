@@ -62,3 +62,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #  環境変数管理
 gem 'dotenv-rails'
+
+# ページネーション導入
+gem 'kaminari'
