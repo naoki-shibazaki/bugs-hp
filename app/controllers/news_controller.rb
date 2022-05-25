@@ -1,6 +1,8 @@
 class NewsController < ApplicationController
+  include SessionsHelper
+
   def bugsquest_news
-    if logged_in_user
+    if logged_in?
       # ニュースチェックフラグをオフにする
       #   ※ UPDATE "public"."users" SET "check_latest_news" = 't' WHERE 1=1;
       user = User.find(current_user.id)
