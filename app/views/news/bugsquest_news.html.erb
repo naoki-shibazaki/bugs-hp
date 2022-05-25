@@ -1,0 +1,26 @@
+<div id="episode">
+    <div class="msgbox_out">
+        <div class="msgbox_in">
+            <div class="page_name">
+                <h2>お知らせ</h2>
+            </div>
+            <div class="news">
+              <ul>
+                <li><time datetime="">[ 日付 ]</time></li>
+                <li>[ タイトル ]</li>
+              </ul>
+              <div class="news_list">
+                  <% news_list.each do |news| %>
+                    <ul>
+                      <li><time datetime="<%= news.news_date.strftime('%Y/%m/%d') %>"><%= news.news_date.strftime('%Y/%m/%d') %></time></li>
+                      <%= link_to bugsquest_news_article_path(news.id) do %>
+                        <li><%= news.title %></li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+              </div>
+              <%= paginate news_list %>
+            </div>
+        </div>
+    </div>
+</div>

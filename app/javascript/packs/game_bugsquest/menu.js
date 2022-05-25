@@ -33,3 +33,8 @@ menu_btn_change = (btn_pos_num, show_flag) => {
     fadeProc(selecter, 0, 'Out');
   }
 }
+
+// ニュースチェックの新着をオフにする
+$('#bell_button').on('click', function() {
+  $('#notification-badge').remove();
+});

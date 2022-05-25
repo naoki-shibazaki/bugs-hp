@@ -1,11 +1,15 @@
 <% if logged_in? %>
-    <button class="pulse-btn position0"><%= link_to game_bugsquest_news_path, class: :'trig-colorbox_iframe' do %><i class="fa-regular fa-bell"></i><% end %></button>
+    <% if check_latest_news === true %>
+        <span class="notification-badge" id="notification-badge"></span>
+    <% end %>
+    <button class="pulse-btn position0"><%= link_to game_bugsquest_news_path, class: :'trig-colorbox_iframe', id: :bell_button do %><i class="fa-regular fa-bell"></i><% end %></button>
     <button class="pulse-btn position1"><span class="btn-menu">メニュー</span></button>
     <button class="pulse-btn position2"><span class="btn-account">アカウント</span></button>
     <button class="pulse-btn position3"><%= link_to "ログアウト", logout_path, method: :delete %></button>
     <button class="pulse-btn2 position4"><%= link_to "https://twitter.com/share?url=https://bugs.co.jp/game/bugsquest&text=バグズクエスト｜株式会社Bug.s%0a", target: :_blank do %><i class="fab fa-twitter"></i><% end %></button>
     <button class="pulse-btn2 position5"><%= link_to "https://www.facebook.com/sharer/sharer.php?u=https://bugs.co.jp/game/bugsquest", target: :_blank do %><i class="fab fa-facebook-f"></i><% end %></button>
 <% else %>
+    <button class="pulse-btn position0"><%= link_to game_bugsquest_news_path, class: :'trig-colorbox_iframe' do %><i class="fa-regular fa-bell"></i><% end %></button>
     <button class="pulse-btn position1"><span class="btn-menu">メニュー</span></button>
     <button class="pulse-btn position2"><%= link_to "ログイン", login_path, method: :get %></button>
     <button class="pulse-btn2 position3"><%= link_to "https://twitter.com/share?url=https://bugs.co.jp/game/bugsquest&text=バグズクエスト｜株式会社Bug.s%0a", target: :_blank do %><i class="fab fa-twitter"></i><% end %></button>

@@ -1,0 +1,133 @@
+div#episode{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: fit-content;
+    width: -webkit-fill-available;
+    transform: translate(-50%, 0%);
+
+    .msgbox_out{
+        padding: 2px;
+        display: none;
+        display: table;
+        /*background-color: #000000;*/
+        border-radius: 12px;
+        margin: 10px 0 10px 0;
+        /*white-space: nowrap;*/
+        width: 50%;
+
+        .msgbox_in{
+            height: inherit;
+            padding: 5px;
+            border: ridge 4px #fff;
+            border-radius: 10px;
+            background-color: #000000;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #fff;
+            margin: 2px;
+            font-size: medium;
+
+            .page_name {
+                /*
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, 0%);
+                */
+                width: fit-content;
+          
+                h2{
+                    background: linear-gradient(transparent 85%, #d82222 70%);
+                    font-size: x-large;
+                    color: #8d8dff;
+                    margin: 15px;
+                }
+            }
+
+            span.title_stage{
+                font-size: x-large;
+                color: chartreuse;
+            }
+
+            span.title_step{
+                font-size: x-large;
+                color: cyan;
+            }
+
+            p.text{
+                word-break: break-word;
+            }
+
+            i.fa-solid{
+                margin: 10px;
+                font-size: x-large;
+            }
+
+            a.all_episode{
+                color: crimson;
+                font-weight: bold;
+                font-size: x-large;
+            }
+
+            span.title_news{
+                font-size: large;
+                color: burlywood;
+            }
+
+            p.text_news{
+                word-break: break-word;
+            }
+            
+            div.news{
+                ul, ol {
+                    border: dotted #1e366a 1px;/*ドット 色 太さ*/
+                    /*padding: 0.5em 0.5em 0.5em 2em;*/
+                    padding: 0.1em 10.1em 0.5em 0.1em;
+                    font-weight: bold;
+                }
+
+                ul li, ol li {
+                    line-height: 1.5;
+                    padding: 8px 35px;
+                    display: inline;
+                }
+
+                div.news_list{
+                    ul, ol {
+                    }
+                    ul li, ol li {
+                    }
+                    a{
+                        color: crimson;
+                        font-weight: bold;
+                        font-size: larger;
+                    }
+                }
+            }
+            
+            nav.pagination{
+                padding: 0.8em;
+                span{
+                    padding: 1em;
+                }
+                a{
+                    color: forestgreen;
+                }
+            }
+
+            div.news_box{
+                padding: 10px;
+                div.loose-leaf{
+                    padding: 10px;       
+                }
+                div.footer_link{
+                    padding: 10px;
+                    a{
+                        color: forestgreen;
+                    }
+                }
+            }
+        }
+    }
+}
