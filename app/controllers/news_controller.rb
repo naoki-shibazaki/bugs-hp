@@ -1,6 +1,16 @@
 class NewsController < ApplicationController
   include SessionsHelper
 
+  def bugsquest_feed
+    # ※参考：https://easyramble.com/rails-builder-rss-feed.html
+    @news = News.all.order(id: 'DESC').limit(10)
+    respond_to do |format|
+      format.html
+      format.atom
+      format.rss
+    end
+  end
+
   def bugsquest_news
     if logged_in?
       # ニュースチェックフラグをオフにする
