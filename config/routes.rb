@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   get '/game/bugsquest/episode_all',   to: 'game_bugsquest#episode_all'
 
   # ニュース
-  get '/game/bugsquest/news/feed', to: 'news#bugsquest_feed', format: 'rss'
+  get '/game/bugsquest/news/feed', to: 'news#bugsquest_feed', format: 'rss', as: 'feed_bugsquest'
   get '/game/bugsquest/news',   to: 'news#bugsquest_news'
   get '/game/bugsquest/news/:id', to: 'news#bugsquest_news_article', as: 'bugsquest_news_article'
 
