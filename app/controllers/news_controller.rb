@@ -4,6 +4,8 @@ class NewsController < ApplicationController
   def bugsquest_feed
     # ※参考：https://easyramble.com/rails-builder-rss-feed.html
     @news = News.all.order(id: 'DESC').limit(10)
+    @article_base_url = request.base_url + '/game/bugsquest/news/'
+    
     respond_to do |format|
       format.html
       format.atom
