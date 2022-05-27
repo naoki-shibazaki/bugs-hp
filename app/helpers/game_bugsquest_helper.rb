@@ -33,7 +33,7 @@ module GameBugsquestHelper
         unless current_user.nil?
             ret[:questUser] = QuestUser.find_by(users_id: current_user.id)
             #ret[:questQuiz] = QuestQuiz.find(ret[:questUser].quiz_id)
-            ret[:questQuiz] = QuestQuiz.find(ret[:questUser].recent_quiz_id)
+            ret[:questQuiz] = QuestQuiz.find_by(id: ret[:questUser].recent_quiz_id, open_status: true)
             ret[:questStage] = QuestStage.find(ret[:questQuiz].quest_stage_id)
             ret[:questMonster] = QuestMonster.find(ret[:questQuiz].quest_monster_id)
             ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
@@ -98,6 +98,6 @@ module GameBugsquestHelper
 
     # エピソード表示用：到達ステップ
     def arr_arrive_step(now_stage, now_step)
-        questQuiz = QuestQuiz.select(:id, :episode).where(quest_stage_id: now_stage, id: 1..now_step)
+        questQuiz = QuestQuiz.select(:id, :episode).where(quest_stage_id: now_stage, id: 1..now_step, open_status: true)
     end
 end

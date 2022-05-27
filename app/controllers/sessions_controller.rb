@@ -53,8 +53,8 @@ class SessionsController < ApplicationController
 
     if questUser.authenticated?(:change_token, params[:change_token])
       questStatus = QuestStatus.find_by(lv: questUser.lv)
-      questQuiz = QuestQuiz.find(questUser.recent_quiz_id)
-      questQuiz_max_id = QuestQuiz.maximum(:id)
+      questQuiz = QuestQuiz.find_by(id: questUser.recent_quiz_id, open_status: true)
+      questQuiz_max_id = QuestQuiz.where(open_status: true).maximum(:id)
 
       # 獲得経験値
       get_exp = questQuiz.exp
@@ -104,7 +104,7 @@ class SessionsController < ApplicationController
   def apiGetStage
     questUser = QuestUser.find_by(users_id: params[:user_id])
     if questUser.authenticated?(:change_token, params[:change_token])
-      questQuiz = QuestQuiz.find(questUser.quiz_id)
+      questQuiz = QuestQuiz.find_by(id: questUser.quiz_id, open_status: true)
       questStage = QuestStage.select(:num, :name).where(id: Float::MIN..questQuiz.quest_stage_id)
       render :json => questStage
     else
@@ -116,8 +116,7 @@ class SessionsController < ApplicationController
   def apiGetStep
     questUser = QuestUser.find_by(users_id: params[:user_id])
     if questUser.authenticated?(:change_token, params[:change_token])
-      questQuiz = QuestQuiz.select(:id, :question).where(quest_stage_id: params[:stage].to_i, id: Float::MIN..questUser.quiz_id)
-      pp questQuiz
+      questQuiz = QuestQuiz.select(:id, :question).where(quest_stage_id: params[:stage].to_i, id: Float::MIN..questUser.quiz_id, open_status: true)
       render :json => questQuiz
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_040503) do
+ActiveRecord::Schema.define(version: 2022_05_27_082026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_040503) do
     t.integer "exp", null: false
     t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.boolean "open_status", default: false, null: false, comment: "true -> 公開｜false -> 非公開"
     t.index ["quest_monster_id"], name: "index_quest_quizzes_on_quest_monster_id"
     t.index ["quest_stage_id"], name: "index_quest_quizzes_on_quest_stage_id"
   end
