@@ -250,6 +250,7 @@ msgbox_battle_start1 = () => {
   fadeProc('.menu_bar', 0, 'Out');
   fadeProc('.msgbox_out' + '.status1', 0, 'Out');
   fadeProc('.msgbox_out' + '.status2', 0, 'Out');
+  fadeProc('.msgbox_out' + '.gamemode', 0, 'Out');
   fadeProc('.msgbox_out' + '.monster', 0, 'Out');
   fadeProc('.msgbox_out' + '.quiz', 0, 'Out');
   fadeProc('.msgbox_out' + '.question', 0, 'Out');
@@ -264,6 +265,7 @@ msgbox_battle_start2 = () => {
   fadeProc('.msgbox_out' + '.main', 2000, 'Out');
   fadeProc('.msgbox_out' + '.status1', 2100, 'In');
   fadeProc('.msgbox_out' + '.status2', 2100, 'In');
+  fadeProc('.msgbox_out' + '.gamemode', 2100, 'In');
   fadeProc('.msgbox_out' + '.monster', 2100, 'In');
   fadeProc('.msgbox_out' + '.quiz', 2100, 'In');
   fadeProc('.msgbox2', 2100, 'In');

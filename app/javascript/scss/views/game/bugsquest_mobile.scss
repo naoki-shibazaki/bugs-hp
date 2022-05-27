@@ -341,6 +341,15 @@
                         transform: translate(-20%,0%);
                     }
 
+                    .gamemode{
+                        position: fixed;
+                        top: 35%;
+                        left: -46%;
+                        color: mediumblue;
+                        background-color: ghostwhite;
+                        transform: scale(0.9);
+                    }
+
                     .monster{
                         position: fixed;
                         top: 80%;

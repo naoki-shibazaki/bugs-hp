@@ -1,9 +1,14 @@
+require 'csv'
+
 class GameBugsquestController < ApplicationController
   before_action :check_login
 
   include ApplicationHelper
 
   def index
+    # バトルモード取得
+    battleMode = CSV.read('./public/csv/bugsquest/battleMode.csv', headers: true)
+
     # GETとPOSTで処理分岐
     unless request.post?
       # クイズ取得[ゲスト用]
@@ -12,12 +17,12 @@ class GameBugsquestController < ApplicationController
       # 最新のクイズIDを設定
       set_quiz_id(0)
 
-      @mode = 'story'
+      @mode = battleMode[0]
     else
       # 選択したクイズIDを設定
       set_quiz_id(params[:select_step].to_i)
 
-      @mode = 'select'
+      @mode = battleMode[1]
     end
 
     # バグズクエスト：ユーザーデータ取得

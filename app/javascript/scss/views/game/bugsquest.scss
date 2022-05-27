@@ -339,6 +339,14 @@ div#container{
                     z-index: 10;
                     transform: translate(-35%,0%);
                 }
+                
+                .gamemode{
+                    position: fixed;
+                    top: 20%;
+                    left: -118%;
+                    color: mediumblue;
+                    background-color: ghostwhite;
+                }
 
                 .monster{
                     position: fixed;
@@ -436,11 +444,11 @@ div#container{
             div.msgbox2{
                 /*display: none;*/
                 position: absolute;
-                top: 300px;
+                top: 280px;
                 left: 37%;
                 /*animation: flash_msg 2s linear infinite;*/
                 width:200%;
-                height:130px;
+                height:155px;
                 background:#0d20c5;
                 margin:20px;
                 border-radius:15px;

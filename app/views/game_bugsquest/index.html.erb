@@ -57,7 +57,13 @@
                     レベル：<span id="user_lv"><%= @get_bugsquest_game_data[:questUser].lv %></span><br />
                 </div>
             </div>
-        
+
+            <div class="msgbox_out gamemode">
+                <div class="msgbox_in gamemode">
+                    <%= @mode['mode_jp'] %>モード
+                </div>
+            </div>
+
             <div class="msgbox_out monster">
                 <div class="msgbox_in monster">
                     <span id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
@@ -68,7 +74,7 @@
             <div class="msgbox_out quiz">
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
-                    <span id="bugsquestMode"><%= @mode %></span>
+                    <span id="bugsquestMode"><%= @mode['mode'] %></span>
                     <span id="bugsquestQuestUserID"><%= @get_bugsquest_game_data[:questUser].id %></span>
                     <span id="QuestionId"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
                     <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
