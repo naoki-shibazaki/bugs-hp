@@ -100,4 +100,9 @@ module GameBugsquestHelper
     def arr_arrive_step(now_stage, now_step)
         questQuiz = QuestQuiz.select(:id, :episode).where(quest_stage_id: now_stage, id: 1..now_step, open_status: true)
     end
+
+    # 公開中の最新エピソード番号
+    def open_delivery_episode
+        QuestQuiz.select(:id).where(open_status: true).maximum(:id)
+    end
 end

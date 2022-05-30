@@ -434,6 +434,11 @@ div#container{
                     100% { transform:scale(1); }
                 }
 
+                .delivery_episode{
+                    position: relative;
+                    left: 40px;
+                }
+
                 ul.game_quiz_radio{
                     li{
                         margin-bottom: 5px;
