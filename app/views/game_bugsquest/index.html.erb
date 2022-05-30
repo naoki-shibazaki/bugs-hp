@@ -61,6 +61,7 @@
                 </div>
             </div>
 
+<% if logged_in? %>
             <div class="msgbox_out gamemode">
                 <div class="msgbox_in gamemode">
                     <%= @mode['mode_jp'] %>モード
@@ -74,7 +75,7 @@
                     <span id="monster_name"><%= @get_bugsquest_game_data[:questMonster].name %></span>　−　1ぴき
                 </div>
             </div>
-<% if logged_in? %>
+
             <div class="msgbox_out quiz">
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
@@ -93,6 +94,20 @@
                 </div>
             </div>
 <% else %>
+            <div class="msgbox_out gamemode">
+                <div class="msgbox_in gamemode">
+                    ゲストモード
+                    <span class="balloon_mode">ゲスト用モードです</span>
+                </div>
+            </div>
+
+            <div class="msgbox_out monster">
+                <div class="msgbox_in monster">
+                    <span id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
+                    <span id="monster_name"><%= @get_bugsquest_game_data[:questMonster].name %></span>　−　1ぴき
+                </div>
+            </div>
+
             <div class="msgbox_out quiz">
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
