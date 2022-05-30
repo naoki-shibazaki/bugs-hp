@@ -213,6 +213,18 @@ $(function(){
       // 取得結果を追加
       $('#form_select_step').append(insert_step);
   });
+
+  // バトルモードの吹き出し解説を追加
+  $('.balloon_mode').hide();
+  $('div.msgbox_in.gamemode').hover(
+    function () {
+        $(this).children('.balloon_mode').fadeIn('fast');
+    },
+    function () {
+        $(this).children('.balloon_mode').fadeOut('fast');
+    }
+  );
+
 });
 
 ///
