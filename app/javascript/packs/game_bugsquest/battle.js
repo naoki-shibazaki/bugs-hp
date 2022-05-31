@@ -139,6 +139,11 @@ $(function(){
   url_getStage = '/api/getStage?user_id='+quest_user_id+'&change_token='+change_token;
   //console.log(url_getStage);
 
+  // ストーリーモード
+  $('#story_battle').on('click', function(){
+    location.reload();
+  });
+
   // ステージ・ステップ選択のチェック
   $('#select_battle').on('click', function(){
       let stage = $('#select_stage').val();

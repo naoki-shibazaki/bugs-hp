@@ -49,6 +49,19 @@ div#container{
                             border-radius: 15px;
                         }
                     }
+
+                    #story_battle{
+                        background: #040082;
+                        margin: 5px;
+                        padding: 7px;
+                        border-radius: 15px;
+                        /*border-style: revert;*/
+                        border-width: 2px;
+                        border-style: outset;
+                        border-color: buttonborder;
+                        border-image: initial;
+                        line-height: normal;
+                    }
                 }
                 .menu1{
                     /*position: fixed;*/
@@ -318,8 +331,8 @@ div#container{
                 .status1{
                     position: fixed;
                     top: -30%;
-                      right: 55%;
-                    width: 240px;
+                    right: 55%;
+                    width: 270px;
                 }
 
                 .status2{
@@ -384,7 +397,7 @@ div#container{
                     position: fixed;
                     top: 110%;
                     right: 55%;
-                    width: 240px;
+                    width: 270px;
                     white-space: normal;
                 }
 
