@@ -1,0 +1,2 @@
+class QuestExtra < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  extra_num: 1
+  kind: MyString
+  title: MyString
+  quest_monster_id: 1
+  format: MyString
+  question: MyString
+  choice: MyString
+  answer: MyString
+  tips: MyString
+  exp: 1
+  open_status: false
+
+two:
+  extra_num: 1
+  kind: MyString
+  title: MyString
+  quest_monster_id: 1
+  format: MyString
+  question: MyString
+  choice: MyString
+  answer: MyString
+  tips: MyString
+  exp: 1
+  open_status: false

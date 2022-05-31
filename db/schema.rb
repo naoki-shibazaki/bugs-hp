@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_082026) do
+ActiveRecord::Schema.define(version: 2022_05_31_071240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 2022_05_27_082026) do
     t.text "article"
     t.string "category", limit: 50
     t.string "tag", limit: 50
+  end
+
+  create_table "quest_extras", force: :cascade do |t|
+    t.integer "extra_num", null: false
+    t.string "kind", limit: 50, null: false
+    t.string "title", limit: 50, null: false
+    t.bigint "quest_monster_id", null: false
+    t.string "format", limit: 50, null: false
+    t.string "question", limit: 500, null: false
+    t.string "choice", limit: 500, null: false
+    t.string "answer", limit: 500, null: false
+    t.string "tips", limit: 500
+    t.integer "exp", null: false
+    t.boolean "open_status", default: false, null: false, comment: "true -> 公開｜false -> 非公開"
+    t.index ["quest_monster_id"], name: "index_quest_extras_on_quest_monster_id"
   end
 
   create_table "quest_monsters", force: :cascade do |t|
