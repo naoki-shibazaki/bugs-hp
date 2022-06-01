@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_31_071240) do
+ActiveRecord::Schema.define(version: 2022_06_01_040008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_05_31_071240) do
 
   create_table "quest_extras", force: :cascade do |t|
     t.integer "extra_num", null: false
-    t.string "kind", limit: 50, null: false
+    t.string "category", limit: 50, null: false
     t.string "title", limit: 50, null: false
     t.bigint "quest_monster_id", null: false
     t.string "format", limit: 50, null: false
