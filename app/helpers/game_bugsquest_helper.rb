@@ -24,6 +24,7 @@ module GameBugsquestHelper
 
     # バグズクエスト：ユーザーデータ取得
     def get_bugsquest_game_data(mode: nil, extra_datas: nil)
+        # 各モードの共通処理
         ret = {}
         ret[:questUser] = QuestUser.new
         ret[:questQuiz] = QuestQuiz.new
@@ -31,64 +32,70 @@ module GameBugsquestHelper
         ret[:questStatus] = QuestStatus.new
         ret[:questMonster] = QuestMonster.new
 
-        unless current_user.nil?
-            ret[:questUser] = QuestUser.find_by(users_id: current_user.id)
-            #ret[:questQuiz] = QuestQuiz.find(ret[:questUser].quiz_id)
-            case mode
-                when 'story', 'select'
-                    ret[:questQuiz] = QuestQuiz.find_by(id: ret[:questUser].recent_quiz_id, open_status: true)
-                    ret[:questStage] = QuestStage.find(ret[:questQuiz].quest_stage_id)
-                    ret[:questMonster] = QuestMonster.find(ret[:questQuiz].quest_monster_id)
-                    ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
-                    ret[:answers] = get_bugsquest_quiz_choice(ret[:questQuiz].choice)
-                    ret[:tips] = ret[:questQuiz].tips
-                when 'extra'
-                    if extra_datas[:extra_id].nil?
-                        ret[:questExtra] = QuestExtra.where(extra_num: extra_datas[:extra_num], open_status: true).first
-                    else
-                        ret[:questExtra] = QuestExtra.where(id: extra_datas[:extra_id], open_status: true).first
-                    end
+        case mode
+            when 'guest'
+                ret[:questUser].name = 'ゲストユーザー'
+                ret[:questQuiz].id = 0
+                ret[:questStage].num = 0
+                ret[:questStage].name = 'ゲストモード'
+                ret[:questStatus].hp = 5
+                ret[:questStatus].mp = 2
+                ret[:questStatus].power = 3
+                ret[:questStatus].protect = 4
+                ret[:questStatus].speed = 2
+                ret[:questStatus].wise = 3
+                ret[:questStatus].luck = 100
+    
+                ret[:questUser].lv = 0
+                ret[:questUser].exp = 0
+                ret[:questMonster].name = 'ブラックバグズ'
+    
+                ret[:questQuiz].question = '正しいプログラム言語で敵を倒せ！'
+                ret[:tips] = 'アカウントを作成するとストーリーが楽しめて経験値もためらるぞ❢'
+    
+                # 次のレベルまでの経験値
+                ret[:next_lvup_exp] = '＜アカウントを作成すると<br />経験値をためらるぞ❢＞'
 
-                    next_extra_num_id = ret[:questExtra].id + 1
-                    last_extra_num_id = QuestExtra.where(extra_num: ret[:questExtra].extra_num, open_status: true).last.id
+            when 'story', 'select'
+                ret[:questUser] = QuestUser.find_by(users_id: current_user.id)
+                ret[:questQuiz] = QuestQuiz.find_by(id: ret[:questUser].recent_quiz_id, open_status: true)
+                ret[:questStage] = QuestStage.find(ret[:questQuiz].quest_stage_id)
+                ret[:questMonster] = QuestMonster.find(ret[:questQuiz].quest_monster_id)
+                ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
+                ret[:answers] = get_bugsquest_quiz_choice(ret[:questQuiz].choice)
+                ret[:tips] = ret[:questQuiz].tips
 
-                    if next_extra_num_id <= last_extra_num_id
-                        ret[:next_extra_num_id] = next_extra_num_id
-                    else
-                        ret[:next_extra_num_id] = 0
-                    end
+                # 次のレベルまでの経験値
+                ret[:next_lvup_exp] = next_lvup_exp(1)
 
-                    ret[:questMonster] = QuestMonster.find(1)
-                    ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
+            when 'extra'
+                ret[:questUser] = QuestUser.find_by(users_id: current_user.id)
+                if extra_datas[:extra_id].nil?
+                    ret[:questExtra] = QuestExtra.where(extra_num: extra_datas[:extra_num], open_status: true).first
+                else
+                    ret[:questExtra] = QuestExtra.where(id: extra_datas[:extra_id], open_status: true).first
+                end
 
-                    ret[:answers] = get_bugsquest_quiz_choice(ret[:questExtra].choice)
-                    ret[:tips] = ret[:questExtra].tips
-            end
-            # 次のレベルまでの経験値
-            ret[:next_lvup_exp] = next_lvup_exp(1)
-        else
-            ret[:questUser].name = 'ゲストユーザー'
-            ret[:questQuiz].id = 0
-            ret[:questStage].num = 0
-            ret[:questStage].name = 'ゲストモード'
-            ret[:questStatus].hp = 5
-            ret[:questStatus].mp = 2
-            ret[:questStatus].power = 3
-            ret[:questStatus].protect = 4
-            ret[:questStatus].speed = 2
-            ret[:questStatus].wise = 3
-            ret[:questStatus].luck = 100
+                next_extra_num_id = ret[:questExtra].id + 1
+                last_extra_num_id = QuestExtra.where(extra_num: ret[:questExtra].extra_num, open_status: true).last.id
 
-            ret[:questUser].lv = 0
-            ret[:questUser].exp = 0
-            ret[:questMonster].name = 'ブラックバグズ'
+                if next_extra_num_id <= last_extra_num_id
+                    ret[:next_extra_num_id] = next_extra_num_id
+                else
+                    ret[:next_extra_num_id] = 0
+                end
 
-            ret[:questQuiz].question = '正しいプログラム言語で敵を倒せ！'
-            ret[:tips] = 'アカウントを作成するとストーリーが楽しめて経験値もためらるぞ❢'
+                ret[:questMonster] = QuestMonster.find(1)
+                ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
 
-            # 次のレベルまでの経験値
-            ret[:next_lvup_exp] = '＜アカウントを作成すると<br />経験値をためらるぞ❢＞'
+                ret[:answers] = get_bugsquest_quiz_choice(ret[:questExtra].choice)
+                ret[:tips] = ret[:questExtra].tips
+
+                # 次のレベルまでの経験値
+                ret[:next_lvup_exp] = next_lvup_exp(1)
         end
+
+        # 各モードの共通処理
         return ret
     end
 

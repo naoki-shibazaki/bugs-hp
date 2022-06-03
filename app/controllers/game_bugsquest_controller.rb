@@ -9,53 +9,77 @@ class GameBugsquestController < ApplicationController
     # バトルモード取得
     battleMode = CSV.read('./public/csv/bugsquest/battleMode.csv', headers: true)
 
-    # GETとPOSTで処理分岐
-    unless request.post?
-      # クイズ取得[ゲスト用]
-      @quizzes = get_quiz
-
-      # 最新のクイズIDを設定
-      set_quiz_id(0)
-
-      @mode = battleMode[0]
-
-      # バグズクエスト：ユーザーデータ取得[ゲスト/ストーリー]
-      @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'story')
+    # ゲームモードを確認する
+    unless logged_in?
+      # ゲストモード
+      @mode = battleMode[0] #ゲストモード
     else
-      case params[:gamemode]
-        # セレクトモード
-        when battleMode[1]['mode']
-          # 選択したクイズIDを設定
-          set_quiz_id(params[:select_step].to_i)
-          @mode = battleMode[1]
-
-          # バグズクエスト：ユーザーデータ取得[ゲスト/ストーリー/セレクト]
-          @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'select')
-        
-        # エキストラモード
-        when battleMode[2]['mode']
-          @mode = battleMode[2]
-
-          # バグズクエスト：ユーザーデータ取得[エキストラ]
-          case params[:referrer]
-            when 'menu'
-              extra_id = QuestExtra.where(extra_num: params[:extra_title], open_status: true).first.id
-              extra_num = params[:extra_title]
-            when 'battle'
-              extra_id = params[:extra_id].to_i
-              extra_num = QuestExtra.find(extra_id).extra_num
-          end
-          extra_datas = {extra_id: extra_id, extra_num: extra_num}
-          @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'extra', extra_datas: extra_datas)
+      if request.get?
+        # ストーリーモード
+        @mode = battleMode[1] #ストーリーモード
+      elsif request.post?
+        case params[:gamemode]
+          when battleMode[2]['mode'] #セレクトモード
+            # セレクトモード
+            @mode = battleMode[2]
+          when battleMode[3]['mode'] #エキストラモード
+            # エキストラモード
+            @mode = battleMode[3]
         end
+      end
     end
 
-    # ユーザーアカウントデータのセット
-    unless current_user.nil?
-      @user = User.find(current_user.id)
-    else
-      @user = User.new
+    # モード毎の処理
+    case @mode
+      # 【ゲストモード】の処理
+      when battleMode[0] #ゲストモード
+        # クイズ取得[ゲスト用]
+        @quizzes = get_quiz
+        # バグズクエスト：ユーザーデータ取得[ゲスト]
+        @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'guest')
+        
+        # ゲストなので、空のユーザーインスタンス生成
+        @user = User.new
+
+      # 【ストーリーモード】の処理
+      when battleMode[1] #ストーリーモード
+        # 最新のクイズIDを設定
+        set_quiz_id(0)
+        # バグズクエスト：ユーザーデータ取得[ストーリー]
+        @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'story')
+
+        # ユーザーデータ取得
+        @user = User.find(current_user.id)
+
+      # 【セレクトモード】の処理
+      when battleMode[2] #セレクトモード
+        # 選択したクイズIDを設定
+        set_quiz_id(params[:select_step].to_i)
+        # バグズクエスト：ユーザーデータ取得[セレクト]
+        @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'select')
+
+        # ユーザーデータ取得
+        @user = User.find(current_user.id)
+
+      # 【エキストラモード】の処理
+      when battleMode[3] #エキストラモード
+        # バグズクエスト：ユーザーデータ取得[エキストラ]
+        case params[:referrer]
+          when 'menu'
+            extra_id = QuestExtra.where(extra_num: params[:extra_title], open_status: true).first.id
+            extra_num = params[:extra_title]
+          when 'battle'
+            extra_id = params[:extra_id].to_i
+            extra_num = QuestExtra.find(extra_id).extra_num
+        end
+        extra_datas = {extra_id: extra_id, extra_num: extra_num}
+        @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'extra', extra_datas: extra_datas)
+
+        # ユーザーデータ取得
+        @user = User.find(current_user.id)
     end
+    
+    # 各モード共通の処理
 
     # クイズのカテゴリを取得[メニューのエキストラモードの項目で使用]
     @questExtra_categories = QuestExtra.select(:category, :extra_num).distinct.where(open_status: true).order(:extra_num).map(&:category).uniq
