@@ -26,7 +26,7 @@ div#episode{
             margin-bottom: 30px;
             color: #fff;
             margin: 2px;
-            font-size: medium;
+            font-size: x-small;
 
             .page_name {
                 /*
@@ -90,7 +90,7 @@ div#episode{
                 ul li, ol li {
                     line-height: 1.5;
                     padding: 8px 35px;
-                    display: inline;
+                    display: contents;
                 }
 
                 div.news_list{
@@ -131,5 +131,3 @@ div#episode{
         }
     }
 }
-
-@import './news_mobile';
