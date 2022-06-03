@@ -49,22 +49,17 @@
             <div class="msgbox_out status1">
                 <div class="msgbox_in status1">
                     名前：<span id="user_name"><%= @get_bugsquest_game_data[:questUser].name %></span><br />
-<% if logged_in? %>
-    <% case @mode['mode'] %>
-        <% when 'story', 'select' %>
+<% case @mode['mode'] %>
+    <% when 'story', 'select' %>
                     Step:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
                     <div class="btn-attend-new"><a class="trig-colorbox_iframe" href="/game/bugsquest/episode">EP.</a></div>
                     <span class="delivery_episode">[配信EP.<%= open_delivery_episode %>]</span>
                     <br />
                     Stage:<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span> &lt;<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>&gt;<br />
-        <% when 'extra' %>
+    <% when 'extra' %>
                     ExStage: <%= @get_bugsquest_game_data[:questExtra].extra_num %>-<span id="bugsquestQuestExtraID"><%= @get_bugsquest_game_data[:questExtra].id %></span>
                     <br />
                     <span id="bugsquestQuestExtraTitle"><%= @get_bugsquest_game_data[:questExtra].title %></span>
-    <% end %>
-<% else %>
-                    Step:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span><br />
-                    Stage:<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span> &lt;<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>&gt;<br />
 <% end %>
                 </div>
             </div>
@@ -77,7 +72,6 @@
                 </div>
             </div>
 
-<% if logged_in? %>
             <div class="msgbox_out gamemode">
                 <div class="msgbox_in gamemode">
                     <%= @mode['mode_jp'] %>モード
@@ -96,8 +90,8 @@
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
                     <span class="none" id="bugsquestMode"><%= @mode['mode'] %></span>
-    <% case @mode['mode'] %>
-        <% when 'story', 'select' %>
+<% case @mode['mode'] %>
+    <% when 'story', 'select' %>
                     <div class="none">
                         <span id="QuestionId"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
                         <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
@@ -110,7 +104,7 @@
                         <li><button type="button" class="modal_btn2" name="answer3" id="answer3">回答</button></li>
                     </ul>
                     <br />
-        <% when 'extra' %>
+    <% when 'extra' %>
                     <div class="none">
                         <span id="QuestionExtraId"><%= @get_bugsquest_game_data[:questExtra].id %></span>
                         <span id="QuestionExtraNum"><%= @get_bugsquest_game_data[:questExtra].extra_num %></span>
@@ -124,39 +118,10 @@
                         <li><button type="button" class="modal_btn2" name="answer3" id="answer3">回答</button></li>
                     </ul>
                     <br />
-    <% end %>
-                </div>
-            </div>
-<% else %>
-            <div class="msgbox_out gamemode">
-                <div class="msgbox_in gamemode">
-                    ゲストモード
-                    <span class="balloon_mode">ゲスト用モードです</span>
-                </div>
-            </div>
-
-            <div class="msgbox_out monster">
-                <div class="msgbox_in monster">
-                    <span class="none" id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
-                    <span id="monster_name"><%= @get_bugsquest_game_data[:questMonster].name %></span>　−　1ぴき
-                </div>
-            </div>
-
-            <div class="msgbox_out quiz">
-                <div class="msgbox_in quiz">
-                    <span class="balloon1" id="makeImg">選択せよ！</span>
-                    <span class="none" id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
-                    <p><span class="typedQuestion" id="typedQuestion"></span></p>
-                    <ul>
-                        <% @quizzes.each do |key, value| %>
-                            <li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
-                        <% end %>
-                        <li><button type="button" class="modal_btn2" name="answer2" id="answer2">回答</button></li>
-                    </ul>
-                    <br />
-                </div>
-            </div>
 <% end %>
+                </div>
+            </div>
+
             <div class="msgbox2">
             <span class="none" id="typedMsg2Text"><%= @get_bugsquest_game_data[:tips].html_safe %></span>
                 <span class="typedMsg2" id="typedMsg2"></span>

@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/dev/TEST.css">
+
+<div id="splash">
+    <div id="splash-logo">読み込み中</div>
+<!--/splash--></div>
+
+<div class="splashbg"></div><!---画面遷移用-->
+<div id="container">
+    <header class="slide-menu">
+        <nav>
+            <%= render 'layouts/game_bugsquest/nav1', cached: false %>
+        </nav>
+        
+        <nav2>
+            <%= render 'layouts/game_bugsquest/nav2', cached: false %>
+        </nav2>
+
+        <div class="menu_bar">
+            <%= render 'layouts/game_bugsquest/game_menu' %>
+        </div>
+    </header>
+
+    <div class="CurtainObject"></div>
+    <div class="game_bugsquest">
+        <!--<div class="battle" style="background-image: url(/image/black_bugs_chan.png);">-->
+        <div class="battle">
+            <img class="enemy" src="/image/black_bugs_chan.png">
+
+            <div class="msgbox_out main">
+                <div class="msgbox_in main">
+                    <p>
+                        <span class="typed" id="typed"></span>
+                        <!--<span id="ityped" class="ityped"></span>-->
+                    </p>
+                </div>
+            </div>
+
+            <div class="msgbox_out status1">
+                <div class="msgbox_in status1">
+                    名前：<span id="user_name"><%= @get_bugsquest_game_data[:questUser].name %></span><br />
+                    Step:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span><br />
+                    Stage:<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span> &lt;<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>&gt;<br />
+                </div>
+            </div>
+
+            <div class="msgbox_out status2">
+                <div class="msgbox_in status2">
+                    HP：<span id="user_hp"><%= @get_bugsquest_game_data[:questStatus].hp %></span><br />
+                    MP：<span id="user_mp"><%= @get_bugsquest_game_data[:questStatus].mp %></span><br />
+                    レベル：<span id="user_lv"><%= @get_bugsquest_game_data[:questUser].lv %></span><br />
+                </div>
+            </div>
+
+            <div class="msgbox_out gamemode">
+                <div class="msgbox_in gamemode">
+                    ゲストモード
+                    <span class="balloon_mode">ゲスト用モードです</span>
+                </div>
+            </div>
+
+            <div class="msgbox_out monster">
+                <div class="msgbox_in monster">
+                    <span class="none" id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
+                    <span id="monster_name"><%= @get_bugsquest_game_data[:questMonster].name %></span>　−　1ぴき
+                </div>
+            </div>
+
+            <div class="msgbox_out quiz">
+                <div class="msgbox_in quiz">
+                    <span class="balloon1" id="makeImg">選択せよ！</span>
+                    <span class="none" id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
+                    <p><span class="typedQuestion" id="typedQuestion"></span></p>
+                    <ul>
+                        <% @quizzes.each do |key, value| %>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
+                        <% end %>
+                        <li><button type="button" class="modal_btn2" name="answer2" id="answer2">回答</button></li>
+                    </ul>
+                    <br />
+                </div>
+            </div>
+
+            <div class="msgbox2">
+            <span class="none" id="typedMsg2Text"><%= @get_bugsquest_game_data[:tips].html_safe %></span>
+                <span class="typedMsg2" id="typedMsg2"></span>
+            </div>
+
+            <div class="msgbox_out question">
+                <div class="msgbox_in question"></div>
+            </div>
+
+            <div class="msgbox_out yesno">
+                <div class="msgbox_in yesno">
+                    <a link="/game/bugsquest<%= make_bugsquest_pram %>" onclick="window.location = $(this).attr('link');">はい</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><!--/contaier-->
+
+<%# メニューボタン用 %>
+<%= javascript_pack_tag 'game_bugsquest/menu', 'data-turbolinks-track': 'reload' %>
+
+<script src="/dev/TEST.js"></script>

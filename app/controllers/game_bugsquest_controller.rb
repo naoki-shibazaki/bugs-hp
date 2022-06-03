@@ -6,8 +6,13 @@ class GameBugsquestController < ApplicationController
   include ApplicationHelper
 
   def index
+    # 各モード共通の処理
+
     # バトルモード取得
     battleMode = CSV.read('./public/csv/bugsquest/battleMode.csv', headers: true)
+
+    # クイズのカテゴリを取得[メニューのエキストラモードの項目で使用]
+    @questExtra_categories = QuestExtra.select(:category, :extra_num).distinct.where(open_status: true).order(:extra_num).map(&:category).uniq
 
     # ゲームモードを確認する
     unless logged_in?
@@ -41,6 +46,8 @@ class GameBugsquestController < ApplicationController
         # ゲストなので、空のユーザーインスタンス生成
         @user = User.new
 
+        render 'index_guest'
+
       # 【ストーリーモード】の処理
       when battleMode[1] #ストーリーモード
         # 最新のクイズIDを設定
@@ -51,6 +58,8 @@ class GameBugsquestController < ApplicationController
         # ユーザーデータ取得
         @user = User.find(current_user.id)
 
+        render 'index_login'
+
       # 【セレクトモード】の処理
       when battleMode[2] #セレクトモード
         # 選択したクイズIDを設定
@@ -60,6 +69,8 @@ class GameBugsquestController < ApplicationController
 
         # ユーザーデータ取得
         @user = User.find(current_user.id)
+
+        render 'index_login'
 
       # 【エキストラモード】の処理
       when battleMode[3] #エキストラモード
@@ -77,12 +88,9 @@ class GameBugsquestController < ApplicationController
 
         # ユーザーデータ取得
         @user = User.find(current_user.id)
-    end
-    
-    # 各モード共通の処理
 
-    # クイズのカテゴリを取得[メニューのエキストラモードの項目で使用]
-    @questExtra_categories = QuestExtra.select(:category, :extra_num).distinct.where(open_status: true).order(:extra_num).map(&:category).uniq
+        render 'index_login'
+    end
   end
 
   def episode
