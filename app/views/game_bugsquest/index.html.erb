@@ -1,7 +1,15 @@
 <link rel="stylesheet" href="/dev/TEST.css">
 
+<%# 隠しデータ %>
 <%# 変更用トークン生成 %>
-<meta name="csrf-questuser-token" content="<%= create_user_token %>" />
+<div id="game_hide_date" style="display: none;">
+    <meta name="csrf-questuser-token" content="<%= create_user_token %>" />
+    <%# ユーザーID %>
+    <span id="bugsquestQuestUserID"><%= @get_bugsquest_game_data[:questUser].users_id %></span>
+<% if @mode['mode'] === 'extra' %>
+    <span id="bugsquestQuestNextExtraID"><%= @get_bugsquest_game_data[:next_extra_num_id] %></span>
+<% end %>
+</div>
 
 <div id="splash">
     <div id="splash-logo">読み込み中</div>
@@ -42,14 +50,22 @@
                 <div class="msgbox_in status1">
                     名前：<span id="user_name"><%= @get_bugsquest_game_data[:questUser].name %></span><br />
 <% if logged_in? %>
-                    STEP:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
+    <% case @mode['mode'] %>
+        <% when 'story', 'select' %>
+                    Step:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
                     <div class="btn-attend-new"><a class="trig-colorbox_iframe" href="/game/bugsquest/episode">EP.</a></div>
                     <span class="delivery_episode">[配信EP.<%= open_delivery_episode %>]</span>
                     <br />
+                    Stage:<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span> &lt;<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>&gt;<br />
+        <% when 'extra' %>
+                    ExStage: <%= @get_bugsquest_game_data[:questExtra].extra_num %>-<span id="bugsquestQuestExtraID"><%= @get_bugsquest_game_data[:questExtra].id %></span>
+                    <br />
+                    <span id="bugsquestQuestExtraTitle"><%= @get_bugsquest_game_data[:questExtra].title %></span>
+    <% end %>
 <% else %>
-                    STEP:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span><br />
+                    Step:<span id="user_step"><%= @get_bugsquest_game_data[:questQuiz].id %></span><br />
+                    Stage:<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span> &lt;<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>&gt;<br />
 <% end %>
-                    STAGE:<span id="user_stage_num"><%= @get_bugsquest_game_data[:questStage].num %></span> &lt;<span id="user_stage_name"><%= @get_bugsquest_game_data[:questStage].name %></span>&gt;<br />
                 </div>
             </div>
 
@@ -71,7 +87,7 @@
 
             <div class="msgbox_out monster">
                 <div class="msgbox_in monster">
-                    <span id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
+                    <span class="none" id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
                     <span id="monster_name"><%= @get_bugsquest_game_data[:questMonster].name %></span>　−　1ぴき
                 </div>
             </div>
@@ -79,10 +95,13 @@
             <div class="msgbox_out quiz">
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
-                    <span id="bugsquestMode"><%= @mode['mode'] %></span>
-                    <span id="bugsquestQuestUserID"><%= @get_bugsquest_game_data[:questUser].users_id %></span>
-                    <span id="QuestionId"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
-                    <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
+                    <span class="none" id="bugsquestMode"><%= @mode['mode'] %></span>
+    <% case @mode['mode'] %>
+        <% when 'story', 'select' %>
+                    <div class="none">
+                        <span id="QuestionId"><%= @get_bugsquest_game_data[:questQuiz].id %></span>
+                        <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
+                    </div>
                     <p><span class="typedQuestion" id="typedQuestion"></span></p>
                     <ul class="game_quiz_radio">
                         <% @get_bugsquest_game_data[:answers].each do |value| %>
@@ -91,6 +110,21 @@
                         <li><button type="button" class="modal_btn2" name="answer3" id="answer3">回答</button></li>
                     </ul>
                     <br />
+        <% when 'extra' %>
+                    <div class="none">
+                        <span id="QuestionExtraId"><%= @get_bugsquest_game_data[:questExtra].id %></span>
+                        <span id="QuestionExtraNum"><%= @get_bugsquest_game_data[:questExtra].extra_num %></span>
+                        <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questExtra].question %></span>
+                    </div>
+                    <p><span class="typedQuestion" id="typedQuestion"></span></p>
+                    <ul class="game_quiz_radio">
+                        <% @get_bugsquest_game_data[:answers].each do |value| %>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value="<%= value %>"><%= value %></li>
+                        <% end %>
+                        <li><button type="button" class="modal_btn2" name="answer3" id="answer3">回答</button></li>
+                    </ul>
+                    <br />
+    <% end %>
                 </div>
             </div>
 <% else %>
@@ -103,7 +137,7 @@
 
             <div class="msgbox_out monster">
                 <div class="msgbox_in monster">
-                    <span id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
+                    <span class="none" id="monsterId"><%= @get_bugsquest_game_data[:questMonster].id %></span>
                     <span id="monster_name"><%= @get_bugsquest_game_data[:questMonster].name %></span>　−　1ぴき
                 </div>
             </div>
@@ -111,7 +145,7 @@
             <div class="msgbox_out quiz">
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
-                    <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
+                    <span class="none" id="typedQuestionText"><%= @get_bugsquest_game_data[:questQuiz].question %></span>
                     <p><span class="typedQuestion" id="typedQuestion"></span></p>
                     <ul>
                         <% @quizzes.each do |key, value| %>
@@ -124,7 +158,7 @@
             </div>
 <% end %>
             <div class="msgbox2">
-                <span id="typedMsg2Text"><%= @get_bugsquest_game_data[:questQuiz].tips.html_safe %></span>
+            <span class="none" id="typedMsg2Text"><%= @get_bugsquest_game_data[:tips].html_safe %></span>
                 <span class="typedMsg2" id="typedMsg2"></span>
             </div>
 
@@ -140,7 +174,24 @@
 
             <div class="msgbox_out yesno2">
                 <div class="msgbox_in yesno2">
-                <%= link_to "はい", {controller: 'game_bugsquest', action: 'index', select_step: @get_bugsquest_game_data[:questQuiz].id }, method: :post %>
+                <%# link_to "はい", {controller: 'game_bugsquest', action: 'index', select_step: @get_bugsquest_game_data[:questQuiz].id }, method: :post %>
+                </div>
+            </div>
+
+            <div class="msgbox_out yesno3">
+                <div class="msgbox_in yesno3">
+                    <%# link_to "はい???", {controller: 'game_bugsquest', action: 'index', extra_id: @get_bugsquest_game_data[:next_extra_num_id], gamemode: 'extra' }, method: :post %>
+                    <%# link_to "はい???", {controller: 'game_bugsquest', action: 'index', params: { extra_id: 111 }, gamemode: 'extra' }, method: :post %>
+                    <%= form_with do |form| %>
+                        <% unless @get_bugsquest_game_data[:next_extra_num_id] === 0 %>
+                            <%= form.hidden_field :gamemode, :value => 'extra' %>
+                            <%= form.hidden_field :referrer, :value => 'battle' %>
+                            <%= form.hidden_field :extra_id, :value => @get_bugsquest_game_data[:next_extra_num_id] %>
+                            <%= form.submit 'はい', :class => 'submit_battle', :id => 'extra_battle' %>
+                        <% else %>
+                            
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
 

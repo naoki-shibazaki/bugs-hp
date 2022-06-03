@@ -1,4 +1,8 @@
 @media screen and (max-width: 480px) {
+    div.none, span.none{
+        display: none;
+    }
+
     div#container{
         header.slide-menu{
             .box_menu{
@@ -41,12 +45,18 @@
                                 margin: 5px;
                                 font-size: revert;
                             }
-                            #select_battle{
-                                background: #040082;
-                                margin: 5px;
-                                padding: 3px;
-                                border-radius: 10px;
-                            }
+                        }
+                        .submit_battle{
+                            background: #040082;
+                            margin: 5px;
+                            padding: 7px;
+                            border-radius: 15px;
+                            /*border-style: revert;*/
+                            border-width: 2px;
+                            border-style: outset;
+                            border-color: buttonborder;
+                            border-image: initial;
+                            line-height: normal;
                         }
                     }
                     .menu1{
@@ -415,6 +425,24 @@
                         width: 60%;
                         text-align: center;
                     }
+
+                    .yesno3{
+                        position: fixed;
+                        top: 25%;
+                        left: 65%;
+                        color: chartreuse;
+                        font-weight: bold;
+                        width: 60%;
+                        text-align: center;
+                        input{
+                            background-color: rgb(0 0 0 / 0%);
+                            /* outline: none; */
+                            border: none;
+                            position: relative;
+                            top: 1px;
+                            font-size: larger;
+                        }
+                    }
                 }
                 .msgbox_in{
                     height: inherit;
@@ -466,6 +494,26 @@
                         position: relative;
                         left: 30px;
                     }
+
+                    ul.game_quiz_radio{
+                        li{
+                            margin-bottom: 5px;
+                        }
+                    }
+    
+                    span#bugsquestQuestExtraTitle{
+                        font-size: xx-small;
+                        position: relative;
+                        left: 5px;
+                        /*
+                        display: block;
+                        transform: scale(0.9);
+                        */
+                    }
+                }
+                /* エキストラモードのクリア時のメッセージボックス位置 */
+                .gameclear{
+                    transform: translate(40%, 150%);
                 }
                 /* メッセージ表示 */
                 div.msgbox2{
@@ -501,6 +549,7 @@
                 }
                 }
                 */
+                /*
                 span#bugsquestQuestUserID{
                     display: none;
                 }
@@ -519,6 +568,7 @@
                 span#typedQuestionText{
                     display: none;
                 }
+                */
                 span#typedQuestion{
                     color: #ffe500;
                     font-weight: bold;

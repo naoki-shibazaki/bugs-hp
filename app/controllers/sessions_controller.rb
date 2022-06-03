@@ -27,10 +27,18 @@ class SessionsController < ApplicationController
   def login_confirm
   end
 
-  # API:答えを正否を判定
+  # API:答えを正否を判定[ストーリーモード/セレクトモード]
   def apiCheckAnswer
     # 問題の答え正解
     correct_answer = QuestQuiz.find(params[:id]).answer
+    correct_answer == params[:answer] ? html = true : html = false
+    render plain: html
+  end
+
+  # API:答えを正否を判定[エキストラモード]
+  def apiCheckAnswerExtra
+    # 問題の答え正解
+    correct_answer = QuestExtra.find(params[:id]).answer
     correct_answer == params[:answer] ? html = true : html = false
     render plain: html
   end
@@ -53,11 +61,34 @@ class SessionsController < ApplicationController
 
     if questUser.authenticated?(:change_token, params[:change_token])
       questStatus = QuestStatus.find_by(lv: questUser.lv)
-      questQuiz = QuestQuiz.find_by(id: questUser.recent_quiz_id, open_status: true)
-      questQuiz_max_id = QuestQuiz.where(open_status: true).maximum(:id)
+      
+      case params[:mode]
+        when 'story'
+          # クイズ情報取得
+          questQuiz = QuestQuiz.find_by(id: questUser.recent_quiz_id, open_status: true)
+          questQuiz_max_id = QuestQuiz.where(open_status: true).maximum(:id)
 
-      # 獲得経験値
-      get_exp = questQuiz.exp
+          # 次のステップ(クイズ)へ
+          if questUser.quiz_id < questQuiz_max_id
+            questUser.quiz_id += 1
+          end
+
+          # 獲得経験値
+          get_exp = questQuiz.exp
+        when 'select'
+          # クイズ情報取得
+          questQuiz = QuestQuiz.find_by(id: questUser.recent_quiz_id, open_status: true)
+          #questQuiz_max_id = QuestQuiz.where(open_status: true).maximum(:id)
+
+          # 獲得経験値
+          get_exp = questQuiz.exp
+        when 'extra'
+          # クイズ情報取得
+          questExtra = QuestExtra.find_by(id: params[:quest_extra_id], open_status: true)
+
+          # 獲得経験値
+          get_exp = questExtra.exp
+      end
 
       # ユーザー経験値 + 獲得経験値
       questUser.exp += get_exp
@@ -76,19 +107,12 @@ class SessionsController < ApplicationController
         next_exp = next_lvup_exp(2) - get_exp
       end
 
-      # 次のステップ(クイズ)へ
-      if params[:mode] === 'story'
-        if questUser.quiz_id < questQuiz_max_id
-          questUser.quiz_id += 1
-        end
-
-        # クエストユーザーデータをアップデート
-        questUser.save
-      end
+      # クエストユーザーデータをアップデート
+      questUser.save
 
       datas = {
                 msg: {
-                  msg1: battle_victory_msg(msg_flag: 1, get_exp: questQuiz.exp),
+                  msg1: battle_victory_msg(msg_flag: 1, get_exp: get_exp),
                   msg2: battle_victory_msg(msg_flag: 2, level_up: level_up_flag, lv: questUser.lv),
                   msg3: battle_victory_msg(msg_flag: 3, next_exp: next_exp),
                 },
@@ -121,6 +145,12 @@ class SessionsController < ApplicationController
     end
   end
   
+  # API:エキストラモード・タイトル取得
+  def apiExtraTitle
+    questExtra = QuestExtra.select(:extra_num, :title).distinct.where(category: params[:category], open_status: true)
+    render :json => questExtra
+  end
+
   private
 
   # ログインチェック

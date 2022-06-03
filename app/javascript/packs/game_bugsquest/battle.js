@@ -6,11 +6,11 @@ $(function(){
 
     let msg;
     // クイズユーザーID取得
-    const questUserId = $('#bugsquestQuestUserID').text();
+    //const questUserId = $('#bugsquestQuestUserID').text();
     //console.log('questUserId:'+questUserId);
 
     // クイズID取得
-    const questionId = $('#QuestionId').text();  
+    //const questionId = $('#QuestionId').text();  
     //console.log('questionId:'+questionId);
 
     // クイズID取得
@@ -19,8 +19,9 @@ $(function(){
     
     // クイズ回答取得
     const answer = $('input:radio[name^="amswer"]:checked').val();
-    const mode = $('#bugsquestMode').text();
-    //console.log('mode:'+mode);
+    const gamemode = $('#bugsquestMode').text();
+    //console.log('answer:'+answer);
+    //console.log('gamemode:'+gamemode);
     
     if(answer === undefined){
       // 画面ロック解除
@@ -39,14 +40,23 @@ $(function(){
       }, 5000);
 
       // 解答の正否チェック
-      let quiz_result = checkAnswer({quest_recent_quiz_id : questionId, quest_quiz_answer : answer});
+      let quiz_result;
+      switch (gamemode) {
+        case 'story':
+        case 'select':
+          quiz_result = checkAnswer({check_quiz_id : questionId, quest_quiz_answer : answer, gamemode : gamemode});
+          break;
+        case 'extra':
+          quiz_result = checkAnswer({check_quiz_id : questExtraId, quest_quiz_answer : answer, gamemode : gamemode});
+          break;
+      }
       
       if(quiz_result === 'true'){
         // ★解答正解
 
         // ウインドウ表示切り替え(バトル終了:勝利)
         setTimeout(() => {
-          msgbox_battle_end_win(mode);
+          msgbox_battle_end_win(gamemode);
         }, 500);
 
         // 敵画像を非表示
@@ -56,7 +66,9 @@ $(function(){
         //console.log(token);
       
         // APIにてバトル勝利処理とデータ取得
-        const jsonData = JSON.parse(get_battle_victory_info({ quest_user_id: quest_user_id, mode: mode }));
+        const jsonData = JSON.parse(get_battle_victory_info({ quest_user_id: quest_user_id,
+                                                              gamemode: gamemode,
+                                                              quest_extra_id: questExtraId }));
 
         //Object.keys(jsonData.msg).forEach(function (key, value) {
         //  console.log([key, value]);
@@ -73,12 +85,33 @@ $(function(){
         battle_msg({tid : 'span#typed',tclass : '.typed', strings : msg, startDelay : 1000});
 
         // 次回バトル案内
-        if(mode === 'story'){
+        switch (gamemode) {
+          case 'story':
+            $('.msgbox_in.question').text('次のバトルに挑戦しますか？');
+            break;
+          case 'select':
+            $('.msgbox_in.question').text('ストーリーに戻りますか？');
+            break;
+          case 'extra':
+            //console.log('questNextExtraId:'+questNextExtraId);
+            if(questNextExtraId === "0"){
+              $('.msgbox_in.question').text('「'+questNextExtraTitle+'」をクリアしました！');
+              $('.msgbox_in.question').addClass('gameclear');
+              $('.msgbox_in.yesno3').addClass('none');
+              //$('.msgbox_in.question').removeClass().addClass("Gheeee");
+            }else{
+              $('.msgbox_in.question').text('次のバトルに挑戦しますか？');
+            }
+            break;
+        }
+        /*
+        if(gamemode === 'story'){
           $('.msgbox_in.question').text('次のバトルに挑戦しますか？');
-        }else if (mode === 'select'){
+        }else if (gamemode === 'select'){
           $('.msgbox_in.question').text('ストーリーに戻りますか？');
         }
-
+        */
+        
       }else{
         // ★解答不正解
         damege_point = get_battle_damege({quest_user_id: quest_user_id, quest_monster_id : monsterId})
@@ -87,7 +120,7 @@ $(function(){
           // バトル終了メッセージ表示[敗北]
           setTimeout(() => {
             $('.msgbox_in.question').text('もう一度、挑戦しますか？');
-            msgbox_battle_end_lose(mode);
+            msgbox_battle_end_lose(gamemode);
             msg = ['勇者は全滅した・・・'];
             battle_msg({tid : 'span#typed',tclass : '.typed', strings : msg, startDelay : 1000});
           }, 3500);
@@ -133,16 +166,32 @@ $(function(){
     }
   });
 
-  // バトル選択用の値取得
+  ///
+  /// ユーザー情報・トークンの取得
+  ///
+  // クエストユーザーID取得
   quest_user_id = $('#bugsquestQuestUserID').text();
+  // クイズID取得
+  questionId = $('#QuestionId').text();  
   change_token = get_csrftoken_questuser();
-  url_getStage = '/api/getStage?user_id='+quest_user_id+'&change_token='+change_token;
-  //console.log(url_getStage);
+  questExtraId = $('#bugsquestQuestExtraID').text();
+  questNextExtraId = $('#bugsquestQuestNextExtraID').text();
+  questNextExtraTitle = $('#bugsquestQuestExtraTitle').text();
+  
 
-  // ストーリーモード
+  ///
+  /// ストーリーモードの処理
+  ///
   $('#story_battle').on('click', function(){
     location.reload();
   });
+
+  ///
+  /// セレクトモードの処理
+  ///
+  // バトル選択用のAPI URL
+  url_getStage = '/api/getStage?user_id='+quest_user_id+'&change_token='+change_token;
+  //console.log(url_getStage);
 
   // ステージ・ステップ選択のチェック
   $('#select_battle').on('click', function(){
@@ -164,26 +213,26 @@ $(function(){
   });
   
   $.getJSON(url_getStage, function(json){
-      // selectタグを生成してinsertに追加
-  var insert_stage = $('<select>').attr('id', 'select_stage').attr('name', 'select_stage');
-      var insert_step = $('<select>').attr('id', 'select_step').attr('name', 'select_step');
-  var newLi_stage = $('<option>').val(0).text('選択して下さい');
-      var newLi_step = $('<option>').val(0).text('stageを選択して下さい');
+    // selectタグを生成してinsertに追加
+    var insert_stage = $('<select>').attr('id', 'select_stage').attr('name', 'select_stage');
+    var insert_step = $('<select>').attr('id', 'select_step').attr('name', 'select_step');
+    var newLi_stage = $('<option>').val(0).text('選択して下さい');
+    var newLi_step = $('<option>').val(0).text('stageを選択して下さい');
 
-      // 初期のプルダウン項目をセット
-  insert_stage.append(newLi_stage);
-      insert_step.append(newLi_step);
+    // 初期のプルダウン項目をセット
+    insert_stage.append(newLi_stage);
+    insert_step.append(newLi_step);
 
-  for(var i = 0; i < json.length; i++) {
-          // optionタグを生成してテキスト追加
-          newLi = $('<option>').val(json[i].num).text(json[i].num + ':' + json[i].name);
-          // insert_stageに生成したliタグを追加
-          insert_stage.append(newLi);
-  }
+    for(var i = 0; i < json.length; i++) {
+            // optionタグを生成してテキスト追加
+            newLi = $('<option>').val(json[i].num).text(json[i].num + ':' + json[i].name);
+            // insert_stageに生成したliタグを追加
+            insert_stage.append(newLi);
+    }
   
-  // 取得結果を追加
-  $('#form_select_stage').append(insert_stage);
-      $('#form_select_step').append(insert_step);
+    // 取得結果を追加
+    $('#form_select_stage').append(insert_stage);
+        $('#form_select_step').append(insert_step);
   });
 
   $('#form_select_stage').change(function(){
@@ -219,7 +268,72 @@ $(function(){
       $('#form_select_step').append(insert_step);
   });
 
-  // バトルモードの吹き出し解説を追加
+  ///
+  /// エキストラモードの処理
+  ///
+  // API URL
+  //url_getExtra_category = '/api/getExtra_category?user_id='+quest_user_id+'&change_token='+change_token;
+  //console.log(url_getStage);
+  
+  // エキストラモード選択のチェック
+  $('#extra_battle').on('click', function(){
+    let category = $('#extra_category').val();
+    //console.log('category:'+category);
+
+    if(category === '0' || category === '' || category === null){
+        //console.log('err:1');
+        return false;
+    }
+
+    let title = $('#extra_title').val();
+    //console.log('step:'+step);
+    
+    if(title === '0' || title === '' || title === null){
+        //console.log('err:2');
+        return false;
+    }
+  });
+
+  $('#form_extra_category').change(function(){
+    const category = $('#extra_category').val();
+    //console.log('category:'+category);
+
+    // プルダウンの初期化
+    $('select#extra_title option').remove();
+
+    if(category === 0 || category === '' || category === null){
+        //var insert_step = $('<select>').attr('id', 'extra_title');
+        var insert_step = $('#extra_title');
+        var newLi_step = $('<option>').val('').text('カテゴリを選択して下さい');
+        insert_step.append(newLi_step);
+    }else{
+        url_getStep = '/api/getExtraTitle?category='+category;
+        //console.log(url_getStep);
+        //$.getJSON('/api/getStep?stage=' + stage, function(json){
+        $.getJSON(url_getStep, function(json){
+            
+            // selectタグを生成してinsertに追加
+            var insert_step = $('#extra_title');
+            var newLi_step = $('<option>').val(0).text('タイトルを選んで下さい');
+            
+            insert_step.append(newLi_step);
+            
+            for(var i = 0; i < json.length; i++) {
+                // optionタグを生成してテキスト追加
+                //newLi = $("<option>").val(json[i].id).text(json[i].title+':'+truncateText(json[i].question, 8));
+                newLi = $("<option>").val(json[i].extra_num).text(json[i].title);
+                // insert_stageに生成したliタグを追加
+                insert_step.append(newLi);
+            }
+        });
+    }
+    // 取得結果を追加
+    $('#form_extra_title').append(insert_step);
+  });
+
+  ///
+  /// バトルモードの吹き出し解説を追加
+  ///
   $('.balloon_mode').hide();
   $('div.msgbox_in.gamemode').hover(
     function () {
@@ -273,6 +387,7 @@ msgbox_battle_start1 = () => {
   fadeProc('.msgbox_out' + '.question', 0, 'Out');
   fadeProc('.msgbox_out' + '.yesno', 0, 'Out');
   fadeProc('.msgbox_out' + '.yesno2', 0, 'Out');
+  fadeProc('.msgbox_out' + '.yesno3', 0, 'Out');
   fadeProc('.msgbox2', 0, 'Out');
 }
 
@@ -372,7 +487,7 @@ msgbox_battle_damege = (damege_point) => {
 }
 
 // ウインドウ表示切り替え(バトル終了:勝利)
-msgbox_battle_end_win = (mode) => {
+msgbox_battle_end_win = (gamemode) => {
   fadeProc('.msgbox_out' + '.main', 300, 'In');
   //fadeProc('.msgbox_out' + '.status', 0, 'Out');
   fadeProc('.msgbox_out' + '.monster', 0, 'Out');
@@ -380,15 +495,28 @@ msgbox_battle_end_win = (mode) => {
   fadeProc('.msgbox2', 0, 'Out');
   //fadeProc('.menu_bar', 0, 'Out');
   fadeProc('.msgbox_out' + '.question', 3500, 'In');
+  /*
   if(mode === 'story'){
     fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
   }else if (mode === 'select'){
     fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
   }
+  */
+  switch (gamemode) {
+    case 'story':
+      fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
+      break;
+    case 'select':
+      fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
+      break;
+    case 'extra':
+      fadeProc('.msgbox_out' + '.yesno3', 4000, 'In');
+      break;
+  }
 }
 
 // ウインドウ表示切り替え(バトル終了:敗北)
-msgbox_battle_end_lose = (mode) => {
+msgbox_battle_end_lose = (gamemode) => {
   fadeProc('.msgbox_out' + '.main', 300, 'In');
   //fadeProc('.msgbox_out' + '.status', 0, 'Out');
   fadeProc('.msgbox_out' + '.monster', 0, 'Out');
@@ -396,10 +524,23 @@ msgbox_battle_end_lose = (mode) => {
   fadeProc('.msgbox2', 0, 'Out');
   //fadeProc('.menu_bar', 0, 'Out');
   fadeProc('.msgbox_out' + '.question', 3500, 'In');
+  /*
   if(mode === 'story'){
     fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
   }else if (mode === 'select'){
     fadeProc('.msgbox_out' + '.yesno2', 4000, 'In');
+  }
+  */
+  switch (gamemode) {
+    case 'story':
+      fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
+      break;
+    case 'select':
+      fadeProc('.msgbox_out' + '.yesno2', 4000, 'In');
+      break;
+    case 'extra':
+      fadeProc('.msgbox_out' + '.yesno3', 4000, 'In');
+      break;
   }
 }
 

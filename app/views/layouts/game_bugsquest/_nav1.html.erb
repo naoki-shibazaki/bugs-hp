@@ -3,7 +3,7 @@
 	<div class="msgbox_out menu_mode">
 		<div class="msgbox_in menu_mode">
 			<h2>【ストーリーモード】</h2>
-			<button id="story_battle">バトル！</button>
+			<button class="submit_battle" id="story_battle">バトル！</button>
 		</div>
 	</div>
 	<div class="msgbox_out menu_mode">
@@ -12,14 +12,21 @@
 			<%= form_with do |form| %>
 				Stage:<span id="form_select_stage"></span><br />
 				Step:<span id="form_select_step"></span><br />
-				<%= form.submit 'バトル！', :id => 'select_battle' %>
+				<%= form.hidden_field :gamemode, :value => 'select' %>
+				<%= form.submit 'バトル！', :class => 'submit_battle', :id => 'select_battle' %>
 			<% end %>
 		</div>
 	</div>
 	<div class="msgbox_out menu_mode">
 		<div class="msgbox_in menu_mode">
 			<h2>【エキストラモード】</h2>
-			※近日公開予定
+			<%= form_with do |form| %>
+				カテゴリ:<span id="form_extra_category"><%= form.select :extra_category, @questExtra_categories, { prompt: '選んでください' } %></span><br />
+				タイトル:<span id="form_extra_title"><%= form.select :extra_title, [['カテゴリを選んで下さい', '']] %></span><br />
+				<%= form.hidden_field :gamemode, :value => 'extra' %>
+				<%= form.hidden_field :referrer, :value => 'menu' %>
+				<%= form.submit 'バトル！', :class => 'submit_battle', :id => 'extra_battle' %>
+			<% end %>
 		</div>
 	</div>
 	<div class="msgbox_out menu_mode">

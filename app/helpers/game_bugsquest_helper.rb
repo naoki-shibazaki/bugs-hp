@@ -23,21 +23,47 @@ module GameBugsquestHelper
     end
 
     # バグズクエスト：ユーザーデータ取得
-    def get_bugsquest_game_data
+    def get_bugsquest_game_data(mode: nil, extra_datas: nil)
         ret = {}
         ret[:questUser] = QuestUser.new
         ret[:questQuiz] = QuestQuiz.new
         ret[:questStage] = QuestStage.new
         ret[:questStatus] = QuestStatus.new
         ret[:questMonster] = QuestMonster.new
+
         unless current_user.nil?
             ret[:questUser] = QuestUser.find_by(users_id: current_user.id)
             #ret[:questQuiz] = QuestQuiz.find(ret[:questUser].quiz_id)
-            ret[:questQuiz] = QuestQuiz.find_by(id: ret[:questUser].recent_quiz_id, open_status: true)
-            ret[:questStage] = QuestStage.find(ret[:questQuiz].quest_stage_id)
-            ret[:questMonster] = QuestMonster.find(ret[:questQuiz].quest_monster_id)
-            ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
-            ret[:answers] = get_bugsquest_quiz_choice(ret[:questQuiz].choice)
+            case mode
+                when 'story', 'select'
+                    ret[:questQuiz] = QuestQuiz.find_by(id: ret[:questUser].recent_quiz_id, open_status: true)
+                    ret[:questStage] = QuestStage.find(ret[:questQuiz].quest_stage_id)
+                    ret[:questMonster] = QuestMonster.find(ret[:questQuiz].quest_monster_id)
+                    ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
+                    ret[:answers] = get_bugsquest_quiz_choice(ret[:questQuiz].choice)
+                    ret[:tips] = ret[:questQuiz].tips
+                when 'extra'
+                    if extra_datas[:extra_id].nil?
+                        ret[:questExtra] = QuestExtra.where(extra_num: extra_datas[:extra_num], open_status: true).first
+                    else
+                        ret[:questExtra] = QuestExtra.where(id: extra_datas[:extra_id], open_status: true).first
+                    end
+
+                    next_extra_num_id = ret[:questExtra].id + 1
+                    last_extra_num_id = QuestExtra.where(extra_num: ret[:questExtra].extra_num, open_status: true).last.id
+
+                    if next_extra_num_id <= last_extra_num_id
+                        ret[:next_extra_num_id] = next_extra_num_id
+                    else
+                        ret[:next_extra_num_id] = 0
+                    end
+
+                    ret[:questMonster] = QuestMonster.find(1)
+                    ret[:questStatus] = QuestStatus.find_by(lv: ret[:questUser].lv)
+
+                    ret[:answers] = get_bugsquest_quiz_choice(ret[:questExtra].choice)
+                    ret[:tips] = ret[:questExtra].tips
+            end
             # 次のレベルまでの経験値
             ret[:next_lvup_exp] = next_lvup_exp(1)
         else
@@ -58,7 +84,7 @@ module GameBugsquestHelper
             ret[:questMonster].name = 'ブラックバグズ'
 
             ret[:questQuiz].question = '正しいプログラム言語で敵を倒せ！'
-            ret[:questQuiz].tips = 'アカウントを作成するとストーリーが楽しめて経験値もためらるぞ❢'
+            ret[:tips] = 'アカウントを作成するとストーリーが楽しめて経験値もためらるぞ❢'
 
             # 次のレベルまでの経験値
             ret[:next_lvup_exp] = '＜アカウントを作成すると<br />経験値をためらるぞ❢＞'

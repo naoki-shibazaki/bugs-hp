@@ -18,15 +18,37 @@ class GameBugsquestController < ApplicationController
       set_quiz_id(0)
 
       @mode = battleMode[0]
+
+      # バグズクエスト：ユーザーデータ取得[ゲスト/ストーリー]
+      @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'story')
     else
-      # 選択したクイズIDを設定
-      set_quiz_id(params[:select_step].to_i)
+      case params[:gamemode]
+        # セレクトモード
+        when battleMode[1]['mode']
+          # 選択したクイズIDを設定
+          set_quiz_id(params[:select_step].to_i)
+          @mode = battleMode[1]
 
-      @mode = battleMode[1]
+          # バグズクエスト：ユーザーデータ取得[ゲスト/ストーリー/セレクト]
+          @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'select')
+        
+        # エキストラモード
+        when battleMode[2]['mode']
+          @mode = battleMode[2]
+
+          # バグズクエスト：ユーザーデータ取得[エキストラ]
+          case params[:referrer]
+            when 'menu'
+              extra_id = QuestExtra.where(extra_num: params[:extra_title], open_status: true).first.id
+              extra_num = params[:extra_title]
+            when 'battle'
+              extra_id = params[:extra_id].to_i
+              extra_num = QuestExtra.find(extra_id).extra_num
+          end
+          extra_datas = {extra_id: extra_id, extra_num: extra_num}
+          @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'extra', extra_datas: extra_datas)
+        end
     end
-
-    # バグズクエスト：ユーザーデータ取得
-    @get_bugsquest_game_data = get_bugsquest_game_data
 
     # ユーザーアカウントデータのセット
     unless current_user.nil?
@@ -34,16 +56,19 @@ class GameBugsquestController < ApplicationController
     else
       @user = User.new
     end
+
+    # クイズのカテゴリを取得[メニューのエキストラモードの項目で使用]
+    @questExtra_categories = QuestExtra.select(:category, :extra_num).distinct.where(open_status: true).order(:extra_num).map(&:category).uniq
   end
 
   def episode
     # バグズクエスト：ユーザーデータ取得
-    @get_bugsquest_game_data = get_bugsquest_game_data
+    @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'story')
   end
 
   def episode_all
     # バグズクエスト：ユーザーデータ取得
-    @get_bugsquest_game_data = get_bugsquest_game_data
+    @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'story')
   end
 
   def news

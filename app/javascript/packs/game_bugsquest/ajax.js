@@ -4,15 +4,31 @@
 //    https://sashimistudio.site/rails-ajax-jquery/
 
 // クイズの答えチェック
-checkAnswer = ({  quest_recent_quiz_id = 1,
-                  quest_quiz_answer = ''}) => {
+checkAnswer = ({  check_quiz_id = 1,
+                  quest_quiz_answer = '',
+                  gamemode = 'story'}) => {
   //  ajax通信条件にCSRFトークンを入れる
   set_csrftoken();
+  let paramURL;
+
+  //console.log(check_quiz_id);
+  //console.log(gamemode);
+  //console.log(quest_quiz_answer);
+  switch (gamemode) {
+    case 'story':
+    case 'select':
+      paramURL = '/api/checkAnswer?id='+check_quiz_id+'&answer='+quest_quiz_answer
+      break;
+    case 'extra':
+      paramURL = '/api/checkAnswerExtra?id='+check_quiz_id+'&answer='+quest_quiz_answer
+      break;
+  }
 
   ret = $.ajax({
     //headers: { 'X-CSRF-TOKEN': 'TOKEN' },
     type: 'PATCH', // HTTPリクエストメソッドの指定
-    url: '/api/checkAnswer?id='+quest_recent_quiz_id+'&answer='+quest_quiz_answer, // 送信先URLの指定
+    //url: '/api/checkAnswer?id='+quest_recent_quiz_id+'&answer='+quest_quiz_answer, // 送信先URLの指定
+    url: paramURL, // 送信先URLの指定
     async: false, // 非同期通信フラグの指定
     //dataType: 'json', // 受信するデータタイプの指定
     dataType: 'text', // 受信するデータタイプの指定
@@ -54,7 +70,9 @@ get_battle_damege = ({  quest_user_id = 0,
 }
 
 // バトル勝利
-get_battle_victory_info = ({ quest_user_id = 0, mode = 'story' }) => {
+get_battle_victory_info = ({  quest_user_id = 0,
+                              gamemode = 'story',
+                              quest_extra_id = '' }) => {
   //  ajax通信条件にCSRFトークンを入れる
   set_csrftoken();
 
@@ -62,7 +80,7 @@ get_battle_victory_info = ({ quest_user_id = 0, mode = 'story' }) => {
     //headers: { 'X-CSRF-TOKEN': 'TOKEN' },
     type: 'PATCH', // HTTPリクエストメソッドの指定
     //url: '/debug/apiVictoryBattle?user_id='+quest_user_id, // 送信先URLの指定
-    url: '/api/victoryBattle?user_id='+quest_user_id+'&change_token='+get_csrftoken_questuser()+'&mode='+mode, // 送信先URLの指定
+    url: '/api/victoryBattle?user_id='+quest_user_id+'&change_token='+get_csrftoken_questuser()+'&mode='+gamemode+'&quest_extra_id='+quest_extra_id, // 送信先URLの指定
     async: false, // 非同期通信フラグの指定
     //dataType: 'json', // 受信するデータタイプの指定
     dataType: 'text', // 受信するデータタイプの指定

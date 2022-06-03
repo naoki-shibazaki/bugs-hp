@@ -1,6 +1,10 @@
 @import './loading.scss';
 @import './button_menu.scss';
 
+div.none, span.none{
+    display: none;
+}
+
 div#container{
     header.slide-menu{
         .box_menu{
@@ -42,15 +46,8 @@ div#container{
                             margin: 5px;
                             font-size: revert;
                         }
-                        #select_battle{
-                            background: #040082;
-                            margin: 5px;
-                            padding: 7px;
-                            border-radius: 15px;
-                        }
                     }
-
-                    #story_battle{
+                    .submit_battle{
                         background: #040082;
                         margin: 5px;
                         padding: 7px;
@@ -426,6 +423,23 @@ div#container{
                     width: 60%;
                     text-align: center;
                 }
+
+                .yesno3{
+                    position: fixed;
+                    top: 20%;
+                    left: 80%;
+                    color: chartreuse;
+                    font-weight: bold;
+                    width: 60%;
+                    text-align: center;
+                    input{
+                        background-color: rgb(0 0 0 / 0%);
+                        /* outline: none; */
+                        border: none;
+                        position: relative;
+                        top: 5px;
+                    }
+                }
             }
             .msgbox_in{
                 height: inherit;
@@ -483,6 +497,16 @@ div#container{
                         margin-bottom: 5px;
                     }
                 }
+
+                span#bugsquestQuestExtraTitle{
+                    font-size: small;
+                    position: relative;
+                    left: 10px;
+                }
+            }
+            /* エキストラモードのクリア時のメッセージボックス位置 */
+            .gameclear{
+                transform: translate(50%, 100%);
             }
             /* メッセージ表示 */
             div.msgbox2{
@@ -518,6 +542,7 @@ div#container{
             }
             }
             */
+            /*
             span#bugsquestQuestUserID{
                 display: none;
             }
@@ -536,6 +561,7 @@ div#container{
             span#typedQuestionText{
                 display: none;
             }
+            */
             span#typedQuestion{
                 color: #ffe500;
                 font-weight: bold;
