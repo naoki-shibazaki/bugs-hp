@@ -65,3 +65,6 @@ gem 'dotenv-rails'
 
 # ページネーション導入
 gem 'kaminari'
+
+# Service Worker
+gem 'serviceworker-rails'

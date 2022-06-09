@@ -185,6 +185,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    serviceworker-rails (0.6.0)
+      railties (>= 3.1)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -242,6 +244,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   sass-rails (>= 6)
   selenium-webdriver
+  serviceworker-rails
   spring
   sqlite3
   turbolinks (~> 5)

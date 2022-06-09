@@ -15,3 +15,5 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import '../scss/application.scss'
+
+require('./serviceworker-companion');

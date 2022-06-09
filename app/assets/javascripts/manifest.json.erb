@@ -1,0 +1,26 @@
+<% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
+{
+  "name": "バグズクエスト",
+  "short_name": "バグズクエスト",
+  "start_url": "/login_confirm",
+  "icons": [
+    {
+      "src": "/image/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+<% if false %>
+  <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
+    {
+      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
+      "sizes": "<%= dim %>",
+      "type": "image/png"
+    }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
+  <% end %>
+<% end %>
+  ],
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
