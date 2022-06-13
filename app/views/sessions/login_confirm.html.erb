@@ -6,6 +6,7 @@
     <p><%= link_to "ログアウト", logout_path, method: :delete, class: 'btn btn--orange btn--radius' %></p>
 <% else %>
     <p><a href="/game/bugsquest?mode=guest" class="btn btn--orange btn--radius">ゲームスタート[ゲスト]</a></p>
+    <p><a href="/game/bugsquest/extra/" class="btn btn--orange btn--radius">ゲームスタート[エキストラゲスト]</a></p>
     <p><%= link_to "ログインする", login_path, method: :get, class: 'btn btn--orange btn--radius' %></p>
     <p><a href="/users/new" class="btn btn--orange btn--radius">新規アカウント作成</a><br />
 <% end %>

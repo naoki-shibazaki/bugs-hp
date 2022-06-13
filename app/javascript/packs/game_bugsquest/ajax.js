@@ -20,6 +20,7 @@ checkAnswer = ({  check_quiz_id = 1,
       paramURL = '/api/checkAnswer?id='+check_quiz_id+'&answer='+quest_quiz_answer
       break;
     case 'extra':
+    case 'extra_g':
       paramURL = '/api/checkAnswerExtra?id='+check_quiz_id+'&answer='+quest_quiz_answer
       break;
   }

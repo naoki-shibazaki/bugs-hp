@@ -53,7 +53,7 @@
 
             <div class="msgbox_out gamemode">
                 <div class="msgbox_in gamemode">
-                    ゲストモード
+                    <%= @mode['mode_jp'] %>モード
                     <span class="balloon_mode">ゲスト用モードです</span>
                 </div>
             </div>
@@ -65,6 +65,8 @@
                 </div>
             </div>
 
+<% case @mode['mode'] %>
+    <% when 'guest' %>
             <div class="msgbox_out quiz">
                 <div class="msgbox_in quiz">
                     <span class="balloon1" id="makeImg">選択せよ！</span>
@@ -79,6 +81,25 @@
                     <br />
                 </div>
             </div>
+    <% when 'extra_g' %>
+            <div class="msgbox_out quiz">
+                <div class="msgbox_in quiz">
+                    <span class="balloon1" id="makeImg">選択せよ！</span>
+                    <div class="none">
+                        <span class="none" id="bugsquestMode"><%= @mode['mode'] %></span>
+                        <span id="typedQuestionText"><%= @get_bugsquest_game_data[:questExtra].question %></span>
+                        <span id="bugsquestQuestExtraID"><%= @get_bugsquest_game_data[:questExtra].id %></span>
+                    </div>
+                    <p><span class="typedQuestion" id="typedQuestion"></span></p>
+                    <ul class="game_quiz_radio">
+                        <% @get_bugsquest_game_data[:answers].each do |value| %>
+                            <li><input type="radio" class="modal_radio" name="amswer[]" value="<%= value %>"><%= value %></li>
+                        <% end %>
+                        <li><button type="button" class="modal_btn2" name="answer3" id="answer3">回答</button></li>
+                    </ul>
+                </div>
+            </div>
+<% end %>
 
             <div class="msgbox2">
             <span class="none" id="typedMsg2Text"><%= @get_bugsquest_game_data[:tips].html_safe %></span>
@@ -91,7 +112,7 @@
 
             <div class="msgbox_out yesno">
                 <div class="msgbox_in yesno">
-                    <a link="/game/bugsquest<%= make_bugsquest_pram %>" onclick="window.location = $(this).attr('link');">はい</a>
+                    <%= link_to 'はい', '', {link: @ret[:yesno_link], onclick: "window.location = $(this).attr('link');"} %>
                 </div>
             </div>
 

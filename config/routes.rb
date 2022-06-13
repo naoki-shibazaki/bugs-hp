@@ -37,7 +37,11 @@ Rails.application.routes.draw do
   get '/game/bugsquest/episode',   to: 'game_bugsquest#episode'
   get '/game/bugsquest/episode_all',   to: 'game_bugsquest#episode_all'
 
-  # ニュース
+  # バグズクエスト・ゲスト用エキストラモード
+  get '/game/bugsquest/extra', to: 'game_bugsquest#extra_guest'
+  get '/game/bugsquest/extra/:extra_id', to: 'game_bugsquest#extra_guest', as: 'extra_guest'
+  
+  # バグズクエスト・ニュース
   get '/game/bugsquest/news/feed', to: 'news#bugsquest_feed', format: 'rss', as: 'feed_bugsquest'
   get '/game/bugsquest/news',   to: 'news#bugsquest_news'
   get '/game/bugsquest/news/:id', to: 'news#bugsquest_news_article', as: 'bugsquest_news_article'

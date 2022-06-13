@@ -1,7 +1,9 @@
 require 'csv'
 
 class GameBugsquestController < ApplicationController
-  before_action :check_login
+  before_action :check_login, except: :extra_guest
+  # 非ログイン時のみ実行可能
+  before_action :logged_in_user_deny, {only: :extra_guest}
 
   include ApplicationHelper
 
@@ -104,6 +106,35 @@ class GameBugsquestController < ApplicationController
   end
 
   def news
+  end
+
+  def extra_guest
+    # バトルモード取得
+    battleMode = CSV.read('./public/csv/bugsquest/battleMode.csv', headers: true)
+
+    # クイズのカテゴリを取得[メニューのエキストラモードの項目で使用]
+    @questExtra_categories = QuestExtra.select(:category, :extra_num).distinct.where(open_status: true).order(:extra_num).map(&:category).uniq   
+
+    # エキストラgモード
+    @mode = battleMode[4] #エキストラgモード
+
+    # ゲストなので、空のユーザーインスタンス生成
+    @user = User.new
+
+    extra_id = params[:extra_id]
+    chkQuestExtra = QuestExtra.exists?(id: extra_id)
+
+    # パラメータのクイズIDがない場合、ランダムでクイズIDを取得してリダイレクトする
+    unless chkQuestExtra
+      extra_id = QuestExtra.all.where(open_status: true).sample.id
+      return redirect_to extra_guest_path(extra_id: extra_id)
+    end
+
+    # バグズクエスト：ユーザーデータ取得[エキストラg]
+    extra_datas = {extra_id: extra_id}
+    @get_bugsquest_game_data = get_bugsquest_game_data(mode: 'extra_g', extra_datas: extra_datas)
+
+    render 'index_guest'
   end
 
   private

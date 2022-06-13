@@ -503,6 +503,10 @@ div#container{
                     position: relative;
                     left: 10px;
                 }
+                
+                span#typed a{
+                    color: chartreuse;
+                }
             }
             /* エキストラモードのクリア時のメッセージボックス位置 */
             .gameclear{

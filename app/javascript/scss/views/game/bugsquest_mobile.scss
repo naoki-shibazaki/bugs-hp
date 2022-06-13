@@ -510,6 +510,10 @@
                         transform: scale(0.9);
                         */
                     }
+
+                    span#typed a{
+                        color: chartreuse;
+                    }
                 }
                 /* エキストラモードのクリア時のメッセージボックス位置 */
                 .gameclear{

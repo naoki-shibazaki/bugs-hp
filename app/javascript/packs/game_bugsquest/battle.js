@@ -47,6 +47,7 @@ $(function(){
           quiz_result = checkAnswer({check_quiz_id : questionId, quest_quiz_answer : answer, gamemode : gamemode});
           break;
         case 'extra':
+        case 'extra_g':
           quiz_result = checkAnswer({check_quiz_id : questExtraId, quest_quiz_answer : answer, gamemode : gamemode});
           break;
       }
@@ -64,29 +65,39 @@ $(function(){
 
         //const token = $('meta[name="csrf-questuser-token"]').attr('content');
         //console.log(token);
-      
-        // APIにてバトル勝利処理とデータ取得
-        const jsonData = JSON.parse(get_battle_victory_info({ quest_user_id: quest_user_id,
-                                                              gamemode: gamemode,
-                                                              quest_extra_id: questExtraId }));
-
-        //Object.keys(jsonData.msg).forEach(function (key, value) {
-        //  console.log([key, value]);
-        //});
 
         // バトル終了メッセージを取得
         msg = ['モンスターをやっつけた！'];
-        $.each(jsonData.msg, function(idx, obj) {
-            if(obj != null){
-              msg.push(obj);
-            }
-        });
+
+        // APIにてバトル勝利処理とデータ取得
+        switch (gamemode) {
+          case 'extra_g':
+            msg.push('経験値0ポイントを獲得！');
+            msg.push('アカウント登録して経験値をためよう！<a href="/users/new">【新規登録】</a>');
+            break;
+
+          default:
+            const jsonData = JSON.parse(get_battle_victory_info({ quest_user_id: quest_user_id,
+                                                                  gamemode: gamemode,
+                                                                  quest_extra_id: questExtraId }));
+                                                                  
+            //Object.keys(jsonData.msg).forEach(function (key, value) {
+            //  console.log([key, value]);
+            //});
+
+            $.each(jsonData.msg, function(idx, obj) {
+                if(obj != null){
+                  msg.push(obj);
+                }
+            });
+        }
 
         battle_msg({tid : 'span#typed',tclass : '.typed', strings : msg, startDelay : 1000});
 
         // 次回バトル案内
         switch (gamemode) {
           case 'story':
+          case 'extra_g':
             $('.msgbox_in.question').text('次のバトルに挑戦しますか？');
             break;
           case 'select':
@@ -114,16 +125,28 @@ $(function(){
         
       }else{
         // ★解答不正解
-        damege_point = get_battle_damege({quest_user_id: quest_user_id, quest_monster_id : monsterId})
+        switch(gamemode){
+          case 'extra_g':
+            // バトル終了メッセージ表示[敗北]
+            setTimeout(() => {
+              $('.msgbox_in.question').text('もう一度、挑戦しますか？');
+              msgbox_battle_end_lose(gamemode);
+              msg = ['勇者は全滅した・・・'];
+              battle_msg({tid : 'span#typed',tclass : '.typed', strings : msg, startDelay : 1500});
+            }, 500);
+            break
 
-        if(!msgbox_battle_damege(damege_point)){
-          // バトル終了メッセージ表示[敗北]
-          setTimeout(() => {
-            $('.msgbox_in.question').text('もう一度、挑戦しますか？');
-            msgbox_battle_end_lose(gamemode);
-            msg = ['勇者は全滅した・・・'];
-            battle_msg({tid : 'span#typed',tclass : '.typed', strings : msg, startDelay : 1000});
-          }, 3500);
+          default:
+            damege_point = get_battle_damege({quest_user_id: quest_user_id, quest_monster_id : monsterId})
+            if(!msgbox_battle_damege(damege_point)){
+              // バトル終了メッセージ表示[敗北]
+              setTimeout(() => {
+                $('.msgbox_in.question').text('もう一度、挑戦しますか？');
+                msgbox_battle_end_lose(gamemode);
+                msg = ['勇者は全滅した・・・'];
+                battle_msg({tid : 'span#typed',tclass : '.typed', strings : msg, startDelay : 1000});
+              }, 3500);
+            }
         }
       }
     }
@@ -151,7 +174,7 @@ $(function(){
 
       msg = ['モンスターをやっつけた！'];
       msg.push('経験値0ポイントを獲得！');
-      msg.push('アカウント登録して経験値をためよう！');
+      msg.push('アカウント登録して経験値をためよう！<a href="/users/new">【新規登録】</a>');
       battle_msg({tid : 'span#typed',tclass : '.typed', strings : msg, startDelay : 1000});
 
     }else if(answer === '0'){
@@ -504,6 +527,7 @@ msgbox_battle_end_win = (gamemode) => {
   */
   switch (gamemode) {
     case 'story':
+    case 'extra_g':
       fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
       break;
     case 'select':
@@ -533,6 +557,7 @@ msgbox_battle_end_lose = (gamemode) => {
   */
   switch (gamemode) {
     case 'story':
+    case 'extra_g':
       fadeProc('.msgbox_out' + '.yesno', 4000, 'In');
       break;
     case 'select':
