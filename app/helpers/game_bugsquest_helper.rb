@@ -149,7 +149,10 @@ module GameBugsquestHelper
 
         @ret[:questUser].lv = 0
         @ret[:questUser].exp = 0
-        @ret[:questMonster].name = 'ブラックバグズ'
+
+        @ret[:questMonster] = QuestMonster.all.sample
+        #@ret[:questMonster].name = 'ブラックバグズ'
+        #@ret[:questMonster].img_path = '/image/game/bugsquest/monster/1_black_bugs_chan.png'
 
         @ret[:questQuiz].question = '正しいプログラム言語で敵を倒せ！'
         @ret[:tips] = 'アカウントを作成するとストーリーが楽しめて経験値もためらるぞ❢'
