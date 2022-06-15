@@ -142,7 +142,7 @@ class GameBugsquestController < ApplicationController
   # ログインの有無をチェック
   def check_login
     unless logged_in? || params[:mode] == 'guest'
-      redirect_to login_confirm_url
+      redirect_to game_gamelist_url
     end
   end
 

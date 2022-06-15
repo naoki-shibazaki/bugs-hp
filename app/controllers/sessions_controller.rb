@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     redirect_to game_bugsquest_url
   end
 
-  def login_confirm
+  def gamelist
   end
 
   # API:答えを正否を判定[ストーリーモード/セレクトモード]

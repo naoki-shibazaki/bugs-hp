@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     def logged_in_user_deny
         if logged_in?
             #redirect_to root_url
-            redirect_to login_confirm_url
+            redirect_to game_gamelist_url
         end
     end
 end
