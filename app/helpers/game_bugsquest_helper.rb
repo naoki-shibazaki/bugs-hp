@@ -68,7 +68,7 @@ module GameBugsquestHelper
                     @ret[:next_extra_num_id] = 0
                 end
 
-                @ret[:questMonster] = QuestMonster.find(1)
+                @ret[:questMonster] = QuestMonster.find(@ret[:questExtra].quest_monster_id)
                 @ret[:questStatus] = QuestStatus.find_by(lv: @ret[:questUser].lv)
 
                 @ret[:answers] = get_bugsquest_quiz_choice(@ret[:questExtra].choice)
