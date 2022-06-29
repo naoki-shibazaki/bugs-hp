@@ -140,9 +140,17 @@ $(function(){
   ///
   /// 「メール送信」ボタン
   /// 
-  $('.send-button').on('click', function() {
+  $('#btn_inquiry').on('click', function() {
     // console.log(11111);
     window.open('/form',"WindowName","width=700,height=512,resizable=no,scrollbars=yes");
+    return false;
+  });
+
+  ///
+  /// 「クイズをスキップ」ボタン
+  /// 
+  $('#btn_quiz_skip').on('click', function() {
+    $('.modal').fadeOut();
     return false;
   });
 

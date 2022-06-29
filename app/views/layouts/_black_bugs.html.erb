@@ -29,7 +29,8 @@
 	</div>
     <div class="modal-inner">
 		<span class="mail_send_btn">
-			<button class="send-button"><span class="select">お問い合わせ</span></button>
+			<button class="send-button toppage" id="btn_quiz_skip"><span class="select">クイズをスキップ</span></button>
+			<button class="send-button toppage" id="btn_inquiry"><span class="select">お問い合わせ</span></button>
 		</span>
 		<div class="modal-black_bugs">
 			<img class="modal_window_bugs" src="/image/game/bugsquest/monster/1_black_bugs_chan.png" alt="ブラックバグズちゃん" title="ブラックバグズちゃん">
@@ -38,9 +39,9 @@
             <ul class="c-abouts-items">
                 <li class="c-abouts-item">
 					<div class="modal-left_window">
-						<div class="c-abouts-item-choices">
+						<div class="c-abouts-item-choices toppage">
 							<span class="balloon1" id="makeImg">選んで救うのじゃ！</span>
-							<p>正しいプログラム言語で浄化じゃ！</p>
+							<p class="char">正しいプログラム言語で浄化じゃ！</p>
 							<ul class="quiz-radio-btn">
 								<% @quizzes.each do |key, value| %>
 									<li><input type="radio" class="modal_radio" name="amswer[]" value=<%= value %>><%= key %></li>
@@ -50,9 +51,9 @@
 						</div>
 					</div>
 					<div class="modal-right_window">
-						<div class="c-abouts-item-choices">
+						<div class="c-abouts-item-choices toppage">
 							<ul>
-								<li>ブラックバグズちゃん　−　1ぴき</li>
+								<li><p class="char">ブラックバグズちゃん　−　1ぴき</p></li>
 							</ul>
 						</div>
 					</div>
