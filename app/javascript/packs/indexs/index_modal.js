@@ -140,7 +140,7 @@ $(function(){
   ///
   /// 「メール送信」ボタン
   /// 
-  $('#btn_inquiry').on('click', function() {
+  $('#btn_inquiry,#btn_inquiry_top').on('click', function() {
     // console.log(11111);
     window.open('/form',"WindowName","width=700,height=512,resizable=no,scrollbars=yes");
     return false;
